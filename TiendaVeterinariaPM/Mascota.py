@@ -12,7 +12,7 @@ class Mascota:
         self.__peso = peso
         self.__tamaño = tamaño
         self.__volumen = volumen
-        self.__fichaMedica = fichaMedica if fichaMedica is not None else []
+        self.__fichaMedica = fichaMedica
 
     def get_id(self):
         return self.__id
