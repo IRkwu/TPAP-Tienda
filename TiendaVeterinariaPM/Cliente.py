@@ -2,7 +2,7 @@ from datetime import datetime
 
 
 class Cliente:
-    def __init__(self, id, nombre, apellidoPaterno, apellidoMaterno, genero, fechaNacimiento, rut, email, telefono, domicilio, mascotas=None, historial=None):
+    def __init__(self, id, nombre, apellidoPaterno, apellidoMaterno, genero, fechaNacimiento, rut, email, telefono, domicilio, mascotas, historial):
         self.__id = id
         self.__nombre = nombre
         self.__apellidoPaterno = apellidoPaterno
