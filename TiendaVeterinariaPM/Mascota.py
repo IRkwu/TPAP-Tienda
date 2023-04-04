@@ -2,7 +2,7 @@ from datetime import datetime
 
 
 class Mascota:
-    def __init__(self, id, nombre, especie, raza, fechaNacimiento, sexo, peso, tamaño, volumen, fichaMedica=None):
+    def __init__(self, id, nombre, especie, raza, fechaNacimiento, sexo, peso, tamaño, volumen, fichaMedica):
         self.__id = id
         self.__nombre = nombre
         self.__especie = especie
