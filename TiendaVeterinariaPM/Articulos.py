@@ -1,5 +1,5 @@
 class Articulos:
-    def __init__(self, nombre, mascota, id, marca, precio_por_unidad, stock, descripcion, categoria, precio_por_lote, limite_critico):
+    def __init__(self, nombre, mascota, id, marca, precio_por_unidad:int, stock:int, descripcion, categoria, precio_por_lote:int, limite_critico:int):
         self.__nombre = nombre
         self.__mascota = mascota
         self.__id = id
@@ -74,12 +74,27 @@ class Articulos:
     def set_limite_critico(self, limite_critico):
         self.__limite_critico = limite_critico
         
+    def AgregarStock(self, cantidad):
+        self.__stock = self.__stock + cantidad
+        
+    def RetirarStock(self, cantidad):
+        self.__stock = self.__stock - cantidad
+        
+    def NotificacionEstadoCritico(self):
+        if self.__stock < self.__limite_critico:
+            print("El artículo:",self.__nombre,"está en el limite crítico")
+        
         
 # Ejemplo
-articulo1 = Articulos("Cama Iglu", "Gato", "A12", "Catto", "$28.900", "30", "Cama para gatos con forma de Iglu", "Camas", "$130.000", "3")
-nombre = articulo1.get_nombre()
-print(nombre)
-stock = articulo1.get_stock()
-print(stock)
-marca = articulo1.get_marca()
-print(marca)
+#articulo1 = Articulos("Cama Iglu", "Gato", "A12", "Catto", 28900, 30, "Cama para gatos con forma de Iglu", "Camas", 130000, 3)
+#print(articulo1.get_stock())
+#articulo1.NotificacionEstadoCritico()
+#articulo1.AgregarStock(10)
+#print(articulo1.get_stock())
+#articulo1.NotificacionEstadoCritico()
+#articulo1.RetirarStock(5)
+#print(articulo1.get_stock())
+#articulo1.NotificacionEstadoCritico()
+#articulo1.set_stock(2)
+#print(articulo1.get_stock())
+#articulo1.NotificacionEstadoCritico()

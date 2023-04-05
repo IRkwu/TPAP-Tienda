@@ -44,8 +44,18 @@ class Boleta:
         
     def set_costo_envio(self, costo_envio):
         self.__costo_envio = costo_envio
-    
+        
+    def imprimir_boleta(self):
+        print("================================")
+        print("        BOLETA DE VENTA")
+        print("================================")
+        print("Cliente:",self.__nombre_cliente)
+        print("Productos:",self.__productos)
+        print("Costo de envío: $:",self.__costo_envio)
+        print("Total: $",self.__total)
+        print("================================")
+        
+        
 #Ejemplo
-boleta1 = Boleta("Juan", "Maria", "2023-04-04", "Producto 1, Producto 2", 28.900, 0)
-
-print(boleta1.get_nombre_cliente(),boleta1.get_fecha(),boleta1.get_productos())
+#boleta1 = Boleta("Juan", "Maria", "2023-04-04", ["Producto 1, Producto 2"], 28900, 0)
+#boleta1.imprimir_boleta()
