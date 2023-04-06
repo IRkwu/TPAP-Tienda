@@ -1,20 +1,32 @@
+from Articulos import *
+
 class Carrito():
     
-    def __init__(self, articulos, total_precio, cant_productos):
-        self._articulos = articulos
+    def __init__(self, ArticulosCarrito, total_precio):
+        self._ArticulosCarrito = [ArticulosCarrito]
         self._total_precio = total_precio
-        self._cant_productos = cant_productos
-        
-    articulos = []
+        self._cant_articulos = len(ArticulosCarrito)
     
-    def AgregarArticulo():
+    
+    def AgregarArticulo(self, indice):
+        if Carrito.VerificarStockArticulos(self, indice) == False:
+            print("Error!!! Producto sin stock")
+        else: 
+            self.ArticulosCarrito.append(ListaArticulos[indice])
         
-    def EliminarArticulo():
+    def EliminarArticulo(self):
+        self._ArticulosCarrito.pop(indice)
         
-    def VerificarStockArticulos():
+    def VerificarStockArticulos(self, indice):
+        if ListaArticulos[indice].get_stock == 0:
+            return False
         
-    def CalcularTotal():
+    def CalcularTotal(self):
+        for ArticulosCarrito in self._cant_articulos:
+            precio_total += ArticulosCarrito.get.total[indice]
+            
         
-    def ObtenerCantidadArticulos():
+    def ObtenerCantidadArticulos(self):
+        print(self._cant_articulos)
         
-    def VerificarClienteFrecuente():
+    def VerificarClienteFrecuente(self):
