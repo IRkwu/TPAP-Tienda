@@ -1,3 +1,5 @@
+import pandas as pd
+
 class Articulos:
     def __init__(self, nombre, mascota, id, marca, precio_por_unidad:int, stock:int, descripcion, categoria, precio_por_lote:int, limite_critico:int):
         self.__nombre = nombre
@@ -83,18 +85,29 @@ class Articulos:
     def NotificacionEstadoCritico(self):
         if self.__stock < self.__limite_critico:
             print("El artículo:",self.__nombre,"está en el limite crítico")
-        
-        
-# Ejemplo
-#articulo1 = Articulos("Cama Iglu", "Gato", "A12", "Catto", 28900, 30, "Cama para gatos con forma de Iglu", "Camas", 130000, 3)
-#print(articulo1.get_stock())
-#articulo1.NotificacionEstadoCritico()
-#articulo1.AgregarStock(10)
-#print(articulo1.get_stock())
-#articulo1.NotificacionEstadoCritico()
-#articulo1.RetirarStock(5)
-#print(articulo1.get_stock())
-#articulo1.NotificacionEstadoCritico()
-#articulo1.set_stock(2)
-#print(articulo1.get_stock())
-#articulo1.NotificacionEstadoCritico()
+            
+articulos = [
+    Articulos("Cama Iglu", "Gato", "A12", "Catto", 28900, 30, "Cama para gatos con forma de Iglu", "Camas", 130050, 3),
+    Articulos("Cama Dona", "Perro", "A13", "Doggo", 24900, 30, "Cama para perros con forma de dona", "Camas", 112050, 3),
+]
+
+def GuardarExcel(articulo):
+    # Dataframe para articulo
+    df = pd.DataFrame({
+        'Nombre': [articulo.get_nombre() for articulo in articulos],
+        'Mascota': [articulo.get_mascota() for articulo in articulos],
+        'ID': [articulo.get_id() for articulo in articulos],
+        'Marca': [articulo.get_marca() for articulo in articulos],
+        'Precio por unidad': [articulo.get_precio_por_unidad() for articulo in articulos],
+        'Stock': [articulo.get_stock() for articulo in articulos],
+        'Descripcion': [articulo.get_descripcion() for articulo in articulos],
+        'Categoria': [articulo.get_categoria() for articulo in articulos],
+        'Precio por lote': [articulo.get_precio_por_lote() for articulo in articulos],
+        'Limite critico': [articulo.get_limite_critico() for articulo in articulos]
+    })
+
+    # Guardado del dataframe
+    writer = pd.ExcelWriter('Archivos de Datos\ListaArticulos.xlsx', engine='xlsxwriter')
+    df.to_excel(writer, index=False, sheet_name='Articulo')
+    writer._save()
+GuardarExcel(articulos)
