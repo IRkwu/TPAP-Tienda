@@ -1,6 +1,5 @@
 from Articulos import Articulos
-
-ListaArticulos = Articulos.CargarCSV('Archivos de Datos\ListaArticulos.csv')
+from Articulos import ListaArticulos
 
 class Carrito():
     
@@ -51,10 +50,11 @@ class Carrito():
         #Hay que hacer la verificacion con el historial
 
     def MostrarArticulosCarrito(self):
+        contador=1
         if len(self.__ArticulosCarrito) == 0:
             print("El Carrito está vacio")
         for articulo in self.__ArticulosCarrito:
-            print("Nombre: " + articulo.get_nombre())
+            print("[Art:",contador,"]" + articulo.get_nombre())
 
 #Ejemplo de las funciones
 #mi_carrito = Carrito([2], 0, True)

@@ -126,7 +126,7 @@ class Articulos:
             contador += 1
             
 #Cargar archivo CSV y llenar el arreglo de ListaArticulos
-#ListaArticulos = Articulos.CargarCSV('Archivos de Datos\ListaArticulos.csv')
+ListaArticulos = Articulos.CargarCSV('Archivos de Datos\ListaArticulos.csv')
 
 #Ejemplo mostrar articulos
 #Articulos.MostrarListaArticulos()

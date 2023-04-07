@@ -21,3 +21,6 @@ class Envio:
 
     def set_direccionEnvio(self, direccionEnvio):
         self.__direccionEnvio = direccionEnvio
+
+    def mostrarEnvio(self):
+        return f"Descripción: {self.__descripcion}\nNúmero de Seguimiento: {self.__numeroSeguimiento}\nDirección de Envío: {self.__direccionEnvio}"

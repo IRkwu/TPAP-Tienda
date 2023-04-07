@@ -1,32 +1,60 @@
 import sys
 from Articulos import Articulos
 from Carrito import Carrito
+from Envio import Envio
 
 ListaArticulos = Articulos.CargarCSV('Archivos de Datos\ListaArticulos.csv')
 
-def mostrar_menu():
-    print("\n>>> Tienda de artículos para Mascotas")
-    print("1. Ver productos disponibles")
-    print("2. Agregar un producto del carrito")
-    print("3 Eliminar un producto del carrito")
-    print("4. Ver productos en el carrito")
-    print("5. Salir")
-    
-    
-while True:
-    mostrar_menu()
-    opcion = input("\nIngrese el número de la opción")
-    if opcion == "1":
+opcionMenu = 0
+
+while opcionMenu < 1 or opcionMenu > 4:
+    print("\n --MENU-- \n")
+    print("1.- Ver productos")
+    print("2.- Seleccionar productos")
+    print("3.- Realizar compra")
+    print("4.- Ver envio")
+    print("5.- Salir")
+    opcionMenu = int(input("Opcion: "))
+
+    if opcionMenu == 1:
         Articulos.MostrarListaArticulos()
-    elif opcion == "2":
-        indice = int(input("Ingrese el numero del producto a agregar"))
-    elif opcion == "3":
-        indice = int(input("Ingrese el numero del producto a eliminar"))
-    elif opcion == "4":
-        print("Articulos del carrito:")
-    elif opcion == "5":
-        print("Gracias por la visita")
-        sys.exit()
-    else:
-        print("\nOpción incorrecta. Intente nuevamente")
-        
+        opcionMenu = 0
+    elif opcionMenu == 2:
+        llenadoDeCarrito()
+        opcionMenu = 0
+    elif opcionMenu == 3:
+        # realizarCompra()
+        opcionMenu = 0
+    elif opcionMenu == 4:
+        print(Envio.mostrarEnvio())
+        opcionMenu = 5
+    elif opcionMenu == 5:
+        opcionMenu = 1
+
+
+def llenadoDeCarrito():
+    id = 0
+    opcion = ''
+    comprobacion = False
+
+    while True:
+        print("\n --INGRESE EL ID DE LOS PRODUCTOS A COMPRAR-- \n")
+        id = int(input("ID: "))
+
+        for articulo in ListaArticulos:
+            if id == articulo.get_id:
+                comprobacion = True
+                Articulos.AgregarArticulo(ListaArticulos[id])
+
+        if comprobacion:
+            print("Producto ingresado correctamente")
+        else:
+            print("Error, ID no existe")
+
+        print("\n Desea agregar otro producto?\n")
+        print("S = si // N = No")
+        opcion = input("Opcion: ")
+        comprobacion = False
+
+        if opcion.lower() != 's':
+            break
