@@ -27,7 +27,7 @@ def main():
             realizarCompra()
             opcionMenu = 0
         elif opcionMenu == 4:
-            print(envi.toString())
+            print(Carrito.MostrarArticulosCarrito())
             opcionMenu = 5
         elif opcionMenu == 5:
             opcionMenu = 1
