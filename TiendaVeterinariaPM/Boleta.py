@@ -1,9 +1,11 @@
+from Cliente import Cliente
+    
 class Boleta:
-    def __init__(self, nombre_vendedor, nombre_cliente, fecha, productos, total, costo_envio):
+    def __init__(self, nombre_vendedor, nombre_cliente, fecha, articulos, total, costo_envio):
         self.__nombre_vendedor = nombre_vendedor
         self.__nombre_cliente = nombre_cliente
         self.__fecha = fecha
-        self.__productos = productos
+        self.__articulos = articulos
         self.__total = total
         self.__costo_envio = costo_envio
         
@@ -17,8 +19,8 @@ class Boleta:
     def get_fecha(self):
         return self.__fecha
     
-    def get_productos(self):
-        return self.__productos
+    def get_articulos(self):
+        return self.__articulos
     
     def get_total(self):
         return self.__total
@@ -36,8 +38,8 @@ class Boleta:
     def set_fecha(self, fecha):
         self.__fecha = fecha
         
-    def set_productos(self, productos):
-        self.__productos = productos
+    def set_articulos(self, articulos):
+        self.__articulos = articulos
         
     def set_total(self, total):
         self.__total = total
@@ -50,7 +52,7 @@ class Boleta:
         print("        BOLETA DE VENTA")
         print("================================")
         print("Cliente:",self.__nombre_cliente)
-        print("Productos:",self.__productos)
+        print("Articulos:",self.__articulos)
         print("Costo de envío: $:",self.__costo_envio)
         print("Total: $",self.__total)
         print("================================")
