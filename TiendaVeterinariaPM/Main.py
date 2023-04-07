@@ -1,36 +1,35 @@
 import sys
 from Articulos import Articulos
 from Carrito import Carrito
+from Envio import Envio
 
 ListaArticulos = Articulos.CargarCSV('Archivos de Datos\ListaArticulos.csv')
 
+opcionMenu = 0
 
-def main():
-    opcionMenu = 0
+while opcionMenu < 1 or opcionMenu > 4:
+    print("\n --MENU-- \n")
+    print("1.- Ver productos")
+    print("2.- Seleccionar productos")
+    print("3.- Realizar compra")
+    print("4.- Ver envio")
+    print("5.- Salir")
+    opcionMenu = int(input("Opcion: "))
 
-    while opcionMenu < 1 or opcionMenu > 4:
-        print("\n --MENU-- \n")
-        print("1.- Ver productos")
-        print("2.- Seleccionar productos")
-        print("3.- Realizar compra")
-        print("4.- Ver envio")
-        print("5.- Salir")
-        opcionMenu = int(input("Opcion: "))
-
-        if opcionMenu == 1:
-            Articulos.MostrarListaArticulos()
-            opcionMenu = 0
-        elif opcionMenu == 2:
-            llenadoDeCarrito()
-            opcionMenu = 0
-        elif opcionMenu == 3:
-            realizarCompra()
-            opcionMenu = 0
-        elif opcionMenu == 4:
-            print(Carrito.MostrarArticulosCarrito())
-            opcionMenu = 5
-        elif opcionMenu == 5:
-            opcionMenu = 1
+    if opcionMenu == 1:
+        Articulos.MostrarListaArticulos()
+        opcionMenu = 0
+    elif opcionMenu == 2:
+        llenadoDeCarrito()
+        opcionMenu = 0
+    elif opcionMenu == 3:
+        # realizarCompra()
+        opcionMenu = 0
+    elif opcionMenu == 4:
+        print(Envio.mostrarEnvio())
+        opcionMenu = 5
+    elif opcionMenu == 5:
+        opcionMenu = 1
 
 
 def llenadoDeCarrito():
@@ -59,6 +58,3 @@ def llenadoDeCarrito():
 
         if opcion.lower() != 's':
             break
-
-
-def realizarCompra():
