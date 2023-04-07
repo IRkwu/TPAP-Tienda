@@ -1,8 +1,8 @@
-Nombre,Mascota,ID,Marca,Precio por unidad,Stock,Descripcion,Categoria,Precio por lote,Limite critico
+Nombre,Mascota,ID,Marca,Precio por unidad,Stock,Descripci�n,Categor�a,Precio por lote,L�mite cr�tico
 Cama Iglu,Gato,A12,Catto,28900,30,Cama para gatos con forma de Iglu,Camas,130050,3
 Cama Dona,Perro,A13,Doggo,24900,50,Cama para perros con forma de dona,Camas,112050,3
-Juguete Hueso,Perro,A24,Doggo,10000,50,Juguete con forma de hueso para perros,Juguetes de entretencion,45000,5
-Baño ecologico,Perro,A25,Doggo,9000,40,Baño ecologico con cesped para perros,Articulos de Aseo,40500,4
-Ropa Tiburon,Gato,A15,Catlish,8000,25,Disfraz con forma de tiburon para gatos,Articulos Esteticos,36000,2
-Arena Sanitaria,Gato,A16,Catto,20000,20,Arena sanitaria para gatos,Articulos de Aseo,90000,2
-Bola de lana,Gato,A17,Catto,3000,100,Bola de lana para la entretencion de tu felino,Juguetes de entretencion,13500,10
+Juguete Hueso,Perro,A24,Doggo,9900,50,Juguete con forma de hueso para perros,Juguetes de entretencion,45000,5
+Baño ecologico,Perro,A25,Doggo,8900,40,Baño ecologico con cesped para perros,Articulos de Aseo,40500,4
+Ropa Tiburon,Gato,A15,Catlish,7900,25,Disfraz con forma de tiburon para gatos,Articulos Esteticos,36000,2
+Arena Sanitaria,Gato,A16,Catto,19900,20,Arena sanitaria para gatos,Articulos de Aseo,90000,2
+Bola de lana,Gato,A17,Catto,2900,100,Bola de lana para la entretencion de tu felino,Juguetes de entretencion,13500,10
