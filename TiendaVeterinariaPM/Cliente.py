@@ -1,3 +1,4 @@
+import csv
 from datetime import datetime
 
 
@@ -91,5 +92,10 @@ class Cliente:
     def set_historial(self, historial):
         self.__historial = historial
 
-    def agregar_servicio_historial(self, servicio):
+    def agregar_servicio_historial(self, servicio, historial_cliente):
         self.__historial.append(servicio)
+        with open('Archivos de Datos\HistorialCliente.csv', mode='w', newline='') as file:
+            writer = csv.writer(file, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
+            writer.writerow(['Nombre Vendedor', 'Nombre Cliente', 'Fecha', 'Productos', 'Total', 'Costo Envío', 'Fecha de última compra'])
+            for cliente in historial_cliente:
+                writer.writerow([cliente.get_nombre(), articulo.get_mascota(), articulo.get_id(), articulo.get_marca(), articulo.get_precio_por_unidad(), articulo.get_stock(), articulo.get_descripcion(), articulo.get_categoria(), articulo.get_precio_por_lote(), articulo.get_limite_critico()])

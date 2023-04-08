@@ -1,4 +1,4 @@
-import pandas as pd
+import csv
 
 class Articulos:
     def __init__(self, nombre, mascota, id, marca, precio_por_unidad:int, stock:int, descripcion, categoria, precio_por_lote:int, limite_critico:int):
@@ -85,29 +85,55 @@ class Articulos:
     def NotificacionEstadoCritico(self):
         if self.__stock < self.__limite_critico:
             print("El artículo:",self.__nombre,"está en el limite crítico")
-            
-articulos = [
-    Articulos("Cama Iglu", "Gato", "A12", "Catto", 28900, 30, "Cama para gatos con forma de Iglu", "Camas", 130050, 3),
-    Articulos("Cama Dona", "Perro", "A13", "Doggo", 24900, 30, "Cama para perros con forma de dona", "Camas", 112050, 3),
-]
 
-def GuardarExcel(articulo):
-    # Dataframe para articulo
-    df = pd.DataFrame({
-        'Nombre': [articulo.get_nombre() for articulo in articulos],
-        'Mascota': [articulo.get_mascota() for articulo in articulos],
-        'ID': [articulo.get_id() for articulo in articulos],
-        'Marca': [articulo.get_marca() for articulo in articulos],
-        'Precio por unidad': [articulo.get_precio_por_unidad() for articulo in articulos],
-        'Stock': [articulo.get_stock() for articulo in articulos],
-        'Descripcion': [articulo.get_descripcion() for articulo in articulos],
-        'Categoria': [articulo.get_categoria() for articulo in articulos],
-        'Precio por lote': [articulo.get_precio_por_lote() for articulo in articulos],
-        'Limite critico': [articulo.get_limite_critico() for articulo in articulos]
-    })
+def GuardarCSV(articulos):
+    with open('Archivos de Datos\ListaArticulos.csv', mode='w', newline='') as file:
+        writer = csv.writer(file, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
+        writer.writerow(['Nombre', 'Mascota', 'ID', 'Marca', 'Precio por unidad', 'Stock', 'Descripción', 'Categoría', 'Precio por lote', 'Límite crítico'])
+        for articulo in articulos:
+            writer.writerow([articulo.get_nombre(), articulo.get_mascota(), articulo.get_id(), articulo.get_marca(), articulo.get_precio_por_unidad(), articulo.get_stock(), articulo.get_descripcion(), articulo.get_categoria(), articulo.get_precio_por_lote(), articulo.get_limite_critico()])
 
-    # Guardado del dataframe
-    writer = pd.ExcelWriter('Archivos de Datos\ListaArticulos.xlsx', engine='xlsxwriter')
-    df.to_excel(writer, index=False, sheet_name='Articulo')
-    writer._save()
-GuardarExcel(articulos)
+def CargarCSV(ruta_archivo):
+    lista_articulos = []
+    with open(ruta_archivo, mode='r') as file:
+        reader = csv.reader(file)
+        next(reader)
+        for row in reader:
+            nombre, mascota, id, marca, precio_por_unidad, stock, descripcion, categoria, precio_por_lote, limite_critico = row
+            articulo = Articulos(nombre, mascota, id, marca, int(precio_por_unidad), int(stock), descripcion, categoria, int(precio_por_lote), int(limite_critico))
+            lista_articulos.append(articulo)
+    return lista_articulos
+
+def AgregarArticulo(nombre, mascota, id, marca, precio_por_unidad, stock, descripcion, categoria, precio_por_lote, limite_critico):
+    articulo = Articulos(nombre, mascota, id, marca, precio_por_unidad, stock, descripcion, categoria, precio_por_lote, limite_critico)
+    ListaArticulos.append(articulo)
+    GuardarCSV(ListaArticulos)
+    print("El artículo se agregó correctamente a la lista.")
+
+#Cargar archivo CSV y llenar el arreglo de Articulos
+ListaArticulos = CargarCSV('Archivos de Datos\ListaArticulos.csv')
+
+def MostrarListaArticulos():
+    contador=1
+    for articulo in ListaArticulos:
+        print("Articulo:", contador,"\n[Nombre]:", articulo.get_nombre(),"[Mascota:]",articulo.get_mascota(),"[ID]:",articulo.get_id(),"[Marca]:",articulo.get_marca(),"[Precio Unidad]:",int(articulo.get_precio_por_unidad()),"[Stock]:",int(articulo.get_stock()),"[Descripcion]:",articulo.get_descripcion(),"[Categoría]:",articulo.get_categoria(),"[Precio Lote]:",int(articulo.get_precio_por_lote()),"[Limite Crítico]:",int(articulo.get_limite_critico()))
+        contador += 1
+
+#Ejemplo mostrar articulos
+MostrarListaArticulos()
+
+#Ejemplo para guardar la lista de articulos, abajo
+#GuardarCSV(ListaArticulos)
+
+#Ejemplo ingresar nuevos articulos
+#a1=input("Nombre:")
+#a2=input("Mascota:")
+#a3=input("ID:")
+#a4=input("Marca")
+#a5=input("Precio Unidad:")
+#a6=input("Stock:")
+#a7=input("Descripcion:")
+#a8=input("Categoría:")
+#a9=input("Precio Lote:")
+#a10=input("Limite Crítico:")
+#AgregarArticulo(a1, a2, a3, a4, a5, a6, a7, a8, a9, a10)

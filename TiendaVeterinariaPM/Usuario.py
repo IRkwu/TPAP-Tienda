@@ -1,8 +1,14 @@
 import csv
 
+cargo = [
+    "Gerente",
+    "Cajero",
+    "Asistente de ventas"
+]
+
 class Usuario():
     
-    def __init__(self, id, nombres, apellido_paterno, apellido_materno, genero, fecha_nacimiento, rut, cargo, usuarios):
+    def __init__(self, id, nombres, apellido_paterno, apellido_materno, genero, fecha_nacimiento, rut, cargo):
         self.__nombres = nombres
         self.__id = id
         self.__apellido_paterno = apellido_paterno
@@ -11,8 +17,8 @@ class Usuario():
         self.__fecha_nacimiento = fecha_nacimiento
         self.__rut = rut
         self.__cargo = cargo
-        self.__usuarios = usuarios
-    
+
+   
     def get_nombres(self):
         return self.__nombres
 
@@ -58,19 +64,18 @@ class Usuario():
     def get_cargo(self):
         return self.__cargo
     
-    def set_cargo(self, cargo):
-        self.__cargo = cargo
         
-    def get_usuarios(self):
-        return self.__usuarios
-    
-    def set_usuarios(self, usuarios):
-        self.__usuarios = usuarios
-        
-    def CSV_Usuarios(self,usuarios):
-        self.__usuarios.append(usuarios)
-        with open('Archivos de Datos\Usuarios.csv', mode='w', newline='') as file:
+    def CSV_Usuarios(usuarios):
+        with open('Archivos de Datos\ListaUsuarios.csv', mode='w', newline='') as file:
             writer = csv.writer(file, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
             writer.writerow(['Nombre', 'ID', 'Apellido Paterno', 'Apellido Materno', 'Género', 'Fecha de nacimiento', 'RUT', 'Cargo'])
-            for Usuario in usuarios:
+            for Usuario in Usuarios:
                 writer.writerow([Usuario.get_nombres(), Usuario.get_id(), Usuario.get_apellidoPaterno(), Usuario.get_apellidoMaterno(), Usuario.get_genero(), Usuario.get_fechaDeNacimiento(), Usuario.get_rut(), Usuario.get_cargo()])
+
+
+#Ejemplo para guardar la lista de articulos, abajo
+Usuarios=[
+    Usuario(12, "Alvaro", "Ramos", "Andler", "asd", "asd", 1212, cargo[2])
+]
+
+Usuario.CSV_Usuarios(Usuarios)

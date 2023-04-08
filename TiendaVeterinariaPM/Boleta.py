@@ -1,7 +1,8 @@
 class Boleta:
-    def __init__(self, nombre_vendedor, nombre_cliente, fecha, productos, total, costo_envio):
+    def __init__(self, nombre_vendedor, nombre_cliente, rut, fecha, productos, total, costo_envio):
         self.__nombre_vendedor = nombre_vendedor
         self.__nombre_cliente = nombre_cliente
+        self.__rut = rut
         self.__fecha = fecha
         self.__productos = productos
         self.__total = total
@@ -13,6 +14,9 @@ class Boleta:
     
     def get_nombre_cliente(self):
         return self.__nombre_cliente
+    
+    def get_rut(self):
+        return self.__rut
     
     def get_fecha(self):
         return self.__fecha
@@ -32,6 +36,9 @@ class Boleta:
         
     def set_nombre_cliente(self, nombre_cliente):
         self.__nombre_cliente = nombre_cliente
+        
+    def set_rut(self, rut):
+        self.__rut = rut
         
     def set_fecha(self, fecha):
         self.__fecha = fecha
