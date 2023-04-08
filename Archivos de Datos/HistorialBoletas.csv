@@ -1,0 +1,6 @@
+id_transaccion,nombre_vendedor,nombre_cliente,fecha,articulos,total,costo_envio
+9380980,Hector,Cliente,2023-04-08,"['[Art:1] Juguete Hueso --- [Precio:9900]', '[Art:2] Juguete Hueso --- [Precio:9900]']",22800,3000
+8888535,Hector,Cliente,2023-04-08,['[Art:1] Cama Dona --- [Precio:25000]'],25000,0
+4967146,Hector,Cliente,2023-04-08,['[Art:1] Cama Dona --- [Precio:25000]'],25000,0
+1485961,Hector,Cliente,2023-04-08,"['[Art:1] Cama Dona --- [Precio:25000]', '[Art:2] Ropa Tiburon --- [Precio:7900]', '[Art:3] Arena Sanitaria --- [Precio:19900]', '[Art:4] Juguete Hueso --- [Precio:9900]']",62700,0
+1330362,Hector,Cliente,2023-04-08,['[Art:1] Juguete Hueso --- [Precio:9900]'],12900,3000

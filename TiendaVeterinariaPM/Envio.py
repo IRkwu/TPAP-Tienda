@@ -24,3 +24,19 @@ class Envio:
 
     def mostrarEnvio(self):
         return f"Descripción: {self.__descripcion}\nNúmero de Seguimiento: {self.__numeroSeguimiento}\nDirección de Envío: {self.__direccionEnvio}"
+    
+    def CalcularDescuentoEnvio(total):
+        if total >= 25000 or total == 0:
+            costo_envio = 0
+        else:
+            costo_envio = 3000
+        return costo_envio
+        
+    #def necesitaEnvio():
+    #    while True:
+    #        opcion = input("Usted necesita envio: ")
+#
+    #if opcion == "1":
+    #    Articulos.MostrarListaArticulos()
+    #elif opcion == "2":
+    #    llenadoDeCarrito()

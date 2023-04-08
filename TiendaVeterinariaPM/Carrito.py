@@ -1,5 +1,7 @@
 from Articulos import Articulos
 from Articulos import ListaArticulos
+from Envio import Envio
+
 
 class Carrito():
     
@@ -17,6 +19,7 @@ class Carrito():
         else:
             self.__ArticulosCarrito.append(ListaArticulos[indice])
             print("Producto agregado al carrito:", ListaArticulos[indice].get_nombre())
+            print("El precio del producto es:", ListaArticulos[indice].get_precio_por_unidad())
 
     #Elimina el articulo del carrito según la posición en que fue añadida, ej: para eliminar el primer producto del carrito el indice sería 0
     def EliminarArticulo(self, indice):
@@ -39,7 +42,11 @@ class Carrito():
             self.__precio_total += articulo.get_precio_por_unidad()
         if self.__cliente_frecuente == True:
             self.__precio_total = self.__precio_total*0.95
-        print("El precio total del carrito es:",self.__precio_total)
+            
+        costo_envio = Envio.CalcularDescuentoEnvio(self.__precio_total)
+        
+        return int(self.__precio_total)
+
         
     def ObtenerCantidadArticulos(self):
         self.__cantidad_articulos = len(self.__ArticulosCarrito)
@@ -49,16 +56,39 @@ class Carrito():
         return self.__cliente_frecuente
         #Hay que hacer la verificacion con el historial
 
+    def MostrarArticulosBoleta(self):
+        contador=1
+        articulos = []
+        if len(self.__ArticulosCarrito) == 0:
+            print("El Carrito está vacio")
+        for articulo in self.__ArticulosCarrito:
+            articulos.append("[Art:" + str(contador) + "] " + articulo.get_nombre() + " --- [Precio:" + str(articulo.get_precio_por_unidad()) + "]")
+            contador += 1
+        return articulos
+    
     def MostrarArticulosCarrito(self):
         contador=1
         if len(self.__ArticulosCarrito) == 0:
             print("El Carrito está vacio")
         for articulo in self.__ArticulosCarrito:
-            print("[Art:",contador,"]" + articulo.get_nombre())
+            print("[Art:",contador,"] ",articulo.get_nombre()," --- [Precio:",articulo.get_precio_por_unidad(),"]", sep='') # sep='' se usa para que no haya espacio despues de la ,
+            contador += 1
+    
+    def VaciarCarrito(self):
+        self.__ArticulosCarrito = []
+        self.__precio_total = 0
+        self.__cantidad_articulos = 0
+        print("El carrito ha sido vaciado")
+
+
+Carrito_Cliente = Carrito([], 0)
+
 
 #Ejemplo de las funciones
 #mi_carrito = Carrito([2], 0, True)
-
+#
 #mi_carrito.MostrarArticulosCarrito()
 #mi_carrito.EliminarArticulo(0)
 #mi_carrito.MostrarArticulosCarrito()
+#mi_carrito.AgregarArticulo(2)
+#mi_carrito.CalcularTotal()

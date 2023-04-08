@@ -1,11 +1,38 @@
-from Carrito import Carrito
-from Boleta import Boleta
+import datetime
+from Carrito import Carrito, Carrito_Cliente
+from Cliente import Cliente
+from Boleta import Boleta, HistorialBoletas
+from Usuario import Usuario, Lista_Usuarios
+from Envio import Envio
+import csv
 
 class Venta:
-    def __init__(self, descuento_stock, descuento_envio,):
-        self.__descuento_stock = descuento_stock
-        self.__descuento_envio = descuento_envio
+    def __init__(self):
+        self.__fecha_venta = datetime.now()
+        self.__venta_confirmada = False
+        self.__boletas = []
+
+    def ConfirmarVenta():
+        Boleta.AgregarBoleta(Boleta.generarIdBoleta(),Lista_Usuarios[1].get_nombres(), "Cliente", datetime.datetime.now().date(), Carrito_Cliente.MostrarArticulosBoleta(), Carrito_Cliente.CalcularTotal()+Envio.CalcularDescuentoEnvio(Carrito_Cliente.CalcularTotal()), Envio.CalcularDescuentoEnvio(Carrito_Cliente.CalcularTotal()))
+        HistorialBoletas[-1].imprimir_boleta()
+
+        Carrito_Cliente.VaciarCarrito()
         
-    def confirmar_venta(self):
-        Boleta.imprimir_boleta(self)
+    def get_fecha_venta(self):
+        return self.__fecha_venta
+
+    def set_fecha_venta(self, fecha_venta):
+        self.__fecha_venta = fecha_venta
+
+    def get_venta_confirmada(self):
+        return self.__venta_confirmada
+
+    def set_venta_confirmada(self, venta_confirmada):
+        self.__venta_confirmada = venta_confirmada
         
+    def GuardarCSV_Boletas(self, nombre_archivo):
+        with open('Archivos de Datos\HistorialBoletas.csv', 'w', newline='') as csvfile:
+            writer = csv.writer(file, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
+            writer.writerow(['Nombre vendedor', 'Nombre cliente', 'Fecha venta', 'Articulos', 'Total', 'Costo envio'])
+            for boleta in self.__boletas:
+                writer.writerow([boleta.get_nombre_vendedor(), boleta.get_nombre_cliente(), boleta.get_fecha_venta(), boleta.get_articulos(), boleta.get_total(), boleta.get_costo_envio()])

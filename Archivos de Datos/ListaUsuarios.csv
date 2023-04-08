@@ -1,2 +1,4 @@
-Nombre,ID,Apellido Paterno,Apellido Materno,Género,Fecha de nacimiento,RUT,Cargo
-Alvaro,12,Ramos,Andler,asd,asd,1212,Cargo
+ID,Nombre,Apellido Paterno,Apellido Materno,Gï¿½nero,Fecha de nacimiento,RUT,Cargo
+3982,Clay,Hernï¿½ndez,Torres,Femeneno,17/06/1992,18732493-K,Gerente
+8644,Hector,Martï¿½nez,Garcï¿½a,Masculino,08/03/1995,19132392-2,Cajero
+9454,Carlos,Morales,Ramï¿½rez,Masculino,29/09/2000,20892423-6,Asistente de ventas

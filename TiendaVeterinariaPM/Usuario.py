@@ -1,10 +1,16 @@
 import csv
 
+cargo = [
+    "Gerente",
+    "Cajero",
+    "Asistente de ventas"
+]
+
 class Usuario():
     
     def __init__(self, id, nombres, apellido_paterno, apellido_materno, genero, fecha_nacimiento, rut, cargo):
-        self.__nombres = nombres
         self.__id = id
+        self.__nombres = nombres
         self.__apellido_paterno = apellido_paterno
         self.__apellido_materno = apellido_materno
         self.__genero=genero
@@ -60,16 +66,36 @@ class Usuario():
     def set_cargo(self, cargo):
         self.__cargo = cargo
         
-    def CSV_Usuarios(usuarios):
+    def GuadarCSV_Usuarios(lista_usuarios):
         with open('Archivos de Datos\ListaUsuarios.csv', mode='w', newline='') as file:
             writer = csv.writer(file, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
-            writer.writerow(['Nombre', 'ID', 'Apellido Paterno', 'Apellido Materno', 'Género', 'Fecha de nacimiento', 'RUT', 'Cargo'])
-            for Usuario in Usuarios:
-                writer.writerow([Usuario.get_nombres(), Usuario.get_id(), Usuario.get_apellidoPaterno(), Usuario.get_apellidoMaterno(), Usuario.get_genero(), Usuario.get_fechaDeNacimiento(), Usuario.get_rut(), Usuario.get_cargo()])
+            writer.writerow(['ID', 'Nombre', 'Apellido Paterno', 'Apellido Materno', 'Género', 'Fecha de nacimiento', 'RUT', 'Cargo'])
+            for Usuario in lista_usuarios:
+                writer.writerow([Usuario.get_id(), Usuario.get_nombres(), Usuario.get_apellidoPaterno(), Usuario.get_apellidoMaterno(), Usuario.get_genero(), Usuario.get_fechaDeNacimiento(), Usuario.get_rut(), Usuario.get_cargo()])
                 
-#Ejemplo para guardar la lista de articulos, abajo
-Usuarios=[
-    Usuario(12, "Alvaro", "Ramos", "Andler", "asd", "asd", 1212, "Cargo")
-]
+    def CargarCSV_Usuarios(ruta_archivo):
+        lista_usuarios = []
+        with open(ruta_archivo, mode='r') as file:
+            reader = csv.reader(file)
+            next(reader)
+            for row in reader:
+                id, nombres, apellido_paterno, apellido_materno, genero, fecha_nacimiento, rut, cargo = row
+                usuario = Usuario(id, nombres, apellido_paterno, apellido_materno, genero, fecha_nacimiento, rut, cargo)
+                lista_usuarios.append(usuario)
+        return lista_usuarios
+    
+#Ejemplo #Cargar archivo CSV y llenar el arreglo de Lista_Usuarios
+Lista_Usuarios = Usuario.CargarCSV_Usuarios('Archivos de Datos\ListaUsuarios.csv')
 
-Usuario.CSV_Usuarios(Usuarios)
+#Ejemplo mostrar los cargos de los usuarios
+#print(Lista_Usuarios[0].get_cargo())
+#print(Lista_Usuarios[1].get_cargo())
+#print(Lista_Usuarios[2].get_cargo())
+
+#Ejemplo para guardar la lista de usuarios
+#Usuarios=[
+#    Usuario(3982, "Clay", "Hernández", "Torres", "Femeneno", "17/06/1992", "18732493-K", cargo[0]),
+#    Usuario(8644, "Hector", "Martínez", "García", "Masculino", "08/03/1995", "19132392-2", cargo[1]),
+#    Usuario(9454, "Carlos", "Morales", "Ramírez", "Masculino", "29/09/2000", "20892423-6", cargo[2]),
+#]
+#Usuario.GuadarCSV_Usuarios(Usuarios)
