@@ -86,14 +86,14 @@ class Articulos:
         if self.__stock < self.__limite_critico:
             print("El artículo:",self.__nombre,"está en el limite crítico")
 
-    def GuardarCSV(lista_articulos):
+    def GuardarCSV_Articulos(lista_articulos):
         with open('Archivos de Datos\ListaArticulos.csv', mode='w', newline='') as file:
             writer = csv.writer(file, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
             writer.writerow(['Nombre', 'Mascota', 'ID', 'Marca', 'Precio por unidad', 'Stock', 'Descripción', 'Categoría', 'Precio por lote', 'Límite crítico'])
             for articulo in lista_articulos:
                 writer.writerow([articulo.get_nombre(), articulo.get_mascota(), articulo.get_id(), articulo.get_marca(), articulo.get_precio_por_unidad(), articulo.get_stock(), articulo.get_descripcion(), articulo.get_categoria(), articulo.get_precio_por_lote(), articulo.get_limite_critico()])
 
-    def CargarCSV(ruta_archivo):
+    def CargarCSV_Articulos(ruta_archivo):
         lista_articulos = []
         with open(ruta_archivo, mode='r') as file:
             reader = csv.reader(file)
@@ -107,7 +107,7 @@ class Articulos:
     def AgregarArticulo(nombre, mascota, id, marca, precio_por_unidad, stock, descripcion, categoria, precio_por_lote, limite_critico):
         articulo = Articulos(nombre, mascota, id, marca, precio_por_unidad, stock, descripcion, categoria, precio_por_lote, limite_critico)
         ListaArticulos.append(articulo)
-        GuardarCSV(ListaArticulos)
+        GuardarCSV_Articulos(ListaArticulos)
         print("El artículo se agregó correctamente a la lista.")
 
     def MostrarListaArticulos():
@@ -126,13 +126,13 @@ class Articulos:
             contador += 1
             
 #Cargar archivo CSV y llenar el arreglo de ListaArticulos
-#ListaArticulos = Articulos.CargarCSV('Archivos de Datos\ListaArticulos.csv')
+ListaArticulos = Articulos.CargarCSV_Articulos('Archivos de Datos\ListaArticulos.csv')
 
 #Ejemplo mostrar articulos
 #Articulos.MostrarListaArticulos()
 
 #Ejemplo para guardar la lista de articulos, abajo
-#GuardarCSV(ListaArticulos)
+#GuardarCSV_Articulos(ListaArticulos)
 
 #Ejemplo ingresar nuevos articulos
 #a1=input("Nombre:")
