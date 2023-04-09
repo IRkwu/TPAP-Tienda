@@ -3,3 +3,11 @@ id_transaccion,nombre_vendedor,nombre_cliente,fecha,articulos,total,costo_envio
 154909,Hector,Jotaro,2023-04-08,"['[Art:1] Cama Dona --- [Precio:25000]', '[Art:2] Ropa Tiburon --- [Precio:7900]', '[Art:3] Arena Sanitaria --- [Precio:19900]', '[Art:4] Bola de lana --- [Precio:2900]', '[Art:5] Juguete Hueso --- [Precio:9900]', '[Art:6] Cama Dona --- [Precio:25000]', '[Art:7] Cama Dona --- [Precio:25000]']",115600,0
 253081,Hector,Pepe,2023-04-08,['[Art:1] Cama Dona --- [Precio:25000]'],25000,0
 117235,Hector,Alvaro,2023-04-08,"['[Art:1] Cama Dona --- [Precio:25000]', '[Art:2] Juguete Hueso --- [Precio:9900]']",34900,0
+274578,Hector,Felipe,2023-04-09,['[Art:1] Cama Dona --- [Precio:25000]'],25000,0
+862638,Hector,adf,2023-04-09,['[Art:1] Cama Dona --- [Precio:25000]'],25000,0
+129003,Hector,Jose,2023-04-09,['[Art:1] Cama Dona --- [Precio:25000]'],25000,0
+999668,Hector,Carlos,2023-04-09,['[Art:1] Cama Dona --- [Precio:25000]'],25000,0
+164379,Hector,Maria Lopez,2023-04-09,"['[Art:1] Cama Dona --- [Precio:25000]', '[Art:2] Ropa Tiburon --- [Precio:7900]', '[Art:3] Bola de lana --- [Precio:2900]']",35800,0
+120025,Hector,Camila Soto,2023-04-09,['[Art:1] Ropa Tiburon --- [Precio:36000]'],36000,0
+528336,Hector,Pilar Martinez,2023-04-09,"['[Art:1] Ropa Tiburon --- [Precio:36000]', '[Art:2] Bola de lana --- [Precio:13500]']",49500,0
+646120,Hector,David Rivera,2023-04-09,"['[Art:1] Shampoo para perros de pelo largo --- [Precio:55200]', '[Art:2] Shampoo para perros de pelo largo --- [Precio:55200]']",110400,0

@@ -95,47 +95,52 @@ class Cliente:
     def agregar_servicio_historial(self, servicio):
         self.__historial.append(servicio)
 
-
     # Funcion para guardar los clientes en un archivo csv
-    def GuardarCSV_Clientes(lista_clientes):
+
+    def GuardarCSV_Clientes(self, lista_clientes):
         with open('Archivos de Datos\ListaClientes.csv', mode='w', newline='') as file:
-            writer = csv.writer(file, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
-            writer.writerow(['ID', 'Nombres', 'Apellido Paterno', 'Apellido Materno', "Genero", 'Fecha Nacimiento', 'RUT', "Email", "Telefono", "Domicilio", "Mascotas", "Historial"])
+            writer = csv.writer(file, delimiter=',',
+                                quotechar='"', quoting=csv.QUOTE_MINIMAL)
+            writer.writerow(['ID', 'Nombres', 'Apellido Paterno', 'Apellido Materno', "Genero",
+                            'Fecha Nacimiento', 'RUT', "Email", "Telefono", "Domicilio", "Mascotas", "Historial"])
             for Cliente in lista_clientes:
-                writer.writerow([Cliente.get_id(), Cliente.get_nombres(), Cliente.get_apellidoPaterno(), Cliente.get_apellidoMaterno(), Cliente.get_genero(), Cliente.get_fechaNacimiento(), Cliente.get_rut(), Cliente.get_email(), Cliente.get_telefono(), Cliente.get_domicilio(), Cliente.get_mascotas(), Cliente.get_historial()])
-              
+                writer.writerow([Cliente.get_id(), Cliente.get_nombres(), Cliente.get_apellidoPaterno(), Cliente.get_apellidoMaterno(), Cliente.get_genero(), Cliente.get_fechaNacimiento(
+                ), Cliente.get_rut(), Cliente.get_email(), Cliente.get_telefono(), Cliente.get_domicilio(), Cliente.get_mascotas(), Cliente.get_historial()])
+
     # Funcion para cargar los clientes desde un archivo csv
-    def CargarCSV_Clientes(ruta_archivo):
+    def CargarCSV_Clientes(self, ruta_archivo):
         lista_clientes = []
         with open(ruta_archivo, mode='r') as file:
             reader = csv.reader(file)
             next(reader)
             for row in reader:
                 id, nombres, apellidoPaterno, apellidoMaterno, genero, fechaNacimiento, rut, email, telefono, domicilio, mascotas, historial = row
-                cliente = Cliente(id, nombres, apellidoPaterno, apellidoMaterno, genero, fechaNacimiento, rut, email, telefono, domicilio, mascotas, historial)
+                cliente = Cliente(id, nombres, apellidoPaterno, apellidoMaterno, genero,
+                                  fechaNacimiento, rut, email, telefono, domicilio, mascotas, historial)
                 lista_clientes.append(cliente)
         return lista_clientes
-    
+
     # Funcion para agregar clientes a un archivo csv
-    def AgregarClientes(id, nombres, apellidoPaterno, apellidoMaterno, genero, fechaNacimiento, rut, email, telefono, domicilio, mascotas, historial):
-        cliente = Cliente(id, nombres, apellidoPaterno, apellidoMaterno, genero, fechaNacimiento, rut, email, telefono, domicilio, mascotas, historial)
+    def AgregarClientes(self, id, nombres, apellidoPaterno, apellidoMaterno, genero, fechaNacimiento, rut, email, telefono, domicilio, mascotas, historial):
+        cliente = Cliente(id, nombres, apellidoPaterno, apellidoMaterno, genero,
+                          fechaNacimiento, rut, email, telefono, domicilio, mascotas, historial)
         ListaClientes.append(cliente)
-        Cliente.GuardarCSV_Clientes(ListaClientes)
+        Cliente.GuardarCSV_Clientes(None, ListaClientes)
         print("El cliente se agregó correctamente a la lista de Clientes.")
-    
-#Inicializar la lista de Clientes por defecto, para que no haya un arreglo vacio, cargar la lista de clientes
-ListaClientes = Cliente.CargarCSV_Clientes('Archivos de Datos\ListaClientes.csv') 
 
 
+# Inicializar la lista de Clientes por defecto, para que no haya un arreglo vacio, cargar la lista de clientes
+ListaClientes = Cliente.CargarCSV_Clientes(None,
+                                           'Archivos de Datos\ListaClientes.csv')
 
 
-#PRUEBAS   
-#Cliente.AgregarClientes(42685, "Fernando Juan", "Perez", "Sepulveda", "Masculino", "30/02/2001", "20459135-1", "fernando.perez@gmail.com", 154265942, "Calle B", "Periquito", "Historial")
+# PRUEBAS
+# Cliente.AgregarClientes(42685, "Fernando Juan", "Perez", "Sepulveda", "Masculino", "30/02/2001", "20459135-1", "fernando.perez@gmail.com", 154265942, "Calle B", "Periquito", "Historial")
 
-#print(ListaClientes[0].get_apellidoMaterno())
+# print(ListaClientes[0].get_apellidoMaterno())
 
-#ListaClientes = [
+# ListaClientes = [
 #    Cliente(54103, "Federico Gonzalo", "Fernandez", "Inostroza", "Masculino", "17/06/2001", "20435942-5", "federico.fernandez@gmail.com", 513469426, "Calle A", "Perrito y Gatito", "Historial")
-#]
+# ]
 #
-#Cliente.GuadarCSV_Clientes(ListaClientes)
+# Cliente.GuadarCSV_Clientes(ListaClientes)

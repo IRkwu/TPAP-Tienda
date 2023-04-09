@@ -1,12 +1,42 @@
 import sys
 from Articulos import Articulos, ListaArticulos
 from Carrito import Carrito, Carrito_Cliente
+from Cliente import Cliente
 from Venta import Venta
 from Envio import Envio
+import random
+import time
 
 
-# Funcion para ingresar articulos al carrito
-def llenadoDeCarrito():
+def ingresarDatosNuevoCliente(tipoCliente):
+
+    # random.seed(time.time()) es para que el numero genero sea aleatorio e irrepetible
+    random.seed(time.time())
+    id = random.randint(100000, 999999)
+    nombres = input("Ingresar nombres: ")
+    apellido_paterno = input("Ingresar apellido paterno: ")
+    rut = input("Ingresar rut: ")
+    # El cliente tipo 1 es porque necesita un envio
+    if tipoCliente == 1:
+        apellido_materno = input("Ingresar apellido materno: ")
+        genero = input("Ingresar genero: ")
+        fecha_nacimiento = input("Ingresar fecha nacimiento: ")
+        email = input("Ingresar email: ")
+        telefono = input("Ingresar telefono: ")
+        direccion = input("Ingresar direcion: ")
+        descripcion = input("Ingresar descripción del envio: ")
+
+        # Se agregan los datos del cliente en ListaClientes
+        Cliente.AgregarClientes(None, id, nombres, apellido_paterno, apellido_materno, genero,
+                                fecha_nacimiento, rut, email, telefono, direccion, ["Mascota"], "Historial")
+        Envio.AgregarEnvios(None, descripcion, id, direccion)
+    # El cliente tipo 2 es porque no necesita un envio
+    elif tipoCliente == 2:
+        Cliente.AgregarClientes(None,
+                                id, nombres, apellido_paterno, "", "", "", rut, "", "", "", "", "")
+
+
+def llenadoDeCarrito(tipo):
     id = ""
     opcion = ''
     comprobacion = False
@@ -15,10 +45,10 @@ def llenadoDeCarrito():
         print("\n --INGRESE EL ID DE LOS PRODUCTOS A COMPRAR-- \n")
         id = input("ID: ")
         i = 0
-        for articulo in ListaArticulos: 
+        for articulo in ListaArticulos:
             if id == articulo.get_id():
                 if articulo.get_stock() > 0:
-                    Carrito_Cliente.AgregarArticulo(i)
+                    Carrito_Cliente.AgregarArticulo(i, tipo)
                     comprobacion = True
                     print("Producto ingresado correctamente")
                 else:
@@ -36,10 +66,50 @@ def llenadoDeCarrito():
 
         if opcion.lower() != 's':
             break
-        
 
-# Main - Menu        
+
+def ConfirmarEnvio():
+    opcion = 0
+
+   # print("¿Quiere hacerse cliente?")
+   # print("1.- Si \n 2.- No")
+   # hacerseCliente = int(input("Opcion: "))
+   # if hacerseCliente == 1:
+   #     ingresarDatosNuevoCliente()
+   # else:
+   #     print("Ok, pero se está perdiendo grandes descuentos al momento de realizar una compra")
+
+    print("Usted necesita envio: ")
+    print("1.Si // 2.No")
+    opcion = int(input("Ingrese su opción: "))
+    print("\n")
+    if opcion == 1:
+        print("Necesitamos su datos para realizar el envio")
+        ingresarDatosNuevoCliente(1)
+    elif opcion == 2:
+        print("Necesitamos sus datos para realizar la boleta")
+        ingresarDatosNuevoCliente(2)
+    else:
+        print("Opción equivocada. Intente nuevamente")
+
+
+def compraPorUnidadOPorLote():
+    opcion = 0
+    while True:
+        print("\n ¿Desea comprar por Unidad o por Lote?")
+        print("1.- Unidad \n2.- Lote")
+        opcion = int(input("Opcion: "))
+        if opcion != 1 or 2:
+            break
+    return opcion
+
+
+# Main - Menu
+
+
 opcion = 0
+pasoPorSeleccionarProducto = False
+tipoCompra = 0
 while True:
     print("\n --MENU-- \n")
     print("1.- Ver productos")
@@ -53,12 +123,17 @@ while True:
     print("\n")
 
     if opcion == "1":
-        Articulos.MostrarListaArticulos()
+        Articulos.MostrarListaArticulos(None)
     elif opcion == "2":
-        llenadoDeCarrito()
+        pasoPorSeleccionarProducto = True
+        tipoCompra = compraPorUnidadOPorLote()
+        llenadoDeCarrito(tipoCompra)
     elif opcion == "3":
-        Envio.necesitaEnvio()
-        Venta.ConfirmarVenta()
+        if pasoPorSeleccionarProducto:
+            ConfirmarEnvio()
+            Venta.ConfirmarVenta(None, tipoCompra)
+        else:
+            print("Primero tiene que seleccionar productos antes de realizar la compra")
     elif opcion == "4":
         id = input("\nIngrese el id de transaccion del cliente: ")
         Envio.mostrarEnvio(id)
@@ -71,10 +146,10 @@ while True:
         print("Opcion no válida. Intente de nuevo.")
 
 
-#Tareas
-#Llenar lista de articulos y organiza las marcas
-#Que al seleccionar no envio, no copie los datos del ultimo cliente
-#Agregar compra de articulos por lote
-#Que no acceda al menu de solicita envio hasta que haya almenos un producto en el carrito
-#Verificacion de cliente frecuente
-#Al confirmar compra se reste el stock
+# ---------------------------- Tareas ----------------------------
+# Llenar lista de articulos y organiza las marcas
+# Que al seleccionar no envio, no copie los datos del ultimo cliente                        ---LISTO----
+# Agregar compra de articulos por lote                                                      ---LISTO----
+# Que no acceda al menu de solicita envio hasta que haya almenos un producto en el carrito  ---LISTO---
+# Verificacion de cliente frecuente
+# Al confirmar compra se reste el stock                                                     ---No lo pude hacer----

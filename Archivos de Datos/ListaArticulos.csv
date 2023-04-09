@@ -1,8 +1,11 @@
 Nombre,Mascota,ID,Marca,Precio por unidad,Stock,Descripci�n,Categor�a,Precio por lote,L�mite cr�tico
-Cama Iglu,Gato,A13,Catto,28900,0,Cama para gatos con forma de Iglu,Camas,130050,3
-Cama Dona,Perro,A14,Doggo,25000,50,Cama para perros con forma de dona,Camas,112050,3
-Juguete Hueso,Perro,B25,Doggo,9900,50,Juguete con forma de hueso para perros,Juguetes de entretencion,45000,5
-Baño ecologico,Perro,A25,Doggo,8900,40,Baño ecologico con cesped para perros,Articulos de Aseo,40500,4
-Ropa Tiburon,Gato,A15,Catlish,7900,25,Disfraz con forma de tiburon para gatos,Articulos Esteticos,36000,2
-Arena Sanitaria,Gato,A16,Catto,19900,20,Arena sanitaria para gatos,Articulos de Aseo,90000,2
-Bola de lana,Gato,A17,Catto,2900,100,Bola de lana para la entretencion de tu felino,Juguetes de entretencion,13500,10
+Shampoo para perros de pelo largo,Perro,A1,PetGroom,12000,10,"Especialmente formulado para perros de pelo largo, ayuda a desenredar y suavizar el pelaje",Articulos de Aseo,55200,1
+Toallitas humedas para limpieza de oidos de gatos,Gato,A2,EarCleanse,5000,20,Ayuda a mantener los oidos de los gatos limpios y libres de acumulaciones de cera,Articulos de Aseo,23000,2
+Cepillo de dientes para perros,Perro,A3,Dentipet,6000,15,"Cepillo de dientes especialmente diseñado para la higiene oral de los perros, ayuda a prevenir la acumulación de placa y mal aliento",Articulos de Aseo,27600,2
+Tijeras para recorte de uñas de gatos,Gato,A4,NailPro,9800,12,Tijeras de alta calidad para recortar las uñas de los gatos de forma segura y precisa,Articulos de Aseo,45080,1
+Toallitas húmedas para limpieza de patas de perros,Perro,A5,PawClean,5500,30,"Ideales para limpiar las patas de los perros después de paseos al aire libre, ayudan a mantenerlas limpias y libres de suciedad",Articulos de Aseo,25300,3
+Abrigo para perros pequeños,Perro,B1,PetStyle,18900,8,Abrigo de invierno con forro polar para mantener abrigados a los perros pequeños durante los días fríos,Prendas de ropa,86940,1
+Jersey para gatos,Gato,B2,CatChic,15000,5,"Jersey de punto suave y cálido para gatos, ideal para los días frescos de otoño e invierno",Prendas de ropa,69000,1
+Pijama para perros,Perro,B3,CozyPets,25000,10,"Pijama de algodón suave y cómodo para perros, perfecto para mantenerlos abrigados y cómodos durante la noche",Prendas de ropa,115000,1
+Vestido para perros pequeños,Perro,B4,PuppyFashion,17000,6," Vestido elegante y lindo para perros pequeños, ideal para ocasiones especiales o paseos en días cálidos",Prendas de ropa,78200,1
+Chaleco salvavidas para perros,Perro,B5,AquaPaws,30000,3,"Chaleco salvavidas ajustable para perros, perfecto para actividades acuáticas y mantener a tu mascota segura en el agua",Prendas de ropa,138000,1
