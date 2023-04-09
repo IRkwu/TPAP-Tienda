@@ -1,7 +1,7 @@
 import datetime
 import random
 import csv
-from Cliente import Cliente
+from Cliente import Cliente, ListaClientes
 from Carrito import Carrito, Carrito_Cliente
 from Envio import Envio
 from Usuario import Usuario, Lista_Usuarios
@@ -17,7 +17,7 @@ class Boleta:
         self.__total = total
         self.__costo_envio = costo_envio
         
-        # Getters
+    # Getters
     def get_id_transaccion(self):
         return self.__id_transaccion    
     
@@ -57,16 +57,8 @@ class Boleta:
         
     def set_total(self, total):
         self.__total = total
-        
-        
-    def generarIdBoleta():
-        numero_generado = set()
-        while True:
-            numero_random = random.randrange(1000000, 9999999)
-            if numero_random not in numero_generado:
-                numero_generado.add(numero_random)
-                return numero_random
 
+    # Funcion para guardar los envios en un archivo csv
     def GuardarCSV_Boletas(historial_boletas):
         with open('Archivos de Datos\HistorialBoletas.csv', mode='w', newline='') as file:
             writer = csv.writer(file, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
@@ -74,6 +66,7 @@ class Boleta:
             for boleta in historial_boletas:
                 writer.writerow([boleta.get_id_transaccion(), boleta.get_nombre_vendedor(), boleta.get_nombre_cliente(), boleta.get_fecha(), boleta.get_articulos(), boleta.get_total(), boleta.get_costo_envio()])
 
+    # Funcion para cargar los envios desde un archivo csv
     def CargarCSV_Boletas(ruta_archivo):
         historial_boletas = []
         with open(ruta_archivo, mode='r') as file:
@@ -85,22 +78,23 @@ class Boleta:
                 historial_boletas.append(boleta)
         return historial_boletas
 
+    # Funcion para agregar las boletas en un archivo csv
     def AgregarBoleta(id_transaccion, nombre_vendedor, nombre_cliente, fecha, articulos, total, costo_envio):
         boleta = Boleta(id_transaccion, nombre_vendedor, nombre_cliente, fecha, articulos, total, costo_envio)
         HistorialBoletas.append(boleta)
         Boleta.GuardarCSV_Boletas(HistorialBoletas)
         print("La boleta se ha agregado correctamente al Historial de Boletas.")
         
-        
+    # Funcion para imprimir la boleta
     def imprimir_boleta(self):
         print("================================")
         print("        BOLETA DE VENTA")
         print("================================")
         print("ID de Transacción:", self.get_id_transaccion())
         print("Vendedor:", self.get_nombre_vendedor())
-        print("Cliente:")
+        print("Cliente:",self.get_nombre_cliente())
         print("Fecha:", self.get_fecha())
-        print("Lista de Articulos:")
+        print("\nLista de Articulos:")
         contador = 1
         articulos = self.get_articulos()
         if articulos:
@@ -115,11 +109,8 @@ class Boleta:
             print("Total:", total)
         print("================================")
 
-
-HistorialBoletas = Boleta.CargarCSV_Boletas('Archivos de Datos\HistorialBoletas.csv')
-
-
-    
+#Inicializar la lista de Boletas por defecto, para que no haya un arreglo vacio, cargar el historial de boletas
+HistorialBoletas = Boleta.CargarCSV_Boletas('Archivos de Datos\HistorialBoletas.csv')    
 
     
         

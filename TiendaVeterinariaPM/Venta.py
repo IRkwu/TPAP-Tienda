@@ -1,6 +1,6 @@
 import datetime
 from Carrito import Carrito, Carrito_Cliente
-from Cliente import Cliente
+from Cliente import Cliente, ListaClientes
 from Boleta import Boleta, HistorialBoletas
 from Usuario import Usuario, Lista_Usuarios
 from Envio import Envio
@@ -13,9 +13,12 @@ class Venta:
         self.__boletas = []
 
     def ConfirmarVenta():
-        Boleta.AgregarBoleta(Boleta.generarIdBoleta(),Lista_Usuarios[1].get_nombres(), "Cliente", datetime.datetime.now().date(), Carrito_Cliente.MostrarArticulosBoleta(), Carrito_Cliente.CalcularTotal()+Envio.CalcularDescuentoEnvio(Carrito_Cliente.CalcularTotal()), Envio.CalcularDescuentoEnvio(Carrito_Cliente.CalcularTotal()))
+        # Agregar boleta al historial de boletas
+        Boleta.AgregarBoleta(ListaClientes[-1].get_id(),Lista_Usuarios[1].get_nombres(), ListaClientes[-1].get_nombres(), datetime.datetime.now().date(), Carrito_Cliente.MostrarArticulosBoleta(), Carrito_Cliente.CalcularTotal()+Envio.CalcularDescuentoEnvio(Carrito_Cliente.CalcularTotal()), Envio.CalcularDescuentoEnvio(Carrito_Cliente.CalcularTotal()))
+        # Imprimir la ultima boleta agregada
         HistorialBoletas[-1].imprimir_boleta()
 
+        # Vaciar el carrito para que el nuevo cliente ingrese los productos
         Carrito_Cliente.VaciarCarrito()
         
     def get_fecha_venta(self):
@@ -30,9 +33,12 @@ class Venta:
     def set_venta_confirmada(self, venta_confirmada):
         self.__venta_confirmada = venta_confirmada
         
+    # Funcion para guardar el Historial de las boletas
     def GuardarCSV_Boletas(self, nombre_archivo):
         with open('Archivos de Datos\HistorialBoletas.csv', 'w', newline='') as csvfile:
             writer = csv.writer(file, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
             writer.writerow(['Nombre vendedor', 'Nombre cliente', 'Fecha venta', 'Articulos', 'Total', 'Costo envio'])
             for boleta in self.__boletas:
                 writer.writerow([boleta.get_nombre_vendedor(), boleta.get_nombre_cliente(), boleta.get_fecha_venta(), boleta.get_articulos(), boleta.get_total(), boleta.get_costo_envio()])
+
+

@@ -66,13 +66,15 @@ class Usuario():
     def set_cargo(self, cargo):
         self.__cargo = cargo
         
+    # Funcion para guardar los usuarios en un archivo csv
     def GuadarCSV_Usuarios(lista_usuarios):
         with open('Archivos de Datos\ListaUsuarios.csv', mode='w', newline='') as file:
             writer = csv.writer(file, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
             writer.writerow(['ID', 'Nombre', 'Apellido Paterno', 'Apellido Materno', 'Género', 'Fecha de nacimiento', 'RUT', 'Cargo'])
             for Usuario in lista_usuarios:
                 writer.writerow([Usuario.get_id(), Usuario.get_nombres(), Usuario.get_apellidoPaterno(), Usuario.get_apellidoMaterno(), Usuario.get_genero(), Usuario.get_fechaDeNacimiento(), Usuario.get_rut(), Usuario.get_cargo()])
-                
+
+    # Funcion para cargar los usuarios desde un archivo csv
     def CargarCSV_Usuarios(ruta_archivo):
         lista_usuarios = []
         with open(ruta_archivo, mode='r') as file:
@@ -84,9 +86,12 @@ class Usuario():
                 lista_usuarios.append(usuario)
         return lista_usuarios
     
-#Ejemplo #Cargar archivo CSV y llenar el arreglo de Lista_Usuarios
+    
+#Inicializar la lista de Usuarios por defecto, para que no haya un arreglo vacio, cargar la lista de usuarios
 Lista_Usuarios = Usuario.CargarCSV_Usuarios('Archivos de Datos\ListaUsuarios.csv')
 
+
+#PRUEBAS
 #Ejemplo mostrar los cargos de los usuarios
 #print(Lista_Usuarios[0].get_cargo())
 #print(Lista_Usuarios[1].get_cargo())
