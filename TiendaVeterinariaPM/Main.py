@@ -77,3 +77,4 @@ while True:
 #Agregar compra de articulos por lote
 #Que no acceda al menu de solicita envio hasta que haya almenos un producto en el carrito
 #Verificacion de cliente frecuente
+#Al confirmar compra se reste el stock
