@@ -86,13 +86,15 @@ class Articulos:
         if self.__stock < self.__limite_critico:
             print("El artículo:",self.__nombre,"está en el limite crítico")
 
+    # Funcion para guardar los articulos en un archivo csv
     def GuardarCSV_Articulos(lista_articulos):
         with open('Archivos de Datos\ListaArticulos.csv', mode='w', newline='') as file:
             writer = csv.writer(file, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
             writer.writerow(['Nombre', 'Mascota', 'ID', 'Marca', 'Precio por unidad', 'Stock', 'Descripción', 'Categoría', 'Precio por lote', 'Límite crítico'])
             for articulo in lista_articulos:
                 writer.writerow([articulo.get_nombre(), articulo.get_mascota(), articulo.get_id(), articulo.get_marca(), articulo.get_precio_por_unidad(), articulo.get_stock(), articulo.get_descripcion(), articulo.get_categoria(), articulo.get_precio_por_lote(), articulo.get_limite_critico()])
-
+   
+    # Funcion para cargar los articulos desde un archivo csv
     def CargarCSV_Articulos(ruta_archivo):
         lista_articulos = []
         with open(ruta_archivo, mode='r') as file:
@@ -103,13 +105,15 @@ class Articulos:
                 articulo = Articulos(nombre, mascota, id, marca, int(precio_por_unidad), int(stock), descripcion, categoria, int(precio_por_lote), int(limite_critico))
                 lista_articulos.append(articulo)
         return lista_articulos
-
+    
+    # Funcion para agregar articulos a un archivo csv
     def AgregarArticulo(nombre, mascota, id, marca, precio_por_unidad, stock, descripcion, categoria, precio_por_lote, limite_critico):
         articulo = Articulos(nombre, mascota, id, marca, precio_por_unidad, stock, descripcion, categoria, precio_por_lote, limite_critico)
         ListaArticulos.append(articulo)
         GuardarCSV_Articulos(ListaArticulos)
         print("El artículo se agregó correctamente a la lista.")
 
+    # Funcion para mostrar la lista de todos los articulos de la tienda
     def MostrarListaArticulos():
         contador=1
         for articulo in ListaArticulos:
@@ -122,13 +126,13 @@ class Articulos:
                   articulo.get_stock(),"\n[Descripcion]:",
                   articulo.get_descripcion(),"[Categoría]:",articulo.get_categoria(),
                   "[Precio Lote]:",articulo.get_precio_por_lote(),"[Limite Crítico]:",
-                  articulo.get_limite_critico())
+                  articulo.get_limite_critico(), sep='')
             contador += 1
             
-#Cargar archivo CSV y llenar el arreglo de ListaArticulos
+#Inicializar la lista de articulos por defecto, para que no haya un arreglo vacio, cargar la lista de articulos
 ListaArticulos = Articulos.CargarCSV_Articulos('Archivos de Datos\ListaArticulos.csv')
 
-#Ejemplo mostrar articulos
+#PRUEBAS
 #Articulos.MostrarListaArticulos()
 
 #Ejemplo para guardar la lista de articulos, abajo

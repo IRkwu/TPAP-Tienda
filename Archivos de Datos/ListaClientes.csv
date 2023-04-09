@@ -1,0 +1,5 @@
+ID,Nombres,Apellido Paterno,Apellido Materno,Genero,Fecha Nacimiento,RUT,Email,Telefono,Domicilio,Mascotas,Historial
+655342,Alvaro Gonzalo,Ramos,Andler,Masculino,30/07/2003,21354784-4,alvaro@gmail.com,123456789,Calle Falsa 123,['Mascota'],Historial
+154909,Jotaro,Kujo,Joestar,Masculino,XX/XX/1970,11236894-5,jojo@gmail.com,123456789,Florida,['Mascota'],Historial
+253081,Pepe,Paterno,Materno,Masculino,30/02/2000,20123544-2,pepe@gmail.com,123456123,Pepoland,['Mascota'],Historial
+117235,Alvaro,Andler,Ramos,Masculino,30/07/2003,21354784-4,alvaro@gmail.com,12312123,Calle 123,['Mascota'],Historial

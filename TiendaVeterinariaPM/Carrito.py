@@ -12,7 +12,7 @@ class Carrito():
         self.__cantidad_articulos = len(self.__ArticulosCarrito)
         self.__cliente_frecuente = cliente_frecuente
         
-    #Agrega el articulo según la lista de articulos, ej: el primer articulo de la lista es cama iglu, en indice 0 añade cama iglu
+    # Agrega el articulo según la lista de articulos, ej: el primer articulo de la lista es cama iglu, en indice 0 añade cama iglu
     def AgregarArticulo(self, indice):
         if Carrito.VerificarStockArticulos(self, indice) == False:
             print("¡¡¡Error!!! Producto sin Stock")
@@ -21,21 +21,23 @@ class Carrito():
             print("Producto agregado al carrito:", ListaArticulos[indice].get_nombre())
             print("El precio del producto es:", ListaArticulos[indice].get_precio_por_unidad())
 
-    #Elimina el articulo del carrito según la posición en que fue añadida, ej: para eliminar el primer producto del carrito el indice sería 0
+    # Elimina el articulo del carrito según la posición en que fue añadida, ej: para eliminar el primer producto del carrito el indice sería 0
     def EliminarArticulo(self, indice):
         articulo = self.__ArticulosCarrito[indice]
         print("Producto eliminado del carrito:", articulo.get_nombre())
         self.__ArticulosCarrito.pop(indice)
-        
+    
+    # Verifica que el stock de articulos no sea 0, ya que si el stock es 0 no se puede agregar al carrito
     def VerificarStockArticulos(self, indice):
         articulo = ListaArticulos[indice]
         if articulo.get_stock() == 0:
             print("No hay stock del producto:", articulo.get_nombre())
             return False
         else:
-            print("El stock disponible es:", articulo.get_stock())
+            print("\nEl stock disponible es:", articulo.get_stock())
             return True
         
+    # Calcula el precio total y verifica si se aplica o no el costo de envio
     def CalcularTotal(self):
         self.__precio_total = 0
         for articulo in self.__ArticulosCarrito:
@@ -47,15 +49,17 @@ class Carrito():
         
         return int(self.__precio_total)
 
-        
+    # Funcion para obtener la cantidad de articulos
     def ObtenerCantidadArticulos(self):
         self.__cantidad_articulos = len(self.__ArticulosCarrito)
         print("La cantidad de Artículos es:",self.__cantidad_articulos)
         
+    # Verificacion de cliente frecuente
     def VerificarClienteFrecuente(self):
         return self.__cliente_frecuente
         #Hay que hacer la verificacion con el historial
 
+    # Funcion poder imprimir los articulos en la Boleta
     def MostrarArticulosBoleta(self):
         contador=1
         articulos = []
@@ -66,27 +70,31 @@ class Carrito():
             contador += 1
         return articulos
     
+    # Funcion para imprimir los articulos en el Carrito
     def MostrarArticulosCarrito(self):
         contador=1
         if len(self.__ArticulosCarrito) == 0:
             print("El Carrito está vacio")
+        else:
+            print("Lista de articulos del Carrito: ")
         for articulo in self.__ArticulosCarrito:
             print("[Art:",contador,"] ",articulo.get_nombre()," --- [Precio:",articulo.get_precio_por_unidad(),"]", sep='') # sep='' se usa para que no haya espacio despues de la ,
             contador += 1
     
+    # Vaciar el carrito para poder volver a agregar productos de un nuevo cliente
     def VaciarCarrito(self):
         self.__ArticulosCarrito = []
         self.__precio_total = 0
         self.__cantidad_articulos = 0
         print("El carrito ha sido vaciado")
 
-
+# Inicializa el carrito del cliente vacio, sin productos y precio 0
 Carrito_Cliente = Carrito([], 0)
 
 
-#Ejemplo de las funciones
+#PRUEBAS
 #mi_carrito = Carrito([2], 0, True)
-#
+
 #mi_carrito.MostrarArticulosCarrito()
 #mi_carrito.EliminarArticulo(0)
 #mi_carrito.MostrarArticulosCarrito()
