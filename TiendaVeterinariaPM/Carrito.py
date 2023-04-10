@@ -14,23 +14,30 @@ class Carrito():
         self.__cliente_frecuente = cliente_frecuente
 
     # Agrega el articulo según la lista de articulos, ej: el primer articulo de la lista es cama iglu, en indice 0 añade cama iglu
-    def AgregarArticulo(self, indice, tipo):
+    def AgregarArticuloUnidad(self, indice):
         if Carrito.VerificarStockArticulos(self, indice) == False:
             print("¡¡¡Error!!! Producto sin Stock")
         else:
+            self.__ArticulosCarrito.append(ListaArticulos[indice])
+            self.__ArticulosCarrito[-1].set_precio_por_lote(0)
             print("Producto agregado al carrito:",
                   ListaArticulos[indice].get_nombre())
             print("El precio del producto es:")
-            if tipo == 1:
-                self.__ArticulosCarrito.append(ListaArticulos[indice])
-                self.__ArticulosCarrito[-1].set_precio_por_lote(0)
-                print(self.__ArticulosCarrito[-1].get_precio_por_unidad())
-            elif tipo == 2:
-                self.__ArticulosCarrito.append(ListaArticulos[indice])
-                self.__ArticulosCarrito[-1].set_precio_por_unidad(0)
-                print(self.__ArticulosCarrito[-1].get_precio_por_lote())
+            print(ListaArticulos[indice].get_precio_por_unidad())
 
+    def AgregarArticuloLote(self, indice):
+        if Carrito.VerificarStockArticulos(self, indice) == False:
+            print("¡¡¡Error!!! Producto sin Stock")
+        else:
+            self.__ArticulosCarrito.append(ListaArticulos[indice])
+            self.__ArticulosCarrito[-1].set_precio_por_unidad(0)
+
+            print("Producto agregado al carrito:",
+                  ListaArticulos[indice].get_nombre())
+            print("El precio del producto es:")
+            print(ListaArticulos[indice].get_precio_por_lote())
     # Elimina el articulo del carrito según la posición en que fue añadida, ej: para eliminar el primer producto del carrito el indice sería 0
+
     def EliminarArticulo(self, indice):
         articulo = self.__ArticulosCarrito[indice]
         print("Producto eliminado del carrito:", articulo.get_nombre())
@@ -47,15 +54,13 @@ class Carrito():
             return True
 
     # Calcula el precio total y verifica si se aplica o no el costo de envio
-    def CalcularTotal(self, tipo):
+    def CalcularTotal(self):
 
         self.__precio_total = 0
         for articulo in self.__ArticulosCarrito:
-            # Tipo 1 es igual a que compra por menor
-            if tipo == 1:
-                self.__precio_total += articulo.get_precio_por_unidad()
-            else:
-                self.__precio_total += articulo.get_precio_por_lote()
+            self.__precio_total += (articulo.get_precio_por_unidad() +
+                                    articulo.get_precio_por_lote())
+
         if self.__cliente_frecuente:
             self.__precio_total = self.__precio_total*0.95
 
@@ -79,9 +84,9 @@ class Carrito():
         articulos = []
         if len(self.__ArticulosCarrito) == 0:
             print("El Carrito está vacio")
-            for articulo in self.__ArticulosCarrito:
-                articulos.append("[Art:" + str(contador) + "] " + articulo.get_nombre() +
-                                 " --- [Precio:" + str(articulo.get_precio_por_unidad()+articulo.get_precio_por_lote()) + "]")
+        for articulo in self.__ArticulosCarrito:
+            articulos.append("[Art:" + str(contador) + "] " + articulo.get_nombre() +
+                             " --- [Precio:" + str(articulo.get_precio_por_unidad()+articulo.get_precio_por_lote()) + "]")
             contador += 1
         return articulos
 
@@ -98,13 +103,6 @@ class Carrito():
                       " --- [Precio:", articulo.get_precio_por_unidad()+articulo.get_precio_por_lote(), "]", sep='')
                 contador += 1
 
-    def actualizarStock(self):
-        for articuloC in self.__ArticulosCarrito:
-            for articuloA in ListaArticulos:
-                if articuloC.get_id() == articuloA.get_id():
-                    if articuloA.get_stock() > 0:
-                        articuloA.RetirarStock()
-                        print("Se restó 1 al stock")
      # Vaciar el carrito para poder volver a agregar productos de un nuevo cliente
 
     def VaciarCarrito(self):

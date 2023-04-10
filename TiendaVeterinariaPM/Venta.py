@@ -3,6 +3,7 @@ from Carrito import Carrito, Carrito_Cliente
 from Cliente import Cliente, ListaClientes
 from Boleta import Boleta, HistorialBoletas
 from Usuario import Usuario, Lista_Usuarios
+from Articulos import Articulos, ListaArticulos
 from Envio import Envio
 import csv
 
@@ -13,13 +14,15 @@ class Venta:
         self.__venta_confirmada = False
         self.__boletas = []
 
-    def ConfirmarVenta(self, tipo):
+    def ConfirmarVenta(self):
         # Agregar boleta al historial de boletas
-        Boleta.AgregarBoleta(None, ListaClientes[-1].get_id(), Lista_Usuarios[1].get_nombres(), ListaClientes[-1].get_nombres()+" "+ListaClientes[-1].get_apellidoPaterno(), datetime.datetime.now().date(), Carrito_Cliente.MostrarArticulosBoleta(
-            tipo), Carrito_Cliente.CalcularTotal(tipo)+Envio.CalcularDescuentoEnvio(Carrito_Cliente.CalcularTotal(tipo)), Envio.CalcularDescuentoEnvio(Carrito_Cliente.CalcularTotal(tipo)))
+        Boleta.AgregarBoleta(None, ListaClientes[-1].get_id(), Lista_Usuarios[1].get_nombres(), ListaClientes[-1].get_nombres()+" "+ListaClientes[-1].get_apellidoPaterno(), datetime.datetime.now().date(
+        ), Carrito_Cliente.MostrarArticulosBoleta(), Carrito_Cliente.CalcularTotal()+Envio.CalcularDescuentoEnvio(Carrito_Cliente.CalcularTotal()), Envio.CalcularDescuentoEnvio(Carrito_Cliente.CalcularTotal()))
         # Imprimir la ultima boleta agregada
-        HistorialBoletas[-1].imprimir_boleta(tipo)
+        HistorialBoletas[-1].imprimir_boleta()
         # Vaciar el carrito para que el nuevo cliente ingrese los productos
+
+        Articulos.GuardarCSV_Articulos(None, ListaArticulos)
 
         Carrito_Cliente.VaciarCarrito()
 

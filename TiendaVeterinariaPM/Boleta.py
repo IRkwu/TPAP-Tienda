@@ -91,7 +91,7 @@ class Boleta:
         print("La boleta se ha agregado correctamente al Historial de Boletas.")
 
     # Funcion para imprimir la boleta
-    def imprimir_boleta(self, tipo):
+    def imprimir_boleta(self):
         print("================================")
         print("        BOLETA DE VENTA")
         print("================================")
@@ -108,10 +108,9 @@ class Boleta:
             print("\n")
         costo_envio = self.get_costo_envio()
         print("Costo de envío: $", costo_envio, sep='')
-        total = Carrito_Cliente.CalcularTotal(tipo)
+        total = Carrito_Cliente.CalcularTotal()
         total += costo_envio
-        if total:
-            print("Total:", total)
+        print("Total:", total)
         print("================================")
 
 

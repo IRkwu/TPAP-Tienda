@@ -11,3 +11,9 @@ id_transaccion,nombre_vendedor,nombre_cliente,fecha,articulos,total,costo_envio
 120025,Hector,Camila Soto,2023-04-09,['[Art:1] Ropa Tiburon --- [Precio:36000]'],36000,0
 528336,Hector,Pilar Martinez,2023-04-09,"['[Art:1] Ropa Tiburon --- [Precio:36000]', '[Art:2] Bola de lana --- [Precio:13500]']",49500,0
 646120,Hector,David Rivera,2023-04-09,"['[Art:1] Shampoo para perros de pelo largo --- [Precio:55200]', '[Art:2] Shampoo para perros de pelo largo --- [Precio:55200]']",110400,0
+689537,Hector,sdf sdf,2023-04-09,['[Art:1] Toallitas humedas para limpieza de oidos de gatos --- [Precio:28000]'],8000,3000
+249843,Hector,asfdas asdfa,2023-04-09,"['[Art:1] Shampoo para perros de pelo largo --- [Precio:12000]', '[Art:2] Toallitas humedas para limpieza de oidos de gatos --- [Precio:23000]']",26000,3000
+800594,Hector,DFSG SDGF,2023-04-09,"['[Art:1] Shampoo para perros de pelo largo --- [Precio:12000]', '[Art:2] Toallitas humedas para limpieza de oidos de gatos --- [Precio:23000]']",27000,3000
+900742,Hector,WRG DSFG,2023-04-09,"['[Art:1] Shampoo para perros de pelo largo --- [Precio:12000]', '[Art:2] Toallitas humedas para limpieza de oidos de gatos --- [Precio:23000]']",27000,3000
+197250,Hector,SDFG SDGF,2023-04-09,"['[Art:1] Shampoo para perros de pelo largo --- [Precio:12000]', '[Art:2] Toallitas humedas para limpieza de oidos de gatos --- [Precio:23000]']",35000,0
+136919,Hector,SDGF ERG,2023-04-09,"['[Art:1] Shampoo para perros de pelo largo --- [Precio:12000]', '[Art:2] Toallitas humedas para limpieza de oidos de gatos --- [Precio:23000]', '[Art:3] Cepillo de dientes para perros --- [Precio:6000]']",41000,0

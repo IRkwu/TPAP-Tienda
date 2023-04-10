@@ -15,10 +15,10 @@ def ingresarDatosNuevoCliente(tipoCliente):
     id = random.randint(100000, 999999)
     nombres = input("Ingresar nombres: ")
     apellido_paterno = input("Ingresar apellido paterno: ")
+    apellido_materno = input("Ingresar apellido materno: ")
     rut = input("Ingresar rut: ")
     # El cliente tipo 1 es porque necesita un envio
     if tipoCliente == 1:
-        apellido_materno = input("Ingresar apellido materno: ")
         genero = input("Ingresar genero: ")
         fecha_nacimiento = input("Ingresar fecha nacimiento: ")
         email = input("Ingresar email: ")
@@ -33,7 +33,7 @@ def ingresarDatosNuevoCliente(tipoCliente):
     # El cliente tipo 2 es porque no necesita un envio
     elif tipoCliente == 2:
         Cliente.AgregarClientes(None,
-                                id, nombres, apellido_paterno, "", "", "", rut, "", "", "", "", "")
+                                id, nombres, apellido_paterno, apellido_materno, "", "", rut, "", "", "", "", "")
 
 
 def llenadoDeCarrito(tipo):
@@ -48,7 +48,10 @@ def llenadoDeCarrito(tipo):
         for articulo in ListaArticulos:
             if id == articulo.get_id():
                 if articulo.get_stock() > 0:
-                    Carrito_Cliente.AgregarArticulo(i, tipo)
+                    if tipo == 1:
+                        Carrito_Cliente.AgregarArticuloUnidad(i)
+                    elif tipo == 2:
+                        Carrito_Cliente.AgregarArticuloLote(i)
                     comprobacion = True
                     print("Producto ingresado correctamente")
                 else:
@@ -131,7 +134,7 @@ while True:
     elif opcion == "3":
         if pasoPorSeleccionarProducto:
             ConfirmarEnvio()
-            Venta.ConfirmarVenta(None, tipoCompra)
+            Venta.ConfirmarVenta(None)
         else:
             print("Primero tiene que seleccionar productos antes de realizar la compra")
     elif opcion == "4":
@@ -147,9 +150,9 @@ while True:
 
 
 # ---------------------------- Tareas ----------------------------
-# Llenar lista de articulos y organiza las marcas
+# Llenar lista de articulos y organiza las marcas                                           ---LISTO----
 # Que al seleccionar no envio, no copie los datos del ultimo cliente                        ---LISTO----
 # Agregar compra de articulos por lote                                                      ---LISTO----
 # Que no acceda al menu de solicita envio hasta que haya almenos un producto en el carrito  ---LISTO---
-# Verificacion de cliente frecuente
-# Al confirmar compra se reste el stock                                                     ---No lo pude hacer----
+# Verificacion de cliente frecuente                                                         ---PENDIENTE----
+# Al confirmar compra se reste el stock                                                     ---LISTO----
