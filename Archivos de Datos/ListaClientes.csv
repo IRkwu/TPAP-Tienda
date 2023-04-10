@@ -3,25 +3,5 @@ ID,Nombres,Apellido Paterno,Apellido Materno,Genero,Fecha Nacimiento,RUT,Email,T
 154909,Jotaro,Kujo,Joestar,Masculino,XX/XX/1970,11236894-5,jojo@gmail.com,123456789,Florida,['Mascota'],Historial
 253081,Pepe,Paterno,Materno,Masculino,30/02/2000,20123544-2,pepe@gmail.com,123456123,Pepoland,['Mascota'],Historial
 117235,Alvaro,Andler,Ramos,Masculino,30/07/2003,21354784-4,alvaro@gmail.com,12312123,Calle 123,['Mascota'],Historial
-332682,David ,Osorio,,,,21234083-9,,,,,
 899371,David,Osorio,Villalobos,Masculino,06/02/2003,21234083-9,david3212@gmail.com,+5695689745,Bosque Templado 1895,['Mascota'],Historial
-828760,David,Osorio,,,,21234,,,,,
-274578,Felipe,Jaune,,,,20123354-5,,,,,
-862638,adf,afd,,,,45555,,,,,
-129003,Jose,Ramos,,,,2123456,,,,,
-999668,Carlos,Rivera,,,,16542654-5,,,,,
-164379,Maria,Lopez,,,,1921684347,,,,,
-120025,Camila,Soto,,,,21234083-9,,,,,
-528336,Pilar,Martinez,Martinez,Femenino,10/08/1956,101655465-5,pilarMM@gmail.com,+56985654635,Volcan Villarica 4565,['Mascota'],Historial
-646120,David,Rivera,,,,1564555,,,,,
-897563,e,r,fd,fs,23,23,sdf@edf,23423,sfe444 44,['Mascota'],Historial
-701520,asd,wer,,,,234,,,,,
-422397,sadf,adsf,,,,q432,,,,,
-689537,sdf,sdf,,,,234,,,,,
-249843,asfdas,asdfa,,,,345,,,,,
-615989,sdfhs,sgsfg,,,,3453,,,,,
-617047,sdgf,sdfg,,,,3245,,,,,
-800594,DFSG,SDGF,,,,345,,,,,
-900742,WRG,DSFG,,,,2345,,,,,
-197250,SDFG,SDGF,,,,3245,,,,,
-136919,SDGF,ERG,,,,2345,,,,,
+325845,Felipe ,Jaune,Asencio,Masculino,03/04/2003,2349203-4,FJauAsen@gmial.com,+5693423423,Los Laureles 7858,['Mascota'],Historial

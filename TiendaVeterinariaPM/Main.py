@@ -73,15 +73,6 @@ def llenadoDeCarrito(tipo):
 
 def ConfirmarEnvio():
     opcion = 0
-
-   # print("¿Quiere hacerse cliente?")
-   # print("1.- Si \n 2.- No")
-   # hacerseCliente = int(input("Opcion: "))
-   # if hacerseCliente == 1:
-   #     ingresarDatosNuevoCliente()
-   # else:
-   #     print("Ok, pero se está perdiendo grandes descuentos al momento de realizar una compra")
-
     print("Usted necesita envio: ")
     print("1.Si // 2.No")
     opcion = int(input("Ingrese su opción: "))

@@ -17,3 +17,4 @@ id_transaccion,nombre_vendedor,nombre_cliente,fecha,articulos,total,costo_envio
 900742,Hector,WRG DSFG,2023-04-09,"['[Art:1] Shampoo para perros de pelo largo --- [Precio:12000]', '[Art:2] Toallitas humedas para limpieza de oidos de gatos --- [Precio:23000]']",27000,3000
 197250,Hector,SDFG SDGF,2023-04-09,"['[Art:1] Shampoo para perros de pelo largo --- [Precio:12000]', '[Art:2] Toallitas humedas para limpieza de oidos de gatos --- [Precio:23000]']",35000,0
 136919,Hector,SDGF ERG,2023-04-09,"['[Art:1] Shampoo para perros de pelo largo --- [Precio:12000]', '[Art:2] Toallitas humedas para limpieza de oidos de gatos --- [Precio:23000]', '[Art:3] Cepillo de dientes para perros --- [Precio:6000]']",41000,0
+325845,Hector,Felipe  Jaune,2023-04-09,"['[Art:1] Tijeras para recorte de uñas de gatos --- [Precio:45080]', '[Art:2] Shampoo para perros de pelo largo --- [Precio:12000]', '[Art:3] Alimento enlatado para gatos mayores --- [Precio:2650]']",59730,0
