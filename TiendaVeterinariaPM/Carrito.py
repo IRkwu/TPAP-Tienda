@@ -20,6 +20,7 @@ class Carrito():
         else:
             self.__ArticulosCarrito.append(ListaArticulos[indice])
             self.__ArticulosCarrito[-1].set_precio_por_lote(0)
+            ListaArticulos[indice].RetirarStock(1)
             print("Producto agregado al carrito:",
                   ListaArticulos[indice].get_nombre())
             print("El precio del producto es:")
@@ -31,7 +32,7 @@ class Carrito():
         else:
             self.__ArticulosCarrito.append(ListaArticulos[indice])
             self.__ArticulosCarrito[-1].set_precio_por_unidad(0)
-
+            ListaArticulos[indice].RetirarStock(5)
             print("Producto agregado al carrito:",
                   ListaArticulos[indice].get_nombre())
             print("El precio del producto es:")
