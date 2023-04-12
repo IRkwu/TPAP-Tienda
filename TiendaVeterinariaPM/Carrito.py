@@ -23,11 +23,10 @@ class Carrito():
             ListaArticulos[indice].RetirarStock(1)
             print("Producto agregado al carrito:",
                   ListaArticulos[indice].get_nombre())
-            print("El precio del producto es:")
-            print(ListaArticulos[indice].get_precio_por_unidad())
+            print("El precio del producto es:",ListaArticulos[indice].get_precio_por_unidad())
 
     def AgregarArticuloLote(self, indice):
-        if Carrito.VerificarStockArticulos(self, indice) == False:
+        if Carrito.VerificarStockArticulosLote(self, indice) == False:
             print("¡¡¡Error!!! Producto sin Stock")
         else:
             self.__ArticulosCarrito.append(ListaArticulos[indice])
@@ -35,8 +34,7 @@ class Carrito():
             ListaArticulos[indice].RetirarStock(5)
             print("Producto agregado al carrito:",
                   ListaArticulos[indice].get_nombre())
-            print("El precio del producto es:")
-            print(ListaArticulos[indice].get_precio_por_lote())
+            print("El precio del producto es:",ListaArticulos[indice].get_precio_por_lote())
     # Elimina el articulo del carrito según la posición en que fue añadida, ej: para eliminar el primer producto del carrito el indice sería 0
 
     def EliminarArticulo(self, indice):
@@ -50,9 +48,14 @@ class Carrito():
         if articulo.get_stock() == 0:
             print("No hay stock del producto:", articulo.get_nombre())
             return False
-        else:
-            print("\nEl stock disponible es:", articulo.get_stock())
-            return True
+        
+    def VerificarStockArticulosLote(self, indice):
+        articulo = ListaArticulos[indice]
+        if articulo.get_stock() <= 4:
+            print("No hay stock del producto:", articulo.get_nombre())
+            return False
+        
+        
 
     # Calcula el precio total y verifica si se aplica o no el costo de envio
     def CalcularTotal(self):

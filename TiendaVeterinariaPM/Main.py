@@ -53,7 +53,6 @@ def llenadoDeCarrito(tipo):
                     elif tipo == 2:
                         Carrito_Cliente.AgregarArticuloLote(i)
                     comprobacion = True
-                    print("Producto ingresado correctamente")
                 else:
                     print("No hay stock del producto")
                     comprobacion = True
