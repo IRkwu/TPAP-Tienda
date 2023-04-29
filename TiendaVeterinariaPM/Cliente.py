@@ -1,11 +1,12 @@
 import csv
 from datetime import datetime
+from Guis import *
 
 
 class Cliente:
-    def __init__(self, id, nombre, apellidoPaterno, apellidoMaterno, genero, fechaNacimiento, rut, email, telefono, domicilio, mascotas, historial):
+    def __init__(self, id, nombres, apellidoPaterno, apellidoMaterno, genero, fechaNacimiento, rut, email, telefono, domicilio):
         self.__id = id
-        self.__nombre = nombre
+        self.__nombres = nombres
         self.__apellidoPaterno = apellidoPaterno
         self.__apellidoMaterno = apellidoMaterno
         self.__genero = genero
@@ -14,8 +15,6 @@ class Cliente:
         self.__email = email
         self.__telefono = telefono
         self.__domicilio = domicilio
-        self.__mascotas = mascotas
-        self.__historial = historial
 
     def get_id(self):
         return self.__id
@@ -23,11 +22,11 @@ class Cliente:
     def set_id(self, id):
         self.__id = id
 
-    def get_nombre(self):
-        return self.__nombre
+    def get_nombres(self):
+        return self.__nombres
 
-    def set_nombre(self, nombre):
-        self.__nombre = nombre
+    def set_nombres(self, nombres):
+        self.__nombres = nombres
 
     def get_apellidoPaterno(self):
         return self.__apellidoPaterno
@@ -76,26 +75,84 @@ class Cliente:
 
     def set_domicilio(self, domicilio):
         self.__domicilio = domicilio
+        
+        
+        
+    def GuardarCSV_Clientes(self, lista_clientes):
+        with open('Archivos de Datos\ListadeClientes.csv', mode='w', newline='') as file:
+            writer = csv.writer(file, delimiter=',',
+                                quotechar='"', quoting=csv.QUOTE_MINIMAL)
+            writer.writerow(['ID', 'Nombres', 'Apellido Paterno', 'Apellido Materno', "Genero",
+                            'Fecha Nacimiento', 'RUT', "Email", "Telefono", "Domicilio"])
+            for Cliente in lista_clientes:
+                writer.writerow([Cliente.get_id(), Cliente.get_nombres(), Cliente.get_apellidoPaterno(), Cliente.get_apellidoMaterno(), Cliente.get_genero(), Cliente.get_fechaNacimiento(
+                ), Cliente.get_rut(), Cliente.get_email(), Cliente.get_telefono(), Cliente.get_domicilio()])
+            
+    # Funcion para cargar los clientes desde un archivo csv
 
-    def get_mascotas(self):
-        return self.__mascotas
+    def CargarCSV_Clientes(self, ruta_archivo):
+        lista_clientes = []
+        with open(ruta_archivo, mode='r') as file:
+            reader = csv.reader(file)
+            next(reader)
+            for row in reader:
+                    id, nombres, apellidoPaterno, apellidoMaterno, genero, fechaNacimiento, rut, email, telefono, domicilio = row
+                    cliente = Cliente(id, nombres, apellidoPaterno, apellidoMaterno, genero,
+                                  fechaNacimiento, rut, email, telefono, domicilio)
+                    lista_clientes.append(cliente)
+        return lista_clientes
 
-    def set_mascotas(self, mascotas):
-        self.__mascotas = mascotas
+    # Funcion para agregar clientes a un archivo csv
 
-    def agregar_mascota(self, mascota):
-        self.__mascotas.append(mascota)
+    def AgregarClientes(self, id, nombres, apellidoPaterno, apellidoMaterno, genero, fechaNacimiento, rut, email, telefono, domicilio):
+        cliente = Cliente(id, nombres, apellidoPaterno, apellidoMaterno, genero,
+                          fechaNacimiento, rut, email, telefono, domicilio)
+        ListaClientes.append(cliente)
+        self.GuardarCSV_Clientes(ListaClientes)
+        print("El cliente se agregó correctamente a la lista de Clientes.")
+    
+ListaClientes = Cliente.CargarCSV_Clientes(None,
+                                           'Archivos de Datos\ListadeClientes.csv')
 
-    def get_historial(self):
-        return self.__historial
 
-    def set_historial(self, historial):
-        self.__historial = historial
+def buscar_cliente(id, clientes):
+    for cliente in clientes:
+        if cliente.get_id() == id:
+            return cliente
+    return None
 
-    def agregar_servicio_historial(self, servicio, historial_cliente):
-        self.__historial.append(servicio)
-        with open('Archivos de Datos\HistorialCliente.csv', mode='w', newline='') as file:
-            writer = csv.writer(file, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
-            writer.writerow(['Nombre Vendedor', 'Nombre Cliente', 'Fecha', 'Productos', 'Total', 'Costo Envío', 'Fecha de última compra'])
-            for cliente in historial_cliente:
-                writer.writerow([cliente.get_nombre(), articulo.get_mascota(), articulo.get_id(), articulo.get_marca(), articulo.get_precio_por_unidad(), articulo.get_stock(), articulo.get_descripcion(), articulo.get_categoria(), articulo.get_precio_por_lote(), articulo.get_limite_critico()])
+
+def imprimir_datos_cliente(id_cliente):
+    with open('Archivos de Datos\ListadeClientes.csv', mode="r") as archivo:
+        reader = csv.reader(archivo)
+        encontrado = False
+        for row in reader:
+            if row[0] == id_cliente:
+                print("Datos del cliente:")
+                print(f"ID: {row[0]}")
+                print(f"Nombres: {row[1]}")
+                print(f"Apellido Paterno: {row[2]}")
+                print(f"Apellido Materno: {row[3]}")
+                print(f"Género: {row[4]}")
+                print(f"Fecha de Nacimiento: {row[5]}")
+                print(f"RUT: {row[6]}")
+                print(f"Email: {row[7]}")
+                print(f"Teléfono: {row[8]}")
+                print(f"Domicilio: {row[9]}")
+                encontrado = True
+                break
+
+        if not encontrado:
+            print(f"No se encontró un cliente con el ID {id_cliente}")
+
+# cliente = ingresar_cliente()
+
+# with open("ListaClientes.csv", mode="a", newline="") as archivo_csv:
+#    writer = csv.writer(archivo_csv, delimiter=",")
+#    writer.writerow([cliente.get_id(), cliente.get_nombres(), cliente.get_apellidoPaterno(), cliente.get_apellidoMaterno(), cliente.get_genero(), cliente.get_fechaNacimiento(), cliente.get_rut(), cliente.get_email(), cliente.get_telefono(), cliente.get_domicilio(), cliente.get_mascotas(), cliente.get_historial()])
+
+#eliminar_cliente("4567")
+
+#imprimir_datos_cliente('1234')
+
+#editar_cliente('1234')
