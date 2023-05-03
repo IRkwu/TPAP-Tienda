@@ -1,5 +1,5 @@
 import csv
-from datetime import datetime
+from PyQt5.QtWidgets import *
 
 
 class Cliente:

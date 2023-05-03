@@ -4,10 +4,11 @@ import PyQt5.QtGui as qtg
 import PyQt5.QtCore as qtc
 import sys
 import csv
+import re
 from Articulos import *
 from Cliente import *
-from PyQt5.QtGui import QColor
-from PyQt5.QtCore import Qt, pyqtSignal
+from PyQt5.QtGui import QColor, QRegExpValidator, QValidator
+from PyQt5.QtCore import Qt, QRegExp
 from PyQt5.QtGui import QColor
 
 
@@ -111,7 +112,13 @@ class ventanaCrearCliente(qtw.QWidget):
 
         texto2.setFont(qtg.QFont("Helvetica", 32))
         self.layout().addWidget(texto2)
+        
+        regex = QRegExp("[a-zA-Z]+")
+        regexNumeros = QRegExp("[0-9]+")
 
+        self.validador = QRegExpValidator(regex)
+        self.validadorNumeros = QRegExpValidator(regexNumeros)
+        
         #Layout horizontal para el label y el cuadro de texto
         hbox = qtw.QHBoxLayout()
         idLabel = qtw.QLabel("ID: ")
@@ -120,6 +127,8 @@ class ventanaCrearCliente(qtw.QWidget):
         self.idLineEdit.setPlaceholderText("Ingrese el rut sin punto ni guión")
         hbox.addWidget(self.idLineEdit)
         self.layout().addLayout(hbox)
+        self.idLineEdit.setValidator(self.validadorNumeros)
+        self.idLineEdit.textChanged.connect(self.verificar_entrada)
         
         hbox = qtw.QHBoxLayout()
         nombresLabel = qtw.QLabel("Nombres: ")
@@ -128,6 +137,8 @@ class ventanaCrearCliente(qtw.QWidget):
         self.nombresLineEdit.setPlaceholderText("Ingrese el nombre del cliente")
         hbox.addWidget(self.nombresLineEdit)
         self.layout().addLayout(hbox)
+        self.nombresLineEdit.setValidator(self.validador)
+        self.nombresLineEdit.textChanged.connect(self.verificar_entrada)
         
         hbox = qtw.QHBoxLayout()
         apellidopLabel = qtw.QLabel("Apellido paterno: ")
@@ -136,6 +147,8 @@ class ventanaCrearCliente(qtw.QWidget):
         self.apellidopLineEdit.setPlaceholderText("Ingrese el apellido paterno")
         hbox.addWidget(self.apellidopLineEdit)
         self.layout().addLayout(hbox)
+        self.apellidopLineEdit.setValidator(self.validador)
+        self.apellidopLineEdit.textChanged.connect(self.verificar_entrada)
         
         hbox = qtw.QHBoxLayout()
         apellidomLabel = qtw.QLabel("Apellido materno: ")
@@ -144,6 +157,8 @@ class ventanaCrearCliente(qtw.QWidget):
         self.apellidomLineEdit.setPlaceholderText("Ingrese el apellido materno")
         hbox.addWidget(self.apellidomLineEdit)
         self.layout().addLayout(hbox)
+        self.apellidomLineEdit.setValidator(self.validador)
+        self.apellidomLineEdit.textChanged.connect(self.verificar_entrada)
         
         hbox = qtw.QHBoxLayout()
         generoLabel = qtw.QLabel("Género: ")
@@ -152,6 +167,8 @@ class ventanaCrearCliente(qtw.QWidget):
         self.generoLineEdit.setPlaceholderText("Ingrese el género")
         hbox.addWidget(self.generoLineEdit)
         self.layout().addLayout(hbox)
+        self.generoLineEdit.setValidator(self.validador)
+        self.generoLineEdit.textChanged.connect(self.verificar_entrada)
         
         hbox = qtw.QHBoxLayout()
         fnacimientoLabel = qtw.QLabel("Fecha de nacimiento: ")
@@ -161,7 +178,6 @@ class ventanaCrearCliente(qtw.QWidget):
         hbox.addWidget(self.fnacimientoLineEdit)
         self.layout().addLayout(hbox)
         
-        
         hbox = qtw.QHBoxLayout()
         rutLabel = qtw.QLabel("Rut: ")
         hbox.addWidget(rutLabel)
@@ -169,6 +185,9 @@ class ventanaCrearCliente(qtw.QWidget):
         self.rutLineEdit.setPlaceholderText("Ingrese el rut del cliente")
         hbox.addWidget(self.rutLineEdit)
         self.layout().addLayout(hbox)
+        self.rutLineEdit.textChanged.connect(self.verificar_rut)
+        self.label_error = QLabel()
+        hbox.addWidget(self.label_error)
         
         hbox = qtw.QHBoxLayout()
         emailLabel = qtw.QLabel("Email: ")
@@ -185,6 +204,8 @@ class ventanaCrearCliente(qtw.QWidget):
         self.telefonoLineEdit.setPlaceholderText("+56 00000000")
         hbox.addWidget(self.telefonoLineEdit)
         self.layout().addLayout(hbox)
+        self.telefonoLineEdit.setValidator(self.validadorNumeros)
+        self.telefonoLineEdit.textChanged.connect(self.verificar_entrada)
         
         hbox = qtw.QHBoxLayout()
         domicilioLabel = qtw.QLabel("Domicilio: ")
@@ -193,6 +214,8 @@ class ventanaCrearCliente(qtw.QWidget):
         self.domicilioLineEdit.setPlaceholderText("Dirección")
         hbox.addWidget(self.domicilioLineEdit)
         self.layout().addLayout(hbox)
+        # self.domicilioLineEdit.setValidator(self.validador)
+        # self.domicilioLineEdit.textChanged.connect(self.verificar_entrada)
         
         botonCrear = qtw.QPushButton("Crear Cliente")
         botonCrear.clicked.connect(self.agregar_cliente)
@@ -201,6 +224,26 @@ class ventanaCrearCliente(qtw.QWidget):
 
         botonBack = qtw.QPushButton("Atras", clicked = lambda: self.cambioAtras(ventana3))
         self.layout().addWidget(botonBack)
+        
+    def verificar_entrada(self, texto):
+        # Validamos el texto ingresado con el validador
+        pos = 0
+        estado = self.validador.validate(texto, pos)
+
+        # Si el texto es válido, eliminamos el mensaje de error
+        if estado == QRegExpValidator.Acceptable:
+            self.label_error.setText("")
+        # Si el texto es inválido, mostramos el mensaje de error correspondiente
+        elif estado == QRegExpValidator.Invalid:
+            self.label_error.setText("Valor inválido")
+            
+    def verificar_rut(self, texto):
+        # Validamos el RUT ingresado con la función validar_rut
+        if validar_rut(texto):
+            self.label_error.setText("")
+        else:
+            self.label_error.setText("RUT inválido")
+            
         
     def agregar_cliente(self):
         id = self.idLineEdit.text()
@@ -213,12 +256,27 @@ class ventanaCrearCliente(qtw.QWidget):
         email = self.emailLineEdit.text()
         telefono = self.telefonoLineEdit.text()
         domicilio = self.domicilioLineEdit.text()
+        
+        if nombres == '' or id == '' or fechaNacimiento == '' or rut == '' or apellidoMaterno == '' or apellidoPaterno == '' or telefono == '':
+            QMessageBox.critical(self, "Error", "Por favor, complete todos los campos requeridos.")
+            return
 
         cliente = Cliente(id, nombres, apellidoPaterno, apellidoMaterno, genero,
                            fechaNacimiento, rut, email, telefono, domicilio)
         cliente.AgregarClientes(id, nombres, apellidoPaterno, apellidoMaterno, genero,
                            fechaNacimiento, rut, email, telefono, domicilio)
         QMessageBox.information(None, "Éxito", "El cliente se agregó correctamente a la lista.")
+        
+        self.idLineEdit.clear()
+        self.nombresLineEdit.clear()
+        self.apellidopLineEdit.clear()
+        self.apellidomLineEdit.clear()
+        self.generoLineEdit.clear()
+        self.fnacimientoLineEdit.clear()
+        self.rutLineEdit.clear()
+        self.emailLineEdit.clear()
+        self.telefonoLineEdit.clear()
+        self.domicilioLineEdit.clear()
 
        
     #Funcion que simula el cambio (oculta la ventana)
@@ -275,6 +333,21 @@ class ventanaEditarCliente(QMainWindow):
         widget.setLayout(main_layout)
         self.setCentralWidget(widget)
 
+    def guardar_datos(self):
+
+        # Abrir el archivo CSV en modo escritura
+        with open('Archivos de Datos\ListadeClientes.csv', "w", newline="") as file:
+            # Crear un objeto escritor CSV
+            writer = csv.writer(file)
+
+            # Escribir los datos de la tabla en el archivo
+            for i in range(self.table.rowCount()):
+                row = []
+                for j in range(self.table.columnCount()):
+                    item = self.table.item(i, j)
+                    row.append(item.text())
+                writer.writerow(row)
+    
     def cargar_datos(self):
 
         # Limpiar la tabla antes de cargar nuevos datos
@@ -291,22 +364,6 @@ class ventanaEditarCliente(QMainWindow):
                 for j, value in enumerate(row):
                     item = QTableWidgetItem(value)
                     self.table.setItem(i, j, item)
-
-
-    def guardar_datos(self):
-
-        # Abrir el archivo CSV en modo escritura
-        with open('Archivos de Datos\ListadeClientes.csv', "w", newline="") as file:
-            # Crear un objeto escritor CSV
-            writer = csv.writer(file)
-
-            # Escribir los datos de la tabla en el archivo
-            for i in range(self.table.rowCount()):
-                row = []
-                for j in range(self.table.columnCount()):
-                    item = self.table.item(i, j)
-                    row.append(item.text())
-                writer.writerow(row)
 
 
     def eliminar_datos(self):
@@ -413,6 +470,13 @@ class ventanaCrearProducto(qtw.QWidget):
         #Cantidad de botones en la ventana
 
         #Layout horizontal para el label y el cuadro de texto
+        
+        regex = QRegExp("[a-zA-Z]+")
+        regexNumeros = QRegExp("[0-9]+")
+        
+        self.validador = QRegExpValidator(regex)
+        self.validadorNumeros = QRegExpValidator(regexNumeros)
+        
         hbox = qtw.QHBoxLayout()
         nombreLabel = qtw.QLabel("Nombre: ")
         hbox.addWidget(nombreLabel)
@@ -420,6 +484,8 @@ class ventanaCrearProducto(qtw.QWidget):
         self.nombreLineEdit.setPlaceholderText("Ingrese el nombre del producto")
         hbox.addWidget(self.nombreLineEdit)
         self.layout().addLayout(hbox)
+        self.nombreLineEdit.setValidator(self.validador)
+        self.nombreLineEdit.textChanged.connect(self.verificar_entrada)
 
         hbox = qtw.QHBoxLayout()
         mascotaLabel = qtw.QLabel("Mascota: ")
@@ -436,6 +502,8 @@ class ventanaCrearProducto(qtw.QWidget):
         self.idLineEdit.setPlaceholderText("Ingrese el ID del producto")
         hbox.addWidget(self.idLineEdit)
         self.layout().addLayout(hbox)
+        self.idLineEdit.setValidator(self.validadorNumeros)
+        self.idLineEdit.textChanged.connect(self.verificar_entrada)
 
         hbox = qtw.QHBoxLayout()
         marcaLabel = qtw.QLabel("Marca: ")
@@ -444,6 +512,8 @@ class ventanaCrearProducto(qtw.QWidget):
         self.marcaLineEdit.setPlaceholderText("Ingrese la marca del producto")
         hbox.addWidget(self.marcaLineEdit)
         self.layout().addLayout(hbox)
+        self.marcaLineEdit.setValidator(self.validador)
+        self.marcaLineEdit.textChanged.connect(self.verificar_entrada)
 
         hbox = qtw.QHBoxLayout()
         precioLabel = qtw.QLabel("Precio: ")
@@ -452,6 +522,8 @@ class ventanaCrearProducto(qtw.QWidget):
         self.precioLineEdit.setPlaceholderText("Ingrese el precio del producto")
         hbox.addWidget(self.precioLineEdit)
         self.layout().addLayout(hbox)
+        self.precioLineEdit.setValidator(self.validadorNumeros)
+        self.precioLineEdit.textChanged.connect(self.verificar_entrada)
 
         hbox = qtw.QHBoxLayout()
         stockLabel = qtw.QLabel("Stock: ")
@@ -460,6 +532,8 @@ class ventanaCrearProducto(qtw.QWidget):
         self.stockLineEdit.setPlaceholderText("Ingrese el stock disponible del producto")
         hbox.addWidget(self.stockLineEdit)
         self.layout().addLayout(hbox)
+        self.stockLineEdit.setValidator(self.validadorNumeros)
+        self.stockLineEdit.textChanged.connect(self.verificar_entrada)
 
         hbox = qtw.QHBoxLayout()
         descripcionLabel = qtw.QLabel("Descripcion: ")
@@ -468,6 +542,8 @@ class ventanaCrearProducto(qtw.QWidget):
         self.descripcionLineEdit.setPlaceholderText("Ingrese una descripcion del producto")
         hbox.addWidget(self.descripcionLineEdit)
         self.layout().addLayout(hbox)
+        self.descripcionLineEdit.setValidator(self.validador)
+        self.descripcionLineEdit.textChanged.connect(self.verificar_entrada)
 
         hbox = qtw.QHBoxLayout()
         categoriaLabel = qtw.QLabel("Categoria: ")
@@ -483,7 +559,9 @@ class ventanaCrearProducto(qtw.QWidget):
         self.precioLoteLineEdit = qtw.QLineEdit()
         self.precioLoteLineEdit.setPlaceholderText("Ingrese el precio por lote del producto")
         hbox.addWidget(self.precioLoteLineEdit)
-        self.layout().addLayout(hbox)   
+        self.layout().addLayout(hbox)
+        self.precioLoteLineEdit.setValidator(self.validadorNumeros)
+        self.precioLoteLineEdit.textChanged.connect(self.verificar_entrada)
         
         hbox = qtw.QHBoxLayout()
         limiteCriticoLabel = qtw.QLabel("Limite Critico: ")
@@ -491,7 +569,9 @@ class ventanaCrearProducto(qtw.QWidget):
         self.limiteCriticoLineEdit = qtw.QLineEdit()
         self.limiteCriticoLineEdit.setPlaceholderText("Ingrese el limite critico que tendrá el producto")
         hbox.addWidget(self.limiteCriticoLineEdit)
-        self.layout().addLayout(hbox)  
+        self.layout().addLayout(hbox)
+        self.limiteCriticoLineEdit.setValidator(self.validadorNumeros)
+        self.limiteCriticoLineEdit.textChanged.connect(self.verificar_entrada)
         
         botonCrear = qtw.QPushButton("Crear Producto")
         botonCrear.clicked.connect(self.agregar_articulos)
@@ -502,6 +582,18 @@ class ventanaCrearProducto(qtw.QWidget):
         self.layout().addWidget(botonBack)
         
         #Cantidad de botones en la ventana
+        
+    def verificar_entrada(self, texto):
+        # Validamos el texto ingresado con el validador
+        pos = 0
+        estado = self.validador.validate(texto, pos)
+
+        # Si el texto es válido, eliminamos el mensaje de error
+        if estado == QRegExpValidator.Acceptable:
+            self.label_error.setText("")
+        # Si el texto es inválido, mostramos el mensaje de error correspondiente
+        elif estado == QRegExpValidator.Invalid:
+            self.label_error.setText("Valor inválido")
 
     def agregar_articulos(self):
         nombre = self.nombreLineEdit.text()
@@ -514,10 +606,24 @@ class ventanaCrearProducto(qtw.QWidget):
         categoria = self.categoriaComboBox.currentText()
         precioLote = self.precioLoteLineEdit.text()
         limiteCritico = self.limiteCriticoLineEdit.text()
+        
+        if nombre == '' or id == '' or mascota == '' or id == '' or marca == '' or precio == '' or stock == '' or descripcion == '' or precioLote == '' or limiteCritico == '':
+            QMessageBox.critical(self, "Error", "Por favor, complete todos los campos requeridos.")
+            return
 
         articulo = Articulos(nombre, mascota, id, marca, precio, stock, descripcion, categoria, precioLote, limiteCritico)
         articulo.AgregarArticulo(nombre, mascota, id, marca, precio, stock, descripcion, categoria, precioLote, limiteCritico)
-        QMessageBox.information(None, "Éxito", "El artículo se agregó correctamente a la lista.")
+        
+        self.nombreLineEdit.clear()
+        self.mascotaLineEdit.clear()
+        self.idLineEdit.clear()
+        self.marcaLineEdit.clear()
+        self.precioLineEdit.clear()
+        self.stockLineEdit.clear()
+        self.descripcionLineEdit.clear()
+        self.precioLoteLineEdit.clear()
+        self.limiteCriticoLineEdit.clear()
+         
 
         
        
@@ -649,8 +755,36 @@ class ventanaEditarProducto(QMainWindow):
         self.hide()
 
 
+def validar_rut(rut):
+    # Eliminamos los puntos y guiones del RUT
+    rut = rut.replace(".", "").replace("-", "")
 
+    # Verificamos si el RUT tiene un formato válido
+    if not re.match(r'^\d{7,8}[0-9kK]{1}$', rut):
+        return False
 
+    # Calculamos el dígito verificador
+    digito_verificador = rut[-1]
+    rut_sin_digito = rut[:-1]
+    factor = 2
+    suma = 0
+    for i in range(len(rut_sin_digito)-1, -1, -1):
+        suma += int(rut_sin_digito[i]) * factor
+        factor += 1
+        if factor > 7:
+            factor = 2
+    digito_calculado = 11 - (suma % 11)
+    if digito_calculado == 11:
+        digito_calculado = 0
+    elif digito_calculado == 10 and digito_verificador.lower() == "k":
+        digito_calculado = 10
+    elif digito_calculado < 10 and str(digito_calculado) == digito_verificador:
+        pass
+    else:
+        return False
+
+    # Si el RUT es válido, retornamos True
+    return True
 
 if __name__ == '__main__':
 
