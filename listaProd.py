@@ -14,7 +14,7 @@ class listaProd(QMainWindow):
         self.lista = self.ventana.listaProductos
     
     def actualizarLista(self):
-        with open('TPAP-Tienda-AngeloMu-oz/Archivos de Datos/ListaArticulos.csv') as f:
+        with open('Archivos de Datos/ListaArticulos.csv') as f:
             lector = csv.reader(f)
             next(lector)
             self.productos = [row for row in lector]
@@ -38,7 +38,7 @@ class listaProd(QMainWindow):
             precio = qtw.QTableWidgetItem("$" + prod[4])
             self.ventana.listaProductos.setItem(i, 4, precio)
 
-        with open('TPAP-Tienda-AngeloMu-oz/Archivos de Datos/ListaUsuarios.csv', 'r', encoding="utf-8") as r:
+        with open('Archivos de Datos/ListaUsuarios.csv', 'r', encoding="utf-8") as r:
             l = csv.reader(r, delimiter=",")
             next(l)
 

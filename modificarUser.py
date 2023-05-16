@@ -6,7 +6,7 @@ import PyQt5.QtGui as qtg
 import PyQt5.QtCore as qtc
 from uiModificarUser import uiModificar
 import adminUser
-from TiendaVeterinariaPM.csvArchivo import csvArch
+from csvArchivo import csvArch
 
 class modificarUser(QMainWindow):
     def __init__(self, cont):
@@ -52,6 +52,8 @@ class modificarUser(QMainWindow):
         self.ventana.botonGuardarCorreo.clicked.connect(lambda: self.modificar(4))
         self.ventana.botonGuardarCargo.clicked.connect(lambda: self.modificar(5))
         self.ventana.botonGuardarPass.clicked.connect(lambda: self.modificar(6))
+        self.ventana.btnMostrar.clicked.connect(lambda: self.cambioContraseña())
+        self.ventana.btnOcultar.clicked.connect(lambda: self.cambioContraseña())
         
         
     def atras(self):
@@ -59,7 +61,7 @@ class modificarUser(QMainWindow):
         self.close()
         
     def actualizar(self):
-        with open('TPAP-Tienda-AngeloMu-oz/Archivos de Datos/ListaUsuarios.csv', 'r', encoding="utf-8") as r:
+        with open('Archivos de Datos/ListaUsuarios.csv', 'r', encoding="utf-8") as r:
             l = csv.reader(r, delimiter=",")
             next(l)
 
@@ -211,5 +213,5 @@ class modificarUser(QMainWindow):
                 if self.ventana.btnOcultar.isVisible():
                     self.cambioContraseña
                 objAux = self.ventana.inputContra.text()
-            csvArch.modificar("TPAP-Tienda-AngeloMu-oz/Archivos de Datos/ListaUsuarios.csv", self.cont, conta, objAux)
+            csvArch.modificar("Archivos de Datos/ListaUsuarios.csv", self.cont, conta, objAux)
             self.actualizar()

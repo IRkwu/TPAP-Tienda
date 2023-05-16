@@ -37,7 +37,7 @@ class adminUser(QMainWindow):
             self.ventana.btnModificar.setEnabled(False)
         
     def eliminar(self, seleccion):
-        with open('TPAP-Tienda-AngeloMu-oz/Archivos de Datos/ListaUsuarios.csv','r+') as file:
+        with open('Archivos de Datos/ListaUsuarios.csv','r+') as file:
             lines = file.readlines()
             file.seek(0)
             file.truncate()
@@ -47,7 +47,7 @@ class adminUser(QMainWindow):
         self.actualizarLista()
         
     def actualizarLista(self):
-        with open('TPAP-Tienda-AngeloMu-oz/Archivos de Datos/ListaUsuarios.csv') as f:
+        with open('Archivos de Datos/ListaUsuarios.csv') as f:
             lector = csv.reader(f)
             next(lector)
             self.usuarios = [row for row in lector]

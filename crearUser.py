@@ -6,8 +6,8 @@ import PyQt5.QtGui as qtg
 import PyQt5.QtCore as qtc
 from uiCrearUser import uiCrear
 import adminUser
-from TiendaVeterinariaPM.Usuario import Usuario
-from TiendaVeterinariaPM.csvArchivo import csvArch
+from Usuario import Usuario
+from csvArchivo import csvArch
 
 class crearUser(QMainWindow):
     def __init__(self):
@@ -65,7 +65,7 @@ class crearUser(QMainWindow):
         elif fecha < self.restricFechaMin or fecha > self.restricFechaMax:
             qtw.QMessageBox.warning(self, "Fecha invalida", "Parece que la fecha no es valida, ingrese una fecha entre los años 1924 - 2005.")
         else:
-            with open('TPAP-Tienda-AngeloMu-oz/Archivos de Datos/ListaUsuarios.csv', 'r', encoding="utf-8") as r:
+            with open('Archivos de Datos/ListaUsuarios.csv', 'r', encoding="utf-8") as r:
                 l = csv.reader(r, delimiter=",")
                 next(l)
                 for lis in l:
@@ -85,7 +85,7 @@ class crearUser(QMainWindow):
             cargo = self.ventana.comboBoxC.currentText()
             contrasena = self.ventana.inputPassword.text()
             user1 = Usuario(str(id), str(nombre), str(apellidoP), str(apellidoM), str(genero), str(correo), str(fechaNac), str(rut), str(cargo), str(contrasena))
-            csvArch.insertar("TPAP-Tienda-AngeloMu-oz/Archivos de Datos/ListaUsuarios.csv", user1)
+            csvArch.insertar("Archivos de Datos/ListaUsuarios.csv", user1)
             adminUser.adminUser().actualizarLista()
             adminUser.adminUser().show()
             self.close()

@@ -133,7 +133,7 @@ class admin(object):
         self.labelAtras.setFont(font)
         self.labelAtras.setStyleSheet("")
         self.labelAtras.setText("")
-        self.labelAtras.setPixmap(QtGui.QPixmap("TPAP-Tienda-AngeloMu-oz/imagenes/Logo Atras.png"))
+        self.labelAtras.setPixmap(QtGui.QPixmap("imagenes/Logo Atras.png"))
         self.labelAtras.setAlignment(QtCore.Qt.AlignCenter)
         self.labelAtras.setObjectName("labelAtras")
         self.btnAtras = QtWidgets.QPushButton(self.centralwidget)

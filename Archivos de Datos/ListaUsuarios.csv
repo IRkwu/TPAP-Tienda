@@ -1,4 +1,5 @@
-ID,Nombre,Apellido Paterno,Apellido Materno,G�nero,Fecha de nacimiento,RUT,Cargo
-3982,Clay,Hern�ndez,Torres,Femeneno,17/06/1992,18732493-K,Gerente
-8644,Hector,Mart�nez,Garc�a,Masculino,08/03/1995,19132392-2,Cajero
-9454,Carlos,Morales,Ram�rez,Masculino,29/09/2000,20892423-6,Asistente de ventas
+ID,Nombres,Apellido Paterno,Apellido Materno,Genero,Correo Electronico,Fecha de nacimiento,RUT,Cargo,Contrasena
+12,Alvaro Elias,Soto,Contreras,asd,asd,01/02/2000,1212,Gerente,as
+390213,Victor Damian,Calbucura,Carrillo,Masculino,victordamian@gmail.com,22/06/2004,21610176-6,Asistente de Ventas, alo213
+3291,Diego,Jaune,De Las Mercedes,fjdsk,diego@gmail.com,12/04/2003,20843921-3,Asistente de ventas, alo213
+81575161,Oscar Sebastian,Mansilla,Ulloa,Masculino,oscar.mansilla@benja.empresas.com,21/11/2003,20328194-7,Cajero/a,oscar

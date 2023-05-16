@@ -94,7 +94,7 @@ class uiListaP(object):
         self.labelUsuarip.setFont(font)
         self.labelUsuarip.setStyleSheet("")
         self.labelUsuarip.setText("")
-        self.labelUsuarip.setPixmap(QtGui.QPixmap("TPAP-Tienda-AngeloMu-oz/imagenes/Logo Cliente.png"))
+        self.labelUsuarip.setPixmap(QtGui.QPixmap("imagenes/Logo Cliente.png"))
         self.labelUsuarip.setAlignment(QtCore.Qt.AlignCenter)
         self.labelUsuarip.setObjectName("labelUsuarip")
         self.labelUsuario2 = QtWidgets.QLabel(self.frame)
