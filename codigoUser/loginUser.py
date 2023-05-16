@@ -2,7 +2,7 @@ import typing
 from PyQt5 import QtCore
 from PyQt5.QtWidgets import QMainWindow, QApplication, QWidget
 import sys
-from codigoVista.uiLoginUser import uiLogin
+from uiLoginUser import uiLogin
 
 class login(QMainWindow):
     def __init__(self):

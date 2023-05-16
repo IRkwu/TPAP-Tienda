@@ -56,7 +56,7 @@
     <property name="frameShadow">
      <enum>QFrame::Raised</enum>
     </property>
-    <widget class="QLabel" name="label">
+    <widget class="QLabel" name="labelTitulo">
      <property name="geometry">
       <rect>
        <x>376</x>
@@ -84,7 +84,7 @@ border-radius: 27px;</string>
       <set>Qt::AlignCenter</set>
      </property>
     </widget>
-    <widget class="QPushButton" name="pushButton">
+    <widget class="QPushButton" name="btnCrearUsuario">
      <property name="geometry">
       <rect>
        <x>52</x>
@@ -113,7 +113,7 @@ border-radius: 27px</string>
       <string>Crear Usuario</string>
      </property>
     </widget>
-    <widget class="QPushButton" name="pushButton_2">
+    <widget class="QPushButton" name="btnVerUsuario">
      <property name="geometry">
       <rect>
        <x>361</x>
@@ -142,7 +142,7 @@ border-radius: 27px</string>
       <string>Ver Usuario</string>
      </property>
     </widget>
-    <widget class="QPushButton" name="pushButton_3">
+    <widget class="QPushButton" name="btnModificar">
      <property name="geometry">
       <rect>
        <x>670</x>
@@ -171,7 +171,7 @@ border-radius: 27px</string>
       <string>Modificar Usuario</string>
      </property>
     </widget>
-    <widget class="QPushButton" name="pushButton_4">
+    <widget class="QPushButton" name="btnEliminar">
      <property name="geometry">
       <rect>
        <x>979</x>
@@ -200,7 +200,7 @@ border-radius: 27px</string>
       <string>Eliminar Usuario</string>
      </property>
     </widget>
-    <widget class="QTableWidget" name="tableWidget">
+    <widget class="QTableWidget" name="listaUsuario">
      <property name="geometry">
       <rect>
        <x>37</x>
@@ -293,7 +293,7 @@ border-radius: 27px</string>
      </column>
     </widget>
    </widget>
-   <widget class="QLabel" name="label_4">
+   <widget class="QLabel" name="labelAtras">
     <property name="geometry">
      <rect>
       <x>30</x>

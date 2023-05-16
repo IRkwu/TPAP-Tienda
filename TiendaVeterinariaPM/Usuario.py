@@ -6,107 +6,80 @@ cargo = [
     "Asistente de ventas"
 ]
 
-
 class Usuario():
+    
+    def __init__(self, id = None, nombres = None, apellido_paterno = None, apellido_materno = None, genero = None, correo = None, fecha_nacimiento = None, rut = None, cargo = None, contrasena = None):
+        self.id = id
+        self.nombres = nombres
+        self.apellido_paterno = apellido_paterno
+        self.apellido_materno = apellido_materno
+        self.genero=genero
+        self.correo = correo
+        self.fecha_nacimiento = fecha_nacimiento
+        self.rut = rut
+        self.cargo = cargo
+        self.contrasena = contrasena
 
-    def __init__(self, id, nombres, apellido_paterno, apellido_materno, genero, fecha_nacimiento, rut, cargo):
-        self.__id = id
-        self.__nombres = nombres
-        self.__apellido_paterno = apellido_paterno
-        self.__apellido_materno = apellido_materno
-        self.__genero = genero
-        self.__fecha_nacimiento = fecha_nacimiento
-        self.__rut = rut
-        self.__cargo = cargo
-
+   
     def get_nombres(self):
-        return self.__nombres
+        return self.nombres
 
     def set_nombres(self, nombres):
-        self.__nombres = nombres
-
+        self.nombres = nombres
+    
     def get_id(self):
-        return self.__id
+        return self.id
 
     def set_id(self, id):
-        self.__id = id
+        self.id = id
 
     def get_apellidoPaterno(self):
-        return self.__apellido_paterno
+        return self.apellido_paterno
 
     def set_apellidoPaterno(self, apellidoPaterno):
-        self.__apellido_paterno = apellidoPaterno
+        self._apellidopaterno = apellidoPaterno
 
     def get_apellidoMaterno(self):
-        return self.__apellido_materno
-
+        return self.apellido_materno
+    
     def set_apellidoMaterno(self, apellidoMaterno):
-        self.__apellido_materno = apellidoMaterno
-
+        self.apellido_materno = apellidoMaterno
+    
     def get_genero(self):
-        return self.__genero
+        return self.genero
 
     def set_genero(self, genero):
-        self.__genero = genero
+        self.genero = genero
+        
+    def get_correo(self):
+        return self.correo
 
+    def set_genero(self, correo):
+        self.correo = correo
+        
     def get_fechaDeNacimiento(self):
-        return self.__fecha_nacimiento
-
+        return self.fecha_nacimiento
+    
     def set_fechaDeNacimiento(self, fechaNacimiento):
-        self.__fecha_nacimiento = fechaNacimiento
-
+        self.fecha_nacimiento = fechaNacimiento
+        
     def get_rut(self):
-        return self.__rut
-
+        return self.rut
+    
     def set_rut(self, rut):
-        self.__rut = rut
-
+        self.rut = rut
+        
     def get_cargo(self):
-        return self.__cargo
-
+        return self.cargo
+    
     def set_cargo(self, cargo):
-        self.__cargo = cargo
+        self.cargo = cargo
 
-    # Funcion para guardar los usuarios en un archivo csv
-    def GuadarCSV_Usuarios(self, lista_usuarios):
-        with open('Archivos de Datos\ListaUsuarios.csv', mode='w', newline='') as file:
-            writer = csv.writer(file, delimiter=',',
-                                quotechar='"', quoting=csv.QUOTE_MINIMAL)
-            writer.writerow(['ID', 'Nombre', 'Apellido Paterno', 'Apellido Materno',
-                            'Género', 'Fecha de nacimiento', 'RUT', 'Cargo'])
-            for Usuario in lista_usuarios:
-                writer.writerow([Usuario.get_id(), Usuario.get_nombres(), Usuario.get_apellidoPaterno(), Usuario.get_apellidoMaterno(
-                ), Usuario.get_genero(), Usuario.get_fechaDeNacimiento(), Usuario.get_rut(), Usuario.get_cargo()])
-
-    # Funcion para cargar los usuarios desde un archivo csv
-    def CargarCSV_Usuarios(self, ruta_archivo):
-        lista_usuarios = []
-        with open(ruta_archivo, mode='r') as file:
-            reader = csv.reader(file)
-            next(reader)
-            for row in reader:
-                id, nombres, apellido_paterno, apellido_materno, genero, fecha_nacimiento, rut, cargo = row
-                usuario = Usuario(id, nombres, apellido_paterno,
-                                  apellido_materno, genero, fecha_nacimiento, rut, cargo)
-                lista_usuarios.append(usuario)
-        return lista_usuarios
-
-
-# Inicializar la lista de Usuarios por defecto, para que no haya un arreglo vacio, cargar la lista de usuarios
-Lista_Usuarios = Usuario.CargarCSV_Usuarios(None,
-                                            'Archivos de Datos\ListaUsuarios.csv')
-
-
-# PRUEBAS
-# Ejemplo mostrar los cargos de los usuarios
-# print(Lista_Usuarios[0].get_cargo())
-# print(Lista_Usuarios[1].get_cargo())
-# print(Lista_Usuarios[2].get_cargo())
-
-# Ejemplo para guardar la lista de usuarios
-# Usuarios=[
-#    Usuario(3982, "Clay", "Hernández", "Torres", "Femeneno", "17/06/1992", "18732493-K", cargo[0]),
-#    Usuario(8644, "Hector", "Martínez", "García", "Masculino", "08/03/1995", "19132392-2", cargo[1]),
-#    Usuario(9454, "Carlos", "Morales", "Ramírez", "Masculino", "29/09/2000", "20892423-6", cargo[2]),
-# ]
-# Usuario.GuadarCSV_Usuarios(Usuarios)
+    def get_contrasena(self):
+        return self.contrasena
+    
+    def set_contrasena(self, contrasena):
+        self.contrasena = contrasena
+    
+    def string(self):
+        return f"{self.id},{self.nombres},{self.apellido_paterno},{self.apellido_materno},{self.genero},{self.correo},{self.fecha_nacimiento},{self.rut},{self.cargo},{self.contrasena}"

@@ -56,7 +56,7 @@
     <property name="frameShadow">
      <enum>QFrame::Raised</enum>
     </property>
-    <widget class="QLabel" name="label">
+    <widget class="QLabel" name="labelTitulo">
      <property name="geometry">
       <rect>
        <x>362</x>
@@ -106,7 +106,7 @@ border-radius: 27px;</string>
       <string/>
      </property>
     </widget>
-    <widget class="QLabel" name="label_6">
+    <widget class="QLabel" name="labelAtras">
      <property name="geometry">
       <rect>
        <x>30</x>
@@ -136,7 +136,7 @@ border-radius: 27px;</string>
       <set>Qt::AlignCenter</set>
      </property>
     </widget>
-    <widget class="QLabel" name="label_7">
+    <widget class="QLabel" name="labelNombre">
      <property name="geometry">
       <rect>
        <x>61</x>
@@ -164,7 +164,7 @@ border-radius: 16px;</string>
       <set>Qt::AlignCenter</set>
      </property>
     </widget>
-    <widget class="QLabel" name="label_8">
+    <widget class="QLabel" name="labelFondo">
      <property name="geometry">
       <rect>
        <x>360</x>
@@ -194,7 +194,7 @@ border-radius: 16px;</string>
       <set>Qt::AlignCenter</set>
      </property>
     </widget>
-    <widget class="QLineEdit" name="lineEdit">
+    <widget class="QLineEdit" name="inputNombre">
      <property name="geometry">
       <rect>
        <x>254</x>
@@ -220,7 +220,7 @@ background-color: rgb(255, 255, 255);</string>
       <string>Nombre(s) del Usuario...</string>
      </property>
     </widget>
-    <widget class="QLabel" name="label_9">
+    <widget class="QLabel" name="labelApellidoP">
      <property name="geometry">
       <rect>
        <x>61</x>
@@ -248,7 +248,7 @@ border-radius: 16px;</string>
       <set>Qt::AlignCenter</set>
      </property>
     </widget>
-    <widget class="QLineEdit" name="lineEdit_2">
+    <widget class="QLineEdit" name="inputApellidoP">
      <property name="geometry">
       <rect>
        <x>254</x>
@@ -274,7 +274,7 @@ background-color: rgb(255, 255, 255);</string>
       <string>Apellido Paterno del Usuario...</string>
      </property>
     </widget>
-    <widget class="QLabel" name="label_10">
+    <widget class="QLabel" name="labelApellidoM">
      <property name="geometry">
       <rect>
        <x>61</x>
@@ -302,7 +302,7 @@ border-radius: 16px;</string>
       <set>Qt::AlignCenter</set>
      </property>
     </widget>
-    <widget class="QLabel" name="label_11">
+    <widget class="QLabel" name="labelFechaN">
      <property name="geometry">
       <rect>
        <x>61</x>
@@ -330,7 +330,7 @@ border-radius: 16px;</string>
       <set>Qt::AlignCenter</set>
      </property>
     </widget>
-    <widget class="QLabel" name="label_12">
+    <widget class="QLabel" name="labelCorreo">
      <property name="geometry">
       <rect>
        <x>61</x>
@@ -358,7 +358,7 @@ border-radius: 16px;</string>
       <set>Qt::AlignCenter</set>
      </property>
     </widget>
-    <widget class="QLabel" name="label_13">
+    <widget class="QLabel" name="labelCargo">
      <property name="geometry">
       <rect>
        <x>61</x>
@@ -386,7 +386,7 @@ border-radius: 16px;</string>
       <set>Qt::AlignCenter</set>
      </property>
     </widget>
-    <widget class="QLabel" name="label_14">
+    <widget class="QLabel" name="labelGenero">
      <property name="geometry">
       <rect>
        <x>61</x>
@@ -414,7 +414,7 @@ border-radius: 16px;</string>
       <set>Qt::AlignCenter</set>
      </property>
     </widget>
-    <widget class="QLabel" name="label_15">
+    <widget class="QLabel" name="labelRut">
      <property name="geometry">
       <rect>
        <x>61</x>
@@ -442,7 +442,7 @@ border-radius: 16px;</string>
       <set>Qt::AlignCenter</set>
      </property>
     </widget>
-    <widget class="QLabel" name="label_16">
+    <widget class="QLabel" name="labelContrasena">
      <property name="geometry">
       <rect>
        <x>61</x>
@@ -470,7 +470,7 @@ border-radius: 16px;</string>
       <set>Qt::AlignCenter</set>
      </property>
     </widget>
-    <widget class="QLineEdit" name="lineEdit_3">
+    <widget class="QLineEdit" name="inputApellidoM">
      <property name="geometry">
       <rect>
        <x>254</x>
@@ -496,59 +496,7 @@ background-color: rgb(255, 255, 255);</string>
       <string>Apellido Materno del Usuario...</string>
      </property>
     </widget>
-    <widget class="QLineEdit" name="lineEdit_4">
-     <property name="geometry">
-      <rect>
-       <x>254</x>
-       <y>331</y>
-       <width>641</width>
-       <height>31</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <family>Open Sans Semibold</family>
-       <pointsize>14</pointsize>
-      </font>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">border: 2px solid #000000;
-background-color: rgb(255, 255, 255);</string>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-     <property name="placeholderText">
-      <string>Correo del usuario...</string>
-     </property>
-    </widget>
-    <widget class="QLineEdit" name="lineEdit_5">
-     <property name="geometry">
-      <rect>
-       <x>254</x>
-       <y>382</y>
-       <width>646</width>
-       <height>33</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <family>Open Sans Semibold</family>
-       <pointsize>14</pointsize>
-      </font>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">border: 2px solid #000000;
-background-color: rgb(255, 255, 255);</string>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-     <property name="placeholderText">
-      <string>Cargo del Usuario; Ejemplo: Vendedor, Gerente, Jefe, etc...</string>
-     </property>
-    </widget>
-    <widget class="QLineEdit" name="lineEdit_7">
+    <widget class="QLineEdit" name="inputContra">
      <property name="geometry">
       <rect>
        <x>254</x>
@@ -580,40 +528,7 @@ background-color: rgb(255, 255, 255);</string>
       <string>Contraseña del usuario entre 2 a 30 caracteres...</string>
      </property>
     </widget>
-    <widget class="QPushButton" name="btnAtras_2">
-     <property name="geometry">
-      <rect>
-       <x>855</x>
-       <y>535</y>
-       <width>51</width>
-       <height>31</height>
-      </rect>
-     </property>
-     <property name="cursor">
-      <cursorShape>PointingHandCursor</cursorShape>
-     </property>
-     <property name="focusPolicy">
-      <enum>Qt::StrongFocus</enum>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background-color: rgba(255, 255, 255);</string>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-     <property name="icon">
-      <iconset>
-       <normaloff>../imagenes/Mostrar.png</normaloff>
-       <normalon>../imagenes/Esconder.png</normalon>../imagenes/Mostrar.png</iconset>
-     </property>
-     <property name="iconSize">
-      <size>
-       <width>37</width>
-       <height>33</height>
-      </size>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_2">
+    <widget class="QLabel" name="labelFechaNoEditar">
      <property name="geometry">
       <rect>
        <x>254</x>
@@ -640,7 +555,7 @@ background-color: rgb(255, 255, 255);</string>
       <set>Qt::AlignCenter</set>
      </property>
     </widget>
-    <widget class="QLabel" name="label_4">
+    <widget class="QLabel" name="labelGeneroNoEditar">
      <property name="geometry">
       <rect>
        <x>254</x>
@@ -667,30 +582,222 @@ background-color: rgb(255, 255, 255);</string>
       <set>Qt::AlignCenter</set>
      </property>
     </widget>
-    <zorder>label_8</zorder>
-    <zorder>label_6</zorder>
-    <zorder>label</zorder>
+    <widget class="QLineEdit" name="inputCorreo">
+     <property name="geometry">
+      <rect>
+       <x>254</x>
+       <y>331</y>
+       <width>321</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Open Sans Semibold</family>
+       <pointsize>14</pointsize>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">border: 2px solid #000000;
+background-color: rgb(255, 255, 255);</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="placeholderText">
+      <string>Correo del usuario...</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="labelArroba">
+     <property name="geometry">
+      <rect>
+       <x>573</x>
+       <y>331</y>
+       <width>41</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Open Sans Semibold</family>
+       <pointsize>14</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">border: 2px solid #000000;
+background-color: rgb(255, 255, 255);</string>
+     </property>
+     <property name="text">
+      <string>@</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="inputDominio">
+     <property name="geometry">
+      <rect>
+       <x>611</x>
+       <y>331</y>
+       <width>291</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Open Sans Semibold</family>
+       <pointsize>14</pointsize>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">border: 2px solid #000000;
+background-color: rgb(255, 255, 255);</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="placeholderText">
+      <string>Dominio correo, ej: gmail.com</string>
+     </property>
+    </widget>
+    <widget class="QComboBox" name="comboBoxC">
+     <property name="geometry">
+      <rect>
+       <x>254</x>
+       <y>382</y>
+       <width>641</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">border: 2px solid #000000;
+background-color: rgb(255, 255, 255);</string>
+     </property>
+     <item>
+      <property name="text">
+       <string>Elegir</string>
+      </property>
+      <property name="icon">
+       <iconset>
+        <normaloff>../imagenes/Elegir.png</normaloff>../imagenes/Elegir.png</iconset>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Cajero/a</string>
+      </property>
+      <property name="icon">
+       <iconset>
+        <normaloff>../imagenes/Cajero.png</normaloff>../imagenes/Cajero.png</iconset>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Gerente</string>
+      </property>
+      <property name="icon">
+       <iconset>
+        <normaloff>../imagenes/Gerente.png</normaloff>../imagenes/Gerente.png</iconset>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Asistente de Ventas</string>
+      </property>
+      <property name="icon">
+       <iconset>
+        <normaloff>../imagenes/Asistente.png</normaloff>../imagenes/Asistente.png</iconset>
+      </property>
+     </item>
+    </widget>
+    <widget class="QPushButton" name="btnMostrar">
+     <property name="geometry">
+      <rect>
+       <x>855</x>
+       <y>535</y>
+       <width>51</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="cursor">
+      <cursorShape>PointingHandCursor</cursorShape>
+     </property>
+     <property name="focusPolicy">
+      <enum>Qt::StrongFocus</enum>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgba(255, 255, 255);</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="icon">
+      <iconset>
+       <normaloff>../imagenes/Mostrar.png</normaloff>../imagenes/Mostrar.png</iconset>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>37</width>
+       <height>33</height>
+      </size>
+     </property>
+    </widget>
+    <widget class="QLabel" name="labelFechaNoEditar_2">
+     <property name="geometry">
+      <rect>
+       <x>254</x>
+       <y>331</y>
+       <width>646</width>
+       <height>34</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Open Sans Semibold</family>
+       <pointsize>17</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(193, 193, 193);</string>
+     </property>
+     <property name="text">
+      <string>Correo</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <zorder>labelFondo</zorder>
+    <zorder>labelAtras</zorder>
+    <zorder>labelTitulo</zorder>
     <zorder>btnAtras</zorder>
-    <zorder>label_7</zorder>
-    <zorder>lineEdit</zorder>
-    <zorder>label_9</zorder>
-    <zorder>lineEdit_2</zorder>
-    <zorder>label_10</zorder>
-    <zorder>label_11</zorder>
-    <zorder>label_12</zorder>
-    <zorder>label_13</zorder>
-    <zorder>label_14</zorder>
-    <zorder>label_15</zorder>
-    <zorder>label_16</zorder>
-    <zorder>lineEdit_3</zorder>
-    <zorder>lineEdit_4</zorder>
-    <zorder>lineEdit_5</zorder>
-    <zorder>lineEdit_7</zorder>
-    <zorder>btnAtras_2</zorder>
-    <zorder>label_2</zorder>
-    <zorder>label_4</zorder>
+    <zorder>labelNombre</zorder>
+    <zorder>inputNombre</zorder>
+    <zorder>labelApellidoP</zorder>
+    <zorder>inputApellidoP</zorder>
+    <zorder>labelApellidoM</zorder>
+    <zorder>labelFechaN</zorder>
+    <zorder>labelCorreo</zorder>
+    <zorder>labelCargo</zorder>
+    <zorder>labelGenero</zorder>
+    <zorder>labelRut</zorder>
+    <zorder>labelContrasena</zorder>
+    <zorder>inputApellidoM</zorder>
+    <zorder>inputContra</zorder>
+    <zorder>labelFechaNoEditar</zorder>
+    <zorder>labelGeneroNoEditar</zorder>
+    <zorder>inputCorreo</zorder>
+    <zorder>labelArroba</zorder>
+    <zorder>inputDominio</zorder>
+    <zorder>comboBoxC</zorder>
+    <zorder>btnMostrar</zorder>
+    <zorder>labelFechaNoEditar_2</zorder>
    </widget>
-   <widget class="QPushButton" name="pushButton">
+   <widget class="QPushButton" name="botonGuardar">
     <property name="geometry">
      <rect>
       <x>983</x>
@@ -715,10 +822,10 @@ background-color: rgb(255, 255, 255);</string>
      <string notr="true">border-color: rgb(0, 74, 173);</string>
     </property>
     <property name="text">
-     <string>Registrar</string>
+     <string>Guardar Cambios</string>
     </property>
    </widget>
-   <widget class="QLabel" name="label_5">
+   <widget class="QLabel" name="labelRutNoEditar">
     <property name="geometry">
      <rect>
       <x>254</x>
@@ -743,6 +850,374 @@ background-color: rgb(255, 255, 255);</string>
     </property>
     <property name="alignment">
      <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="botonModificarN">
+    <property name="geometry">
+     <rect>
+      <x>910</x>
+      <y>123</y>
+      <width>111</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Open Sans Semibold</family>
+      <pointsize>12</pointsize>
+      <weight>75</weight>
+      <italic>false</italic>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border-color: rgb(0, 74, 173);</string>
+    </property>
+    <property name="text">
+     <string>Modificar</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="botonModificarApP">
+    <property name="geometry">
+     <rect>
+      <x>910</x>
+      <y>174</y>
+      <width>111</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Open Sans Semibold</family>
+      <pointsize>12</pointsize>
+      <weight>75</weight>
+      <italic>false</italic>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border-color: rgb(0, 74, 173);</string>
+    </property>
+    <property name="text">
+     <string>Modificar</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="botonModificarApM">
+    <property name="geometry">
+     <rect>
+      <x>910</x>
+      <y>225</y>
+      <width>111</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Open Sans Semibold</family>
+      <pointsize>12</pointsize>
+      <weight>75</weight>
+      <italic>false</italic>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border-color: rgb(0, 74, 173);</string>
+    </property>
+    <property name="text">
+     <string>Modificar</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="botonModificarCorreo">
+    <property name="geometry">
+     <rect>
+      <x>910</x>
+      <y>323</y>
+      <width>111</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Open Sans Semibold</family>
+      <pointsize>12</pointsize>
+      <weight>75</weight>
+      <italic>false</italic>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border-color: rgb(0, 74, 173);</string>
+    </property>
+    <property name="text">
+     <string>Modificar</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="botonRegistrarCargo">
+    <property name="geometry">
+     <rect>
+      <x>910</x>
+      <y>375</y>
+      <width>111</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Open Sans Semibold</family>
+      <pointsize>12</pointsize>
+      <weight>75</weight>
+      <italic>false</italic>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border-color: rgb(0, 74, 173);</string>
+    </property>
+    <property name="text">
+     <string>Modificar</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="botonRegistrarPass">
+    <property name="geometry">
+     <rect>
+      <x>910</x>
+      <y>528</y>
+      <width>111</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Open Sans Semibold</family>
+      <pointsize>12</pointsize>
+      <weight>75</weight>
+      <italic>false</italic>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border-color: rgb(0, 74, 173);</string>
+    </property>
+    <property name="text">
+     <string>Modificar</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btnOcultar">
+    <property name="geometry">
+     <rect>
+      <x>855</x>
+      <y>535</y>
+      <width>51</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::StrongFocus</enum>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgba(255, 255, 255);</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>../imagenes/Esconder.png</normaloff>../imagenes/Esconder.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>37</width>
+      <height>33</height>
+     </size>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="botonGuardarN">
+    <property name="geometry">
+     <rect>
+      <x>910</x>
+      <y>123</y>
+      <width>111</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Open Sans Semibold</family>
+      <pointsize>12</pointsize>
+      <weight>75</weight>
+      <italic>false</italic>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border-color: rgb(0, 74, 173);</string>
+    </property>
+    <property name="text">
+     <string>Guardar</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="botonGuardarApP">
+    <property name="geometry">
+     <rect>
+      <x>910</x>
+      <y>174</y>
+      <width>111</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Open Sans Semibold</family>
+      <pointsize>12</pointsize>
+      <weight>75</weight>
+      <italic>false</italic>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border-color: rgb(0, 74, 173);</string>
+    </property>
+    <property name="text">
+     <string>Guardar</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="botonGuardarApM">
+    <property name="geometry">
+     <rect>
+      <x>910</x>
+      <y>225</y>
+      <width>111</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Open Sans Semibold</family>
+      <pointsize>12</pointsize>
+      <weight>75</weight>
+      <italic>false</italic>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border-color: rgb(0, 74, 173);</string>
+    </property>
+    <property name="text">
+     <string>Guardar</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="botonGuardarCorreo">
+    <property name="geometry">
+     <rect>
+      <x>910</x>
+      <y>323</y>
+      <width>111</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Open Sans Semibold</family>
+      <pointsize>12</pointsize>
+      <weight>75</weight>
+      <italic>false</italic>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border-color: rgb(0, 74, 173);</string>
+    </property>
+    <property name="text">
+     <string>Guardar</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="botonGuardarCargo">
+    <property name="geometry">
+     <rect>
+      <x>910</x>
+      <y>375</y>
+      <width>111</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Open Sans Semibold</family>
+      <pointsize>12</pointsize>
+      <weight>75</weight>
+      <italic>false</italic>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border-color: rgb(0, 74, 173);</string>
+    </property>
+    <property name="text">
+     <string>Guardar</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="botonGuardarPass">
+    <property name="geometry">
+     <rect>
+      <x>910</x>
+      <y>528</y>
+      <width>111</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Open Sans Semibold</family>
+      <pointsize>12</pointsize>
+      <weight>75</weight>
+      <italic>false</italic>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border-color: rgb(0, 74, 173);</string>
+    </property>
+    <property name="text">
+     <string>Guardar</string>
     </property>
    </widget>
   </widget>
