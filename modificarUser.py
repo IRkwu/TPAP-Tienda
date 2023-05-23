@@ -143,6 +143,8 @@ class modificarUser(QMainWindow):
             self.ventana.botonRegistrarPass.setEnabled(False)
             self.ventana.botonGuardarPass.setVisible(True)
             self.ventana.botonGuardarPass.setEnabled(True)
+        self.ventana.btnAtras.setEnabled(False)
+        self.ventana.labelAtras.setVisible(False)
     
     def modificar(self, conta):
         if conta != 4:
@@ -213,5 +215,8 @@ class modificarUser(QMainWindow):
                 if self.ventana.btnOcultar.isVisible():
                     self.cambioContraseña
                 objAux = self.ventana.inputContra.text()
+            if self.ventana.botonModificarN.isVisible() and self.ventana.botonModificarApP.isVisible() and self.ventana.botonModificarApM.isVisible() and self.ventana.botonModificarCorreo.isVisible() and self.ventana.botonRegistrarCargo.isVisible() and self.ventana.botonRegistrarPass.isVisible():
+                self.ventana.btnAtras.setEnabled(True)
+                self.ventana.labelAtras.setVisible(True)
             csvArch.modificar("Archivos de Datos/ListaUsuarios.csv", self.cont, conta, objAux)
             self.actualizar()
