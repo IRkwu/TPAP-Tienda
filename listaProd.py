@@ -13,6 +13,9 @@ class listaProd(QMainWindow):
         self.actualizarLista()
         self.lista = self.ventana.listaProductos
     
+    def actualizarNombre(self):
+        self.ventana.labelUsuarioEnLogin.setText(self.usuario[1])
+    
     def actualizarLista(self):
         with open('Archivos de Datos/ListaArticulos.csv') as f:
             lector = csv.reader(f)
