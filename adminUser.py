@@ -5,11 +5,13 @@ import sys
 from uiAdminUser import admin
 import crearUser
 import modificarUser
+import loginUser
 
 class adminUser(QMainWindow):
     def __init__(self):
         super().__init__()
         self.ventana = admin()
+        self.ventanaLog = loginUser.login()
         self.ventana.setupUi(self)
         self.lista = self.ventana.listaUsuario
         self.seleccionUser = -1
@@ -23,6 +25,7 @@ class adminUser(QMainWindow):
         self.ventana2 = modificarUser.modificarUser(self.seleccionUser)
         self.ventana.btnCrearUsuario.clicked.connect(lambda: self.cambio1(ventana1))
         self.ventana.btnModificar.clicked.connect(lambda: self.cambio(self.ventana2))
+        self.ventana.btnAtras.clicked.connect(lambda: self.cambio1(self.ventanaLog))
         
     def filaSel(self):
         self.fila = self.lista.selectedIndexes()
@@ -80,9 +83,5 @@ class adminUser(QMainWindow):
         self.ventana2.actualizar()
         ventana.show()
         self.close()
+        
     
-if __name__=="__main__":
-    app = QApplication(sys.argv)
-    ventanaMain = adminUser()
-    ventanaMain.show()
-    app.exec_()
