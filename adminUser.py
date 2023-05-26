@@ -6,6 +6,7 @@ from uiAdminUser import admin
 import crearUser
 import modificarUser
 import loginUser
+import VerUsuario
 
 class adminUser(QMainWindow):
     def __init__(self):
@@ -26,6 +27,9 @@ class adminUser(QMainWindow):
         self.ventana.btnCrearUsuario.clicked.connect(lambda: self.cambio1(ventana1))
         self.ventana.btnModificar.clicked.connect(lambda: self.cambio(self.ventana2))
         self.ventana.btnAtras.clicked.connect(lambda: self.cambio1(self.ventanaLog))
+        self.ventana3 = VerUsuario.VerUsuario(self.seleccionUser)
+        self.ventana.btnVerUsuario.clicked.connect(lambda: self.cambio3(self.ventana3))
+        
         
     def filaSel(self):
         self.fila = self.lista.selectedIndexes()
@@ -85,3 +89,9 @@ class adminUser(QMainWindow):
         self.close()
         
     
+
+    def cambio3(self, ventana):
+        self.ventana3.cont = self.seleccionUser
+        self.ventana3.actualizar()
+        ventana.show()
+        self.close()
