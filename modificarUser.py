@@ -83,7 +83,7 @@ class modificarUser(QMainWindow):
             self.ventana.comboBoxC.setCurrentIndex(1)
         elif self.usuario[8] == "Gerente":
             self.ventana.comboBoxC.setCurrentIndex(2)
-        elif self.usuario[8] == "Asistente de ventas":
+        elif self.usuario[8] == "Asistente de Ventas":
             self.ventana.comboBoxC.setCurrentIndex(3)
         self.ventana.inputContra.setText(self.usuario[9])
     
