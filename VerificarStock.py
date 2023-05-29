@@ -21,7 +21,6 @@ class Emergente(QMainWindow):
 class Verificar(QMainWindow):
         def __init__(self, cont, usuario):
            super().__init__()
-           p = True
            self.cont = cont
            self.usuario = usuario
            self.ventana = Ui_VerificarProd()
@@ -56,8 +55,8 @@ class Verificar(QMainWindow):
         
         def agregar(self):
             self.setEnabled(False)
-            self.ventanaEm.vent.spinBox.setValue(1)
-            self.ventanaEm.vent.spinBox.setMinimum(1)
+            self.ventanaEm.vent.spinBox.setValue(0)
+            self.ventanaEm.vent.spinBox.setMinimum(0)
             self.ventanaEm.vent.spinBox.setMaximum(99)
             self.ventanaEm.show()
         
@@ -75,4 +74,5 @@ class Verificar(QMainWindow):
             ventana.actualizarNombre()
             ventana.actualizarLista()
             ventana.show()
+            ventana.ventWarning()
             self.hide()

@@ -53,7 +53,8 @@ class login(QMainWindow):
             self.ventana2 = listaProd.listaProd(self.id)     
             self.ventana2.actualizarNombre()
             self.ventana2.show()
-            self.hide()   
+            self.hide()
+            self.ventana2.ventWarning()   
            
     def IngresarAdminUsuario(self):
         adminUser.adminUser().show()

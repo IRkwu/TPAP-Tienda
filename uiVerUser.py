@@ -281,7 +281,7 @@ class Ui_VerUser(object):
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
+        MainWindow.setWindowTitle(_translate("MainWindow", "Clinica CVI"))
         self.labelTitulo.setText(_translate("MainWindow", "VER USUARIO"))
         self.labelNombre.setText(_translate("MainWindow", "Nombres"))
         self.labelApellidoP.setText(_translate("MainWindow", "Apellidos"))

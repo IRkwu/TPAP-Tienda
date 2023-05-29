@@ -157,7 +157,7 @@ class uiLogin(object):
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
+        MainWindow.setWindowTitle(_translate("MainWindow", "Clinica CVI"))
         self.label.setText(_translate("MainWindow", "TIENDA CLINICA CVI"))
         self.nomUser.setPlaceholderText(_translate("MainWindow", "Nombre de Usuario"))
         self.cntUser.setPlaceholderText(_translate("MainWindow", "Contraseña"))

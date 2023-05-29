@@ -300,7 +300,7 @@ class Ui_VerificarProd(object):
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
+        MainWindow.setWindowTitle(_translate("MainWindow", "Clinica CVI"))
         self.labelTitulo.setText(_translate("MainWindow", "VERIFICAR STOCK"))
         self.labelid2.setText(_translate("MainWindow", "ID"))
         self.labelNombre2_2.setText(_translate("MainWindow", "Nombre"))

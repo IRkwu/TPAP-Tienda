@@ -157,7 +157,7 @@ class admin(object):
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
+        MainWindow.setWindowTitle(_translate("MainWindow", "Clinica CVI"))
         self.labelTitulo.setText(_translate("MainWindow", "ADMINISTRACION USUARIOS"))
         self.btnCrearUsuario.setText(_translate("MainWindow", "Crear Usuario"))
         self.btnVerUsuario.setText(_translate("MainWindow", "Ver Usuario"))

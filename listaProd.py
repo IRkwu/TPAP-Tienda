@@ -33,7 +33,8 @@ class listaProd(QMainWindow):
 
         contFilas = len(self.productos)
         self.ventana.listaProductos.setRowCount(contFilas)
-
+        self.p = False
+        
         for i, prod in enumerate(self.productos):
             id = qtw.QTableWidgetItem(prod[2])
             self.ventana.listaProductos.setItem(i, 0, id)
@@ -51,15 +52,17 @@ class listaProd(QMainWindow):
             self.ventana.listaProductos.setItem(i, 4, precio)
         
             # Crear etiqueta cuadrada verde
-            etiqueta = qtw.QTableWidgetItem()
             if int(prod[9]) >= int(prod[5]):
+                etiqueta = qtw.QTableWidgetItem("Stock es igual o por debajo de: " + prod[9])
                 etiqueta.setBackground(qtg.QColor('red'))
+                self.p = True
             else:
+                etiqueta = qtw.QTableWidgetItem()
                 etiqueta.setBackground(qtg.QColor('green'))
             etiqueta.setTextAlignment(qc.Qt.AlignCenter)
             etiqueta.setFlags(qc.Qt.ItemIsEnabled)
             self.ventana.listaProductos.setItem(i, 5, etiqueta)
-            
+        
 
         with open('Archivos de Datos/ListaUsuarios.csv', 'r', encoding="utf-8") as r:
             l = csv.reader(r, delimiter=",")
@@ -80,6 +83,10 @@ class listaProd(QMainWindow):
             self.seleccionItem = self.lista.currentRow()
         else:
             self.ventana.btnRevisarProd.setEnabled(False)
+    
+    def ventWarning(self):
+        if self.p == True:
+            qtw.QMessageBox.warning(self,"¡Atención! Hay articulos con bajo Stock.","Algunos articulos tienen bajo stock, porfavor, revise los colores de las casillas, si están en rojo, significa que tienen bajo stock.")
         
     def Ingresar(self):
         self.VerificarStock = VerificarStock.Verificar(self.seleccionItem, self.cont)

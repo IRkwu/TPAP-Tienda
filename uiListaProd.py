@@ -79,7 +79,7 @@ class uiListaP(object):
         item = QtWidgets.QTableWidgetItem()
         self.listaProductos.setHorizontalHeaderItem(5, item)
         self.listaProductos.horizontalHeader().setCascadingSectionResizes(False)
-        self.listaProductos.horizontalHeader().setDefaultSectionSize(194)
+        self.listaProductos.horizontalHeader().setDefaultSectionSize(191)
         self.listaProductos.horizontalHeader().setSortIndicatorShown(False)
         self.listaProductos.horizontalHeader().setStretchLastSection(False)
         self.listaProductos.verticalHeader().setVisible(False)
@@ -149,7 +149,7 @@ class uiListaP(object):
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
+        MainWindow.setWindowTitle(_translate("MainWindow", "Clinica CVI"))
         self.labelTitulo.setText(_translate("MainWindow", "LISTA PRODUCTOS"))
         self.btnRevisarProd.setText(_translate("MainWindow", "Revisar Producto y Stock"))
         self.btnCerrar.setText(_translate("MainWindow", "Cerrar Sesion"))
