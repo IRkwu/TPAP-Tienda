@@ -289,6 +289,41 @@ border-radius: 27px</string>
       <string/>
      </property>
     </widget>
+    <widget class="QPushButton" name="btnCerrar">
+     <property name="geometry">
+      <rect>
+       <x>1100</x>
+       <y>30</y>
+       <width>151</width>
+       <height>61</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Open Sans Semibold</family>
+       <pointsize>12</pointsize>
+       <weight>75</weight>
+       <italic>false</italic>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="cursor">
+      <cursorShape>PointingHandCursor</cursorShape>
+     </property>
+     <property name="autoFillBackground">
+      <bool>false</bool>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(214, 214, 214);
+border-radius: 27px</string>
+     </property>
+     <property name="text">
+      <string>Cerrar Sesión</string>
+     </property>
+     <property name="autoDefault">
+      <bool>false</bool>
+     </property>
+    </widget>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">

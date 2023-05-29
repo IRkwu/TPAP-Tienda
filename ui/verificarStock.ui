@@ -528,37 +528,6 @@ border-radius: 16px;</string>
       <set>Qt::AlignCenter</set>
      </property>
     </widget>
-    <widget class="QLineEdit" name="inputStock">
-     <property name="geometry">
-      <rect>
-       <x>254</x>
-       <y>484</y>
-       <width>331</width>
-       <height>34</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <family>Open Sans Semibold</family>
-       <pointsize>17</pointsize>
-       <weight>75</weight>
-       <bold>true</bold>
-      </font>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background-color: rgb(193, 193, 193);
-border: 2px solid #c1c1c1</string>
-     </property>
-     <property name="maxLength">
-      <number>999</number>
-     </property>
-     <property name="alignment">
-      <set>Qt::AlignCenter</set>
-     </property>
-     <property name="placeholderText">
-      <string>Stock</string>
-     </property>
-    </widget>
     <zorder>labelFondo</zorder>
     <zorder>labelAtras</zorder>
     <zorder>labelTitulo</zorder>
@@ -576,35 +545,6 @@ border: 2px solid #c1c1c1</string>
     <zorder>labelCategoria</zorder>
     <zorder>labelPrecio</zorder>
     <zorder>labelStockEditable</zorder>
-    <zorder>inputStock</zorder>
-   </widget>
-   <widget class="QPushButton" name="botonGuardar">
-    <property name="geometry">
-     <rect>
-      <x>983</x>
-      <y>620</y>
-      <width>247</width>
-      <height>48</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <family>Open Sans Semibold</family>
-      <pointsize>12</pointsize>
-      <weight>75</weight>
-      <italic>false</italic>
-      <bold>true</bold>
-     </font>
-    </property>
-    <property name="cursor">
-     <cursorShape>PointingHandCursor</cursorShape>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">border-color: rgb(0, 74, 173);</string>
-    </property>
-    <property name="text">
-     <string>Guardar</string>
-    </property>
    </widget>
    <widget class="QLabel" name="labelNombre">
     <property name="geometry">
@@ -690,10 +630,10 @@ border: 2px solid #c1c1c1</string>
    <widget class="QPushButton" name="botonAgregar">
     <property name="geometry">
      <rect>
-      <x>700</x>
-      <y>620</y>
-      <width>247</width>
-      <height>48</height>
+      <x>990</x>
+      <y>590</y>
+      <width>259</width>
+      <height>63</height>
      </rect>
     </property>
     <property name="font">
