@@ -78,19 +78,19 @@
 border-radius: 27px;</string>
      </property>
      <property name="text">
-      <string>LISTA PRODUCTOS</string>
+      <string>VENTA DE PRODUCTOS</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>
      </property>
     </widget>
-    <widget class="QPushButton" name="btnRevisarProd">
+    <widget class="QPushButton" name="btnRealizarVenta">
      <property name="geometry">
       <rect>
        <x>1014</x>
        <y>633</y>
-       <width>231</width>
-       <height>61</height>
+       <width>205</width>
+       <height>55</height>
       </rect>
      </property>
      <property name="font">
@@ -110,7 +110,7 @@ border-radius: 27px;</string>
 border-radius: 27px</string>
      </property>
      <property name="text">
-      <string>Revisar Producto y Stock</string>
+      <string>Realizar venta</string>
      </property>
     </widget>
     <widget class="QTableWidget" name="listaProductos">
@@ -214,7 +214,7 @@ border-radius: 27px</string>
     <widget class="QLabel" name="labelUsuarip">
      <property name="geometry">
       <rect>
-       <x>12</x>
+       <x>14</x>
        <y>10</y>
        <width>91</width>
        <height>91</height>
@@ -244,7 +244,7 @@ border-radius: 27px</string>
     <widget class="QLabel" name="labelUsuario2">
      <property name="geometry">
       <rect>
-       <x>112</x>
+       <x>114</x>
        <y>30</y>
        <width>91</width>
        <height>51</height>
@@ -268,7 +268,7 @@ border-radius: 27px</string>
     <widget class="QLabel" name="labelUsuarioEnLogin">
      <property name="geometry">
       <rect>
-       <x>202</x>
+       <x>204</x>
        <y>30</y>
        <width>161</width>
        <height>51</height>
@@ -293,7 +293,7 @@ border-radius: 27px</string>
      <property name="geometry">
       <rect>
        <x>40</x>
-       <y>637</y>
+       <y>630</y>
        <width>71</width>
        <height>51</height>
       </rect>
@@ -314,10 +314,10 @@ border-radius: 27px</string>
     <widget class="QPushButton" name="btnAtras">
      <property name="geometry">
       <rect>
-       <x>40</x>
-       <y>639</y>
+       <x>39</x>
+       <y>626</y>
        <width>70</width>
-       <height>50</height>
+       <height>60</height>
       </rect>
      </property>
      <property name="cursor">

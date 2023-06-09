@@ -7,7 +7,7 @@ import listaProd
 import csv
 import PyQt5.QtWidgets as qtw
 import adminUser
-
+from uiMenu import uiMenu
 
 class login(QMainWindow):
     def __init__(self):
@@ -50,11 +50,9 @@ class login(QMainWindow):
             qtw.QMessageBox.warning(self,"ERROR! Datos Incorrectos","El usuario o contraseña son erroneos.")
         elif bandera == True:    
             self.id = i
-            self.ventana2 = listaProd.listaProd(self.id)     
-            self.ventana2.actualizarNombre()
+            self.ventana2 = uiMenu.setupUi()
             self.ventana2.show()
             self.hide()
-            self.ventana2.ventWarning()   
            
     def IngresarAdminUsuario(self):
         adminUser.adminUser().show()
