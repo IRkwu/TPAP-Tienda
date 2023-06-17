@@ -61,7 +61,7 @@ class listaProd(QMainWindow):
                 etiqueta.setBackground(qtg.QColor('green'))
             etiqueta.setTextAlignment(qc.Qt.AlignCenter)
             etiqueta.setFlags(qc.Qt.ItemIsEnabled)
-            self.ventana.listaProductos.setItem(i, 5, etiqueta) 
+            self.ventana.listaProductos.setItem(i, 5, etiqueta)
         
 
         with open('Archivos de Datos/ListaUsuarios.csv', 'r', encoding="utf-8") as r:
