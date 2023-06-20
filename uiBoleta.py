@@ -279,7 +279,7 @@ class uiBoleta(object):
                                 self.labelValor_2.setText(linea[3])
                                 self.labelFecha_2.setText(linea[4])
 
-                                articulos = linea[5].strip('][').split(', (')
+                                articulos = linea[5].strip('][').split('), (')
                                 self.listArticulos.clear()
                                 self.listArticulos.addItems(articulos)
 
