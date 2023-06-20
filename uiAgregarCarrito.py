@@ -11,7 +11,7 @@ import csv
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 
-class uiVentEm(object):
+class uiAgregarCarrito(object):
     def __init__(self, idProducto):
             self.idProducto = idProducto
     def setupUi(self, MainWindow):
@@ -23,14 +23,14 @@ class uiVentEm(object):
         self.centralwidget.setObjectName("centralwidget")
         self.frame = QtWidgets.QFrame(self.centralwidget)
         self.frame.setGeometry(QtCore.QRect(-10, -10, 421, 201))
-        self.frame.setMinimumSize(QtCore.QSize(421, 201))
-        self.frame.setMaximumSize(QtCore.QSize(421, 201))
+        self.frame.setMinimumSize(QtCore.QSize(431, 201))
+        self.frame.setMaximumSize(QtCore.QSize(431, 201))
         self.frame.setStyleSheet("background-color: rgb(229, 229, 229);")
         self.frame.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame.setObjectName("frame")
         self.labelTitulo = QtWidgets.QLabel(self.frame)
-        self.labelTitulo.setGeometry(QtCore.QRect(80, 20, 261, 41))
+        self.labelTitulo.setGeometry(QtCore.QRect(50, 20, 320, 41))
         font = QtGui.QFont()
         font.setFamily("Open Sans Semibold")
         font.setPointSize(13)
@@ -40,8 +40,6 @@ class uiVentEm(object):
         self.labelTitulo.setStyleSheet("")
         self.labelTitulo.setAlignment(QtCore.Qt.AlignCenter)
         self.labelTitulo.setObjectName("labelTitulo")
-
-
         self.spinBox = QtWidgets.QSpinBox(self.frame)
         self.spinBox.setGeometry(QtCore.QRect(150, 70, 111, 41))
         self.spinBox.setObjectName("spinBox")
@@ -52,7 +50,7 @@ class uiVentEm(object):
         self.btnGuardar.setObjectName("pushButton")
 
         #Accion boton guardar
-        self.btnGuardar.clicked.connect(self.guardar_stock)
+        self.btnGuardar.clicked.connect(self.cambiar_a_ventana_anterior)
         
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
@@ -66,38 +64,26 @@ class uiVentEm(object):
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
+        
+
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "Agregar Stock"))
-        self.labelTitulo.setText(_translate("MainWindow", "¿Cuanto stock quiere agregar?"))
+        self.labelTitulo.setText(_translate("MainWindow", "¿Cuanto productos quiere agregar?"))
         self.btnGuardar.setText(_translate("MainWindow", "Agregar"))
 
+
     def cambiar_a_ventana_anterior(self):
-            self.ventanaActual = QtWidgets.QApplication.activeWindow()
-            self.ventanaActual.close()
-            from UiVerificar import Ui_VerificarProd  # Importación local para evitar el ciclo de importación
-            self.ventanaAnterior = QtWidgets.QMainWindow(self.ventanaActual.parent())
-            self.uiVentanaAnterior = Ui_VerificarProd(self.idProducto)
-            self.uiVentanaAnterior.setupUi(self.ventanaAnterior)
-            self.ventanaAnterior.show()
-
+        self.ventanaActual = QtWidgets.QApplication.activeWindow()
+        self.ventanaActual.close()
+        from uiVentaProductos import uiVentaProductos  
+        self.ventanaAnterior = QtWidgets.QMainWindow(self.ventanaActual.parent())
+        self.uiVentanaAnterior = uiVentaProductos()
+        self.uiVentanaAnterior.setupUi(self.ventanaAnterior)
+        self.ventanaAnterior.show()
     
-    def guardar_stock(self):
-            stock_agregar = self.spinBox.value()
+    
+    
 
-            with open("Archivos de Datos/ListaArticulos.csv", "r", newline="") as file:
-                csv_reader = csv.reader(file)
-                rows = list(csv_reader)
 
-            for row in rows:
-                if row[2] == str(self.idProducto):
-                    row[5] = str(int(row[5]) + stock_agregar)
-                    break
-            else:
-                rows.append([str(self.idProducto), str(stock_agregar)])
 
-            with open("Archivos de Datos/ListaArticulos.csv", "w", newline="") as file:
-                csv_writer = csv.writer(file)
-                csv_writer.writerows(rows)
-
-            self.cambiar_a_ventana_anterior()

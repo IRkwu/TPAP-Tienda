@@ -59,8 +59,8 @@
     <widget class="QLabel" name="labelTitulo">
      <property name="geometry">
       <rect>
-       <x>355</x>
-       <y>50</y>
+       <x>281</x>
+       <y>57</y>
        <width>528</width>
        <height>54</height>
       </rect>
@@ -81,76 +81,19 @@
 border-radius: 27px;</string>
      </property>
      <property name="text">
-      <string>DEVOLUCIONES</string>
+      <string>CARRITO</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>
      </property>
     </widget>
-    <widget class="QLineEdit" name="inputID">
+    <widget class="QPushButton" name="btnEfectuarCompra">
      <property name="geometry">
       <rect>
-       <x>30</x>
-       <y>230</y>
-       <width>351</width>
-       <height>33</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <family>Open Sans Semibold</family>
-       <pointsize>14</pointsize>
-      </font>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">border: 2px solid #000000;
-background-color: rgb(255, 255, 255);</string>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-     <property name="placeholderText">
-      <string>Ingrese Id de transacción:</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="labelTituloID">
-     <property name="geometry">
-      <rect>
-       <x>30</x>
-       <y>180</y>
-       <width>281</width>
-       <height>41</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <family>MS Shell Dlg 2</family>
-       <pointsize>18</pointsize>
-       <weight>50</weight>
-       <bold>false</bold>
-      </font>
-     </property>
-     <property name="cursor">
-      <cursorShape>ForbiddenCursor</cursorShape>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background-color: rgb(226, 226, 226);
-border-radius: 18px;</string>
-     </property>
-     <property name="text">
-      <string>Id de transacción</string>
-     </property>
-     <property name="alignment">
-      <set>Qt::AlignCenter</set>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="btnFiltrar">
-     <property name="geometry">
-      <rect>
-       <x>320</x>
-       <y>640</y>
-       <width>205</width>
-       <height>55</height>
+       <x>470</x>
+       <y>629</y>
+       <width>231</width>
+       <height>61</height>
       </rect>
      </property>
      <property name="font">
@@ -166,20 +109,107 @@ border-radius: 18px;</string>
       <cursorShape>PointingHandCursor</cursorShape>
      </property>
      <property name="styleSheet">
-      <string notr="true">background-color: rgb(240, 240, 240);
-border-radius: 27px</string>
+      <string notr="true">background-color: rgb(255, 255, 255);
+border-radius: 30px;
+border-width: 1px;
+border-color: rgb(0, 0, 0);
+border-style: solid;</string>
      </property>
      <property name="text">
-      <string>Filtrar</string>
+      <string>Efectuar Compra</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="btnSeguirComprando">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>630</y>
+       <width>231</width>
+       <height>61</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Open Sans Semibold</family>
+       <pointsize>12</pointsize>
+       <weight>75</weight>
+       <italic>false</italic>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="cursor">
+      <cursorShape>PointingHandCursor</cursorShape>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(255, 255, 255);
+border-radius: 30px;
+border-width: 1px;
+border-color: rgb(0, 0, 0);
+border-style: solid;</string>
+     </property>
+     <property name="text">
+      <string>Seguir Comprando</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="labelFotoCarrito">
+     <property name="geometry">
+      <rect>
+       <x>738</x>
+       <y>611</y>
+       <width>91</width>
+       <height>91</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: transparent;</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="pixmap">
+      <pixmap>../imagenes/Carrito.png</pixmap>
+     </property>
+     <property name="scaledContents">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="QLabel" name="labelValorTotal">
+     <property name="geometry">
+      <rect>
+       <x>858</x>
+       <y>631</y>
+       <width>181</width>
+       <height>54</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Open Sans Semibold</family>
+       <pointsize>22</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="cursor">
+      <cursorShape>ForbiddenCursor</cursorShape>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color:transparent;</string>
+     </property>
+     <property name="text">
+      <string>Valor total:</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
      </property>
     </widget>
     <widget class="QTableWidget" name="listaProductos">
      <property name="geometry">
       <rect>
-       <x>572</x>
-       <y>124</y>
-       <width>691</width>
-       <height>521</height>
+       <x>16</x>
+       <y>127</y>
+       <width>1051</width>
+       <height>471</height>
       </rect>
      </property>
      <property name="styleSheet">
@@ -221,17 +251,20 @@ border-radius: 27px</string>
      <attribute name="horizontalHeaderCascadingSectionResizes">
       <bool>false</bool>
      </attribute>
+     <attribute name="horizontalHeaderMinimumSectionSize">
+      <number>27</number>
+     </attribute>
      <attribute name="horizontalHeaderDefaultSectionSize">
-      <number>172</number>
+      <number>204</number>
      </attribute>
      <attribute name="horizontalHeaderHighlightSections">
-      <bool>false</bool>
+      <bool>true</bool>
      </attribute>
      <attribute name="horizontalHeaderShowSortIndicator" stdset="0">
       <bool>false</bool>
      </attribute>
      <attribute name="horizontalHeaderStretchLastSection">
-      <bool>false</bool>
+      <bool>true</bool>
      </attribute>
      <attribute name="verticalHeaderVisible">
       <bool>false</bool>
@@ -252,59 +285,117 @@ border-radius: 27px</string>
      </column>
      <column>
       <property name="text">
-       <string>Fecha de compra</string>
+       <string>Nombre Producto</string>
       </property>
      </column>
      <column>
       <property name="text">
-       <string>Valor de envio</string>
+       <string>Categoria</string>
       </property>
      </column>
      <column>
       <property name="text">
-       <string>Valor total</string>
+       <string>Precio</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Precio Lote</string>
       </property>
      </column>
     </widget>
-    <widget class="QPushButton" name="btnAtras">
+    <widget class="QPushButton" name="btnEliminar">
      <property name="geometry">
       <rect>
-       <x>30</x>
-       <y>640</y>
-       <width>70</width>
-       <height>50</height>
+       <x>1091</x>
+       <y>443</y>
+       <width>171</width>
+       <height>61</height>
       </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Open Sans Semibold</family>
+       <pointsize>12</pointsize>
+       <weight>75</weight>
+       <italic>false</italic>
+       <bold>true</bold>
+      </font>
      </property>
      <property name="cursor">
       <cursorShape>PointingHandCursor</cursorShape>
      </property>
      <property name="styleSheet">
-      <string notr="true">background-color: transparent;</string>
+      <string notr="true">background-color: rgb(255, 255, 255);
+border-radius: 30px;
+border-width: 1px;
+border-color: rgb(0, 0, 0);
+border-style: solid;</string>
+     </property>
+     <property name="text">
+      <string>Eliminar</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="labelPrecioTotal">
+     <property name="geometry">
+      <rect>
+       <x>1050</x>
+       <y>630</y>
+       <width>210</width>
+       <height>54</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Open Sans Semibold</family>
+       <pointsize>22</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="cursor">
+      <cursorShape>ForbiddenCursor</cursorShape>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color:transparent;</string>
      </property>
      <property name="text">
       <string/>
      </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
     </widget>
-    <widget class="QLabel" name="labelAtras">
+    <widget class="QPushButton" name="btnAgregarCantidad">
      <property name="geometry">
       <rect>
-       <x>20</x>
-       <y>640</y>
-       <width>71</width>
-       <height>51</height>
+       <x>1090</x>
+       <y>247</y>
+       <width>171</width>
+       <height>61</height>
       </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Open Sans Semibold</family>
+       <pointsize>12</pointsize>
+       <weight>75</weight>
+       <italic>false</italic>
+       <bold>true</bold>
+      </font>
      </property>
      <property name="cursor">
       <cursorShape>PointingHandCursor</cursorShape>
      </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(255, 255, 255);
+border-radius: 30px;
+border-width: 1px;
+border-color: rgb(0, 0, 0);
+border-style: solid;</string>
+     </property>
      <property name="text">
-      <string/>
-     </property>
-     <property name="pixmap">
-      <pixmap>../imagenes/Logo Atras.png</pixmap>
-     </property>
-     <property name="scaledContents">
-      <bool>true</bool>
+      <string>Agregar</string>
      </property>
     </widget>
    </widget>
