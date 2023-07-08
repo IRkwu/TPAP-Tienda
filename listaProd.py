@@ -3,7 +3,7 @@ from PyQt5.QtWidgets import QMainWindow, QApplication
 import PyQt5.QtWidgets as qtw
 import PyQt5.QtGui as qtg
 import PyQt5.QtCore as qc
-from uiListaProd import uiListaP
+from uiListaProductos import uiListaProductos
 import VerificarStock
 import loginUser
 
@@ -12,7 +12,7 @@ class listaProd(QMainWindow):
     def __init__(self, cont):
         super().__init__()
         self.cont = cont
-        self.ventana = uiListaP()
+        self.ventana = uiListaProductos()
         self.ventana.setupUi(self)
         self.actualizarLista()
         self.lista = self.ventana.listaProductos

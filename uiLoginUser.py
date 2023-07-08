@@ -10,6 +10,7 @@
 import csv
 from PyQt5 import QtCore, QtGui, QtWidgets
 from uiMenu import uiMenu
+import adminUser
 
 class uiLogin(object):
         def __init__(self, parent=None):
@@ -143,6 +144,7 @@ class uiLogin(object):
                 self.btnIngresar.clicked.connect(lambda:self.cambiar_ventana(uiMenu))
 
                 #Boton Administracion de ususarios
+                ventana1 = adminUser.adminUser()
                 self.btnAdmin = QtWidgets.QPushButton(self.centralwidget)
                 self.btnAdmin.setGeometry(QtCore.QRect(479, 524, 273, 46))
                 font = QtGui.QFont()
@@ -155,6 +157,7 @@ class uiLogin(object):
                 self.btnAdmin.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
                 self.btnAdmin.setStyleSheet("border-color: rgb(0, 74, 173);")
                 self.btnAdmin.setObjectName("btnAdmin")
+                self.btnAdmin.clicked.connect(lambda:self.cambiar_ventana_admin(adminUser))
                 MainWindow.setCentralWidget(self.centralwidget)
 
 
@@ -213,3 +216,11 @@ class uiLogin(object):
                         self.nuevaVentana.show()
                 else:
                         QtWidgets.QMessageBox.warning(self.centralwidget, 'Error', 'RUT o contraseña incorrectos.')
+                        
+        def cambiar_ventana_admin(self, nombreVentana):
+                self.uiVentanaActual= QtWidgets.QApplication.activeWindow()
+                self.uiVentanaActual.close()
+                self.nuevaVentana = QtWidgets.QMainWindow()
+                self.ui = nombreVentana()
+                self.ui.setupUi(self.nuevaVentana)
+                self.nuevaVentana.show()
