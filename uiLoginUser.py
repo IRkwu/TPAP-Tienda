@@ -157,7 +157,7 @@ class uiLogin(object):
                 self.btnAdmin.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
                 self.btnAdmin.setStyleSheet("border-color: rgb(0, 74, 173);")
                 self.btnAdmin.setObjectName("btnAdmin")
-                self.btnAdmin.clicked.connect(lambda:self.cambiar_ventana_admin(adminUser))
+                self.btnAdmin.clicked.connect(lambda:self.cambiar_ventana_admin(ventana1))
                 MainWindow.setCentralWidget(self.centralwidget)
 
 
