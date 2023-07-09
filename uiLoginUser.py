@@ -214,7 +214,7 @@ class uiLogin(object):
                         self.ui.setupUi(self.nuevaVentana)
                         self.nuevaVentana.show()
                 else:
-                        QtWidgets.QMessageBox.warning(self.centralwidget, 'Error', 'RUT o contraseña incorrectos.')
+                        QtWidgets.QMessageBox.warning(self.centralwidget, 'Error', 'Nombre o contraseña incorrectos.')
                         
         def cambiar_ventana_admin(self):
                 nombre = self.nomUser.text()
@@ -225,4 +225,4 @@ class uiLogin(object):
                         self.uiVentanaActual.close()
                         adminUser.adminUser().show()
                 else:
-                        QtWidgets.QMessageBox.warning(self.centralwidget, 'Error', 'RUT o contraseña incorrectos.')
+                        QtWidgets.QMessageBox.warning(self.centralwidget, 'Error', 'Nombre o contraseña incorrectos.')
