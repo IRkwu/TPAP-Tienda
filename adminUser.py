@@ -1,4 +1,6 @@
 import csv
+
+from PyQt5 import QtWidgets
 from PyQt5.QtWidgets import QMainWindow, QApplication
 import PyQt5.QtWidgets as qtw
 import sys
@@ -26,7 +28,7 @@ class adminUser(QMainWindow):
         self.ventana2 = modificarUser.modificarUser(self.seleccionUser)
         self.ventana.btnCrearUsuario.clicked.connect(lambda: self.cambio1(ventana1))
         self.ventana.btnModificar.clicked.connect(lambda: self.cambio(self.ventana2))
-        self.ventana.btnAtras.clicked.connect(lambda: self.cambio1(self.ventanaLog))
+        self.ventana.btnAtras.clicked.connect(lambda: self.cambio4(self.ventanaLog))
         self.ventana3 = VerUsuario.VerUsuario(self.seleccionUser)
         self.ventana.btnVerUsuario.clicked.connect(lambda: self.cambio3(self.ventana3))
         
@@ -81,6 +83,15 @@ class adminUser(QMainWindow):
     def cambio1(self, ventana):
         ventana.show()
         self.close()
+
+    def cambio4(self, ventana):
+        self.ventanaActual = QtWidgets.QApplication.activeWindow()
+        self.ventanaActual.close()
+        from uiLoginUser import uiLogin  # Importación local para evitar el ciclo de importación
+        self.ventanaAnterior = QtWidgets.QMainWindow(self.ventanaActual.parent())
+        self.uiVentanaAnterior = uiLogin()
+        self.uiVentanaAnterior.setupUi(self.ventanaAnterior)
+        self.ventanaAnterior.show()
     
     def cambio(self, ventana):
         self.ventana2.cont = self.seleccionUser

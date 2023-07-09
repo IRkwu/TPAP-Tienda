@@ -13,10 +13,15 @@ from datetime import date
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtWidgets import QTableWidget, QTableWidgetItem, QMessageBox
 from uiBoleta import uiBoleta
+import csv
+from PyQt5 import QtCore
+from csvArchivo import csvArch
+
 
 class uiVentaProductos(object):
         def __init__(self):
                 self.carrito = []
+                self.carritoid = []
         def setupUi(self, MainWindow):
                 MainWindow.setObjectName("MainWindow")
                 MainWindow.resize(1280, 720)
@@ -387,6 +392,7 @@ class uiVentaProductos(object):
                                 self.listaProductos.item(productoSeleccionado, 6).setText(str(stockProducto))
 
                                 self.carrito.append((idProducto, nombreProducto, precioProducto))
+                                self.carritoid.append(idProducto)
 
                                 self.actualizarCarrito()
                                 self.actualizarPrecioTotal()
@@ -407,6 +413,7 @@ class uiVentaProductos(object):
                                         break
                                 
                         self.carrito.pop(productoSeleccionado)
+                        self.carritoid.pop(productoSeleccionado)
                         self.actualizarCarrito()
                         self.actualizarPrecioTotal()
                 else:
@@ -464,6 +471,8 @@ class uiVentaProductos(object):
 
                 QMessageBox.information(None, "Compra realizada", "La compra se ha realizado correctamente.")
 
+                self.eliminarStock()
+
                 # Limpiar carrito
                 self.carrito.clear()
 
@@ -475,3 +484,16 @@ class uiVentaProductos(object):
 
                 self.cambiar_ventanaBoleta(id_transaccion)
 
+        def eliminarStock(self):
+                for x in self.carritoid:
+                        with open('Archivos de Datos/ListaArticulos.csv', "r", encoding="ISO 8859-1") as r:
+                                lector = csv.reader(r, delimiter=",")
+                                next(lector)
+                                i = 0
+                                for l in lector:
+                                        if f"{l[2]}" == f"{x}":
+                                                self.Producto = l
+                                                break
+                                        i += 1
+                        stockFinal = int(self.Producto[5]) - 1
+                        csvArch.modificar("Archivos de Datos/ListaArticulos.csv", i, 5, stockFinal)

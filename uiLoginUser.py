@@ -13,8 +13,6 @@ from uiMenu import uiMenu
 import adminUser
 
 class uiLogin(object):
-        def __init__(self, parent=None):
-                self.parent = parent
         def setupUi(self, MainWindow):
                 MainWindow.setObjectName("MainWindow")
                 MainWindow.resize(1280, 720)
@@ -219,6 +217,12 @@ class uiLogin(object):
                         QtWidgets.QMessageBox.warning(self.centralwidget, 'Error', 'RUT o contraseña incorrectos.')
                         
         def cambiar_ventana_admin(self):
-                self.uiVentanaActual= QtWidgets.QApplication.activeWindow()
-                self.uiVentanaActual.close()
-                adminUser.adminUser().show()
+                nombre = self.nomUser.text()
+                contraseña = self.cntUser.text()
+
+                if self.verificar_credenciales(nombre, contraseña):
+                        self.uiVentanaActual = QtWidgets.QApplication.activeWindow()
+                        self.uiVentanaActual.close()
+                        adminUser.adminUser().show()
+                else:
+                        QtWidgets.QMessageBox.warning(self.centralwidget, 'Error', 'RUT o contraseña incorrectos.')
