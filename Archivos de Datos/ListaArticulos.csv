@@ -1,4 +1,4 @@
-Nombre Producto,Mascota,ID,Marca,Precio por unidad,Stock,Descripcion,Categoria,Precio por lote,Limite critico
+Nombre,Mascota,ID,Marca,Precio por unidad,Stock,Descripci�n,Categor�a,Precio por lote,L�mite cr�tico
 Shampoo para perros de pelo largo,Perro,A1,PetGroom,12000,9,"Especialmente formulado para perros de pelo largo, ayuda a desenredar y suavizar el pelaje",Articulos de Aseo,54000,6
 Toallitas humedas para limpieza de oidos de gatos,Gato,A2,EarCleanse,5000,12,Ayuda a mantener los oidos de los gatos limpios y libres de acumulaciones de cera,Articulos de Aseo,23000,7
 Cepillo de dientes para perros,Perro,A3,Dentipet,6000,40,Cepillo de dientes especialmente diseñado para la higiene oral de los perros que ayuda a prevenir la acumulación de placa y mal aliento,Articulos de Aseo,27600,4

@@ -1,5 +1,3 @@
-import typing
-from PyQt5 import QtCore
 from PyQt5.QtWidgets import *
 from PyQt5.QtCore import QRegExp
 from PyQt5.QtGui import QRegExpValidator
@@ -63,3 +61,9 @@ class crearProducto(QMainWindow):
     def Atras(self):
         uiListaProductos.uiListaProductos.show()
         self.close()
+        
+if __name__=="__main__":
+    app = QApplication(sys.argv)
+    ventanaMain = crearProducto()
+    ventanaMain.show()
+    app.exec_()

@@ -10,7 +10,7 @@
 import csv
 from PyQt5 import QtCore, QtGui, QtWidgets
 from UiVerificar import Ui_VerificarProd
-
+import crearProducto
 
 class uiListaProductos(object):
         def setupUi(self, MainWindow):
@@ -59,6 +59,23 @@ class uiListaProductos(object):
 
             #Accion boton revisar producto
             self.btnRevisarProd.clicked.connect(self.abrir_ventana_verificar_producto)
+            
+            self.btnCrearProd = QtWidgets.QPushButton(self.frame)
+            self.btnCrearProd.setGeometry(QtCore.QRect(714, 633, 231, 61))
+            font = QtGui.QFont()
+            font.setFamily("Open Sans Semibold")
+            font.setPointSize(12)
+            font.setBold(True)
+            font.setItalic(False)
+            font.setWeight(75)
+            self.btnCrearProd.setFont(font)
+            self.btnCrearProd.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+            self.btnCrearProd.setStyleSheet("background-color: rgb(240, 240, 240);\n"
+    "border-radius: 27px")
+            self.btnCrearProd.setObjectName("btnCrearProd")
+
+            #Accion boton crear producto
+            self.btnCrearProd.clicked.connect(self.abrir_ventana_crear_producto)
 
             self.listaProductos = QtWidgets.QTableWidget(self.frame)
             self.listaProductos.setGeometry(QtCore.QRect(54, 115, 1170, 485))
@@ -163,6 +180,7 @@ class uiListaProductos(object):
             MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
             self.labelTitulo.setText(_translate("MainWindow", "LISTA PRODUCTOS"))
             self.btnRevisarProd.setText(_translate("MainWindow", "Revisar Producto y Stock"))
+            self.btnCrearProd.setText(_translate("MainWindow", "Crear Nuevo Producto"))
             self.listaProductos.setSortingEnabled(False)
             item = self.listaProductos.horizontalHeaderItem(0)
             item.setText(_translate("MainWindow", "ID"))
@@ -260,3 +278,7 @@ class uiListaProductos(object):
                         fila = filasSeleccionadas[0].row()
                         id_producto = self.listaProductos.item(fila, 0).text()
                         self.cambiar_ventanaVerificar(id_producto)
+                        
+        def abrir_ventana_crear_producto(self):
+                crearProducto.crearProducto().show()
+                #self.close()
