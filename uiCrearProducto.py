@@ -371,9 +371,9 @@ class uiCrearCliente(object):
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "Clinica CVI"))
-        self.labelTitulo.setText(_translate("MainWindow", "CREAR CLIENTE"))
+        self.labelTitulo.setText(_translate("MainWindow", "CREAR PRODUCTO"))
         self.labelNombre.setText(_translate("MainWindow", "Nombre"))
-        self.inputNombre.setPlaceholderText(_translate("MainWindow", "Nombre(s) del Cliente..."))
+        self.inputNombre.setPlaceholderText(_translate("MainWindow", "Nombre(s) del Producto..."))
         self.labelApellidoP.setText(_translate("MainWindow", "Apellido Paterno"))
         self.inputApellidoP.setPlaceholderText(_translate("MainWindow", "Apellido Paterno del Cliente..."))
         self.labelApellidoM.setText(_translate("MainWindow", "Apellido Materno"))
@@ -390,13 +390,7 @@ class uiCrearCliente(object):
         self.inputDominio.setPlaceholderText(_translate("MainWindow", "Dominio correo, ej: gmail.com"))
         self.inputDomicilio.setPlaceholderText(_translate("MainWindow", "Direccion"))
         self.inputTelefono.setPlaceholderText(_translate("MainWindow", "Numero de telefono/celular"))
-        self.comboBoxG.setItemText(0, _translate("MainWindow", "Elegir"))
-        self.comboBoxG.setItemText(1, _translate("MainWindow", "Masculino"))
-        self.comboBoxG.setItemText(2, _translate("MainWindow", "Femenino"))
-        self.comboBoxG.setItemText(3, _translate("MainWindow", "Otro"))
-        self.label_3.setText(_translate("MainWindow", "-"))
-        self.inputDigito.setPlaceholderText(_translate("MainWindow", "0-9 o K"))
-        self.btnRegistrar.setText(_translate("MainWindow", "Registrar"))
+        self.btnRegistrar.setText(_translate("MainWindow", "Guardar"))
 
 
 if __name__ == "__main__":
