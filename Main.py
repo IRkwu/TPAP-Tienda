@@ -1,13 +1,13 @@
 import sys
 from PyQt5.QtWidgets import QApplication, QMainWindow
-from loginUser import login
+from uiLoginUser import uiLogin
 
 
 class main(QMainWindow):
            
     def __init__(self):
         QMainWindow.__init__(self)
-        self.ui = login()
+        self.ui = uiLogin()
         self.ui.setupUi(self)
         self.show()
 

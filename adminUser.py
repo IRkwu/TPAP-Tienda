@@ -5,14 +5,14 @@ import sys
 from uiAdminUser import admin
 import crearUser
 import modificarUser
-import loginUser
+import uiLoginUser
 import VerUsuario
 
 class adminUser(QMainWindow):
     def __init__(self):
         super().__init__()
         self.ventana = admin()
-        self.ventanaLog = loginUser.login()
+        self.ventanaLog = uiLoginUser.uiLogin()
         self.ventana.setupUi(self)
         self.lista = self.ventana.listaUsuario
         self.seleccionUser = -1
