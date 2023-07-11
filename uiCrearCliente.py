@@ -402,7 +402,6 @@ class uiCrearCliente(object):
         self.btnRegistrar.clicked.connect(self.Guardar)
         self.btnAtras.clicked.connect(self.ventana_anterior)
         
-
         regex = QRegExp("[a-zA-Z ]+")
         regexRut = QRegExp("[0-9Kk-]+")
         regexNumeros = QRegExp("[0-9]+")
@@ -429,15 +428,17 @@ class uiCrearCliente(object):
         email = self.inputCorreo.text()
         telefono = self.inputTelefono.text()
         domicilio = self.inputDomicilio.text()
+        mascotas = '[mascota]'
+        historial = 'historial'
         
-        if nombres == '' or id == '' or fechaNacimiento == '' or rut == '' or apellidoMaterno == '' or apellidoPaterno == '' or telefono == '':
-            QMessageBox.critical(self, "Error", "Por favor, complete todos los campos requeridos.")
-            return
+        # if nombres == '' or id == '' or rut == '' or apellidoMaterno == '' or apellidoPaterno == '' or telefono == '' or domicilio == '':
+        #      QMessageBox.critical(self, "Error", "Por favor, complete todos los campos requeridos.")
+        #      return
 
         cliente = Cliente(id, nombres, apellidoPaterno, apellidoMaterno, genero,
-                           fechaNacimiento, rut, email, telefono, domicilio)
+                           fechaNacimiento, rut, email, telefono, domicilio, mascotas, historial)
         cliente.AgregarClientes(id, nombres, apellidoPaterno, apellidoMaterno, genero,
-                           fechaNacimiento, rut, email, telefono, domicilio)
+                           fechaNacimiento, rut, email, telefono, domicilio, mascotas, historial)
         QMessageBox.information(None, "Éxito", "El cliente se agregó correctamente a la lista.")
         self.ventana_anterior()
         

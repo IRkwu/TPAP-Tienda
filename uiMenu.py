@@ -11,6 +11,7 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 from uiListaProductos import uiListaProductos
 from uiVentaProductos import uiVentaProductos
+from uiCrearCliente import uiCrearCliente
 
 class uiMenu (object):
         def setupUi(self, MainWindow):
@@ -114,7 +115,7 @@ class uiMenu (object):
                 
                 #Boton gestion de productos
                 self.btnGestionDeProductos = QtWidgets.QPushButton(self.centralwidget)
-                self.btnGestionDeProductos.setGeometry(QtCore.QRect(512, 287, 291, 71))
+                self.btnGestionDeProductos.setGeometry(QtCore.QRect(512, 250, 291, 71))
                 font = QtGui.QFont()
                 font.setFamily("Open Sans Semibold")
                 font.setPointSize(12)
@@ -131,7 +132,7 @@ class uiMenu (object):
 
                 #Boton venta de productos
                 self.btnVentaDeProductos = QtWidgets.QPushButton(self.centralwidget)
-                self.btnVentaDeProductos.setGeometry(QtCore.QRect(512, 409, 291, 71))
+                self.btnVentaDeProductos.setGeometry(QtCore.QRect(512, 450, 291, 71))
                 font = QtGui.QFont()
                 font.setFamily("Open Sans Semibold")
                 font.setPointSize(12)
@@ -142,6 +143,23 @@ class uiMenu (object):
                 self.btnVentaDeProductos.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
                 self.btnVentaDeProductos.setStyleSheet("border-color: rgb(0, 74, 173);")
                 self.btnVentaDeProductos.setObjectName("btnVentaDeProductos")
+                
+                #Boton crear cliente
+                self.btnCrearCliente = QtWidgets.QPushButton(self.centralwidget)
+                self.btnCrearCliente.setGeometry(QtCore.QRect(512, 350, 291, 71))
+                font = QtGui.QFont()
+                font.setFamily("Open Sans Semibold")
+                font.setPointSize(12)
+                font.setBold(True)
+                font.setItalic(False)
+                font.setWeight(75)
+                self.btnCrearCliente.setFont(font)
+                self.btnCrearCliente.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+                self.btnCrearCliente.setStyleSheet("border-color: rgb(0, 74, 173);")
+                self.btnCrearCliente.setObjectName("btnCrearCliente")
+                
+                #Accion boton crear cliente
+                self.btnCrearCliente.clicked.connect(lambda:self.cambiar_ventana(uiCrearCliente))
 
                 #Accion boton venta de productos
                 self.btnVentaDeProductos.clicked.connect(lambda:self.cambiar_ventana(uiVentaProductos))
@@ -164,6 +182,7 @@ class uiMenu (object):
                 self.btnCerrarSesion.setText(_translate("MainWindow", "Cerrar Sesion"))
                 self.btnGestionDeProductos.setText(_translate("MainWindow", "Gestion de productos"))
                 self.btnVentaDeProductos.setText(_translate("MainWindow", "Venta de productos"))
+                self.btnCrearCliente.setText(_translate("MainWindow", "Crear Cliente"))
 
 
         def cambiar_ventana(self, nombreVentana):
