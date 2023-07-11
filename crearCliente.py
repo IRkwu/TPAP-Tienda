@@ -17,10 +17,16 @@ class crearCliente(QMainWindow):
         
     def Guardar(self):
         Cliente.Cliente.AgregarClientes
-        uiMenu.uiMenu.show()
+        uiMenu.uiMenu().show()
         self.close()
-    #     self.ventana.btnAtras.clicked.connect(self.Atras)
+        self.ventana.btnAtras.clicked.connect(self.Atras)
         
-    # def Atras(self):
-    #     ventana.show()
-    #     self.close()
+    def Atras(self):
+        uiMenu.uiMenu().show()
+        self.close()
+
+if __name__=="__main__":
+    app = QApplication(sys.argv)
+    ventanaMain = crearCliente()
+    ventanaMain.show()
+    app.exec_()

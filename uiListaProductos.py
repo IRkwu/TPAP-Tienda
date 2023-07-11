@@ -10,7 +10,7 @@
 import csv
 from PyQt5 import QtCore, QtGui, QtWidgets
 from UiVerificar import Ui_VerificarProd
-import crearProducto
+from crearProducto import crearProducto
 
 class uiListaProductos(object):
         def setupUi(self, MainWindow):
@@ -280,5 +280,6 @@ class uiListaProductos(object):
                         self.cambiar_ventanaVerificar(id_producto)
                         
         def abrir_ventana_crear_producto(self):
-                crearProducto.crearProducto().show()
-                #self.close()
+                self.uiVentanaActual = QtWidgets.QApplication.activeWindow()
+                self.uiVentanaActual.close()
+                crearProducto().show()

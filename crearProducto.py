@@ -3,10 +3,10 @@ from PyQt5.QtCore import QRegExp
 from PyQt5.QtGui import QRegExpValidator
 import sys
 import csv
-import PyQt5.QtWidgets as qtw
+#import PyQt5.QtWidgets as qtw
 from uiCrearProducto import uiCrearProducto
 from Articulos import *
-import uiListaProductos
+from uiListaProductos import uiListaProductos
 
 class crearProducto(QMainWindow):
     def __init__(self):
@@ -59,11 +59,12 @@ class crearProducto(QMainWindow):
             self.label_error.setText("Valor inválido")
         
     def Atras(self):
-        uiListaProductos.uiListaProductos.show()
-        self.close()
+        self.uiVentanaActual = QtWidgets.QApplication.activeWindow()
+        self.uiVentanaActual.close()
+        uiListaProductos().show()
         
-if __name__=="__main__":
-    app = QApplication(sys.argv)
-    ventanaMain = crearProducto()
-    ventanaMain.show()
-    app.exec_()
+# if __name__=="__main__":
+#     app = QApplication(sys.argv)
+#     ventanaMain = crearProducto()
+#     ventanaMain.show()
+#     app.exec_()
