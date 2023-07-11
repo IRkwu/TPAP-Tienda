@@ -10,7 +10,7 @@
 import csv
 from PyQt5 import QtCore, QtGui, QtWidgets
 from UiVerificar import Ui_VerificarProd
-from crearProducto import crearProducto
+from uiCrearProducto import uiCrearProducto
 
 class uiListaProductos(object):
         def setupUi(self, MainWindow):
@@ -75,7 +75,7 @@ class uiListaProductos(object):
             self.btnCrearProd.setObjectName("btnCrearProd")
 
             #Accion boton crear producto
-            self.btnCrearProd.clicked.connect(self.abrir_ventana_crear_producto)
+            self.btnCrearProd.clicked.connect(lambda:self.abrir_ventana_crear_producto(uiCrearProducto))
 
             self.listaProductos = QtWidgets.QTableWidget(self.frame)
             self.listaProductos.setGeometry(QtCore.QRect(54, 115, 1170, 485))
@@ -278,8 +278,11 @@ class uiListaProductos(object):
                         fila = filasSeleccionadas[0].row()
                         id_producto = self.listaProductos.item(fila, 0).text()
                         self.cambiar_ventanaVerificar(id_producto)
-                        
-        def abrir_ventana_crear_producto(self):
+        
+        def abrir_ventana_crear_producto(self,ventana):
                 self.uiVentanaActual = QtWidgets.QApplication.activeWindow()
                 self.uiVentanaActual.close()
-                crearProducto().show()
+                self.nuevaVentana=QtWidgets.QMainWindow()
+                self.ui = ventana()
+                self.ui.setupUi(self.nuevaVentana)
+                self.nuevaVentana.show()

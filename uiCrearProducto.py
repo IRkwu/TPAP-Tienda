@@ -1,5 +1,12 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
-
+from PyQt5.QtWidgets import *
+from PyQt5.QtCore import QRegExp
+from PyQt5.QtGui import QRegExpValidator
+import sys
+import csv
+# import PyQt5.QtWidgets as qtw
+from PyQt5 import QtWidgets
+from Articulos import *
 
 class uiCrearProducto(object):
     def setupUi(self, MainWindow):
@@ -376,6 +383,57 @@ class uiCrearProducto(object):
         self.inputPrecioLote.setPlaceholderText(_translate("MainWindow", "Precio por lote"))
         self.inputDescripcion.setPlaceholderText(_translate("MainWindow", "Breve descripcion del producto..."))
         self.btnRegistrar.setText(_translate("MainWindow", "Guardar"))
+
+        self.btnAtras.clicked.connect(lambda:self.ventana_anterior())
+
+
+        self.btnRegistrar.clicked.connect(self.agregar_articulos)
+    
+        regex = QRegExp("[a-zA-Z ]+")
+        regexNumeros = QRegExp("[0-9]+")
+        
+        self.validador = QRegExpValidator(regex)
+        self.validadorNumeros = QRegExpValidator(regexNumeros)
+        
+        self.inputNombre.setValidator(self.validador)
+        self.inputMascota.setValidator(self.validador)
+        self.inputPrecio.setValidator(self.validadorNumeros)
+        self.inputStock.setValidator(self.validadorNumeros)
+        self.inputPrecioLote.setValidator(self.validadorNumeros)
+        self.inputLimCritico.setValidator(self.validadorNumeros)
+    
+
+
+    def ventana_anterior(self):
+        self.ventanaActual = QtWidgets.QApplication.activeWindow()
+        self.ventanaActual.close()
+        from uiListaProductos import uiListaProductos  # Importación local para evitar el ciclo de importación
+        self.ventanaAnterior = QtWidgets.QMainWindow(self.ventanaActual.parent())
+        self.uiVentanaAnterior = uiListaProductos()
+        self.uiVentanaAnterior.setupUi(self.ventanaAnterior)
+        self.ventanaAnterior.show()
+        
+        
+
+    def agregar_articulos(self):
+        nombre = self.inputNombre.text()
+        mascota = self.inputMascota.text()
+        id = self.inputID.text()
+        marca = self.inputMarca.text()
+        precio = self.inputPrecio.text()
+        stock = self.inputStock.text()
+        descripcion = self.inputDescripcion.toPlainText()
+        categoria = self.comboBoxC.currentText()
+        precioLote = self.inputPrecioLote.text()
+        limiteCritico = self.inputLimCritico.text()
+
+        if nombre == '' or id == '' or mascota == '' or id == '' or marca == '' or precio == '' or stock == '' or descripcion == '' or precioLote == '' or limiteCritico == '':
+            QMessageBox.critical(self, "Error", "Por favor, complete todos los campos requeridos.")
+            return
+
+        articulo = Articulos(nombre, mascota, id, marca, precio, stock, descripcion, categoria, precioLote, limiteCritico)
+        articulo.AgregarArticulo(nombre, mascota, id, marca, precio, stock, descripcion, categoria, precioLote, limiteCritico)
+        self.ventana_anterior()
 
 
 if __name__ == "__main__":
